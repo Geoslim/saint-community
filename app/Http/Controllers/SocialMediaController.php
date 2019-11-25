@@ -5,7 +5,7 @@ use App\SocialMedia;
 use Illuminate\Http\Request;
 
 class SocialMediaController extends Controller
-{
+{ 
     /**
      * Display a listing of the resource.
      * @param  int  $id
