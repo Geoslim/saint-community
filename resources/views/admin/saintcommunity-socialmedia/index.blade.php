@@ -19,12 +19,13 @@
             color:white;
 
         }
-        .social_btn {
+        .social_btn_tw {
             width: 80px;
             height:40px;
+            background: url('resources/images/twitter_backend.png') ;
         }
-        .social_btn:active{
-            background: #3a5;
+        body{
+            font-family: Poppins;
         }
     </style>
 
@@ -108,7 +109,7 @@
                             </form>
 
                             <div class="data__field--1" style="margin:0 10px; position:absolute; bottom:100px;">
-                                <button class="btn social_btn" style="margin:5px;" id="twitterbtn">Twitter</button>
+                                <button class="btn social_btn_tw" style="margin:5px;" id="twitterbtn">Twitter</button>
                                 <button class="btn social_btn" style="margin:5px;" id="google-playbtn">PlayStore</button>
                                 <button class="btn social_btn" style="margin:5px;" id="facebookbtn">Facebook</button>
                                 <button class="btn social_btn" style="margin:5px;" id="youtubebtn">Youtube</button>

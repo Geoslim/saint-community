@@ -75,30 +75,7 @@
         <!-- <img src="resources/images/LOGO.png" class="header_hero__icon" alt=""> -->
 
         <div class="header_container">
-            <div class="header_container__flex main_row">
-                <div class="header__inner_container">
-                    <h3 class="header__text_name">
-                        YABA
-                    </h3>
-                    <p class="header__text_name header__text_name--small">CHURCH</p>
-                </div>
-                <div class="header__inner_container">
-                    <p class="header__service_text">
-                        Sunday Services
-                    </p>
-                    <p class="header__service_text header__service_text--big">7:30am 10:30am
-                    </p>
-                </div>
-                <div class="header__inner_container">
-                    <p class="header__service_text">
-                        Wednesday Services
-                        <p class="header__service_text header__service_text--big">6:00pm</p>
-                    </p>
-                </div>
-                <div class="header__inner_container">
-                    <a href="location.html" class="home__btn">GET DIRECTIONS</a>
-                </div>
-            </div>
+            @include('partials.header-base')
 
         </div>
     </header>
@@ -121,7 +98,7 @@
                         eyes to truths found in His word via his medium. The Word as a message and ministry is our mandate
                         in all the earth.
                         <br> It brings clarity of purpose, wholeness and wellness and above all stability in Christ. This we
-                        pray and receive is your experience here Don't just surf here Learn here and also tell your friends
+                        pray and receive is your experience here Dont just surf here Learn here and also tell your friends
                         !
                         <br> You are blessed !!!
                         <br>
@@ -154,7 +131,7 @@
                                 latest message:
                             </h4>
                             <p class="home__video_word">
-                                I pray thus that this media will be God's tool for revealing His WORD to you beyond mere words and data or information;
+                                I pray thus that this media will be Gods tool for revealing His WORD to you beyond mere words and data or information;
                             </p> -->
                         </div>
                     </div>
@@ -267,42 +244,7 @@
     </section>
 
     <section class="home__branch_section">
-
-        <div class="home_branches main_row">
-            <img src="resources/images/MAP.svg" alt="" class="home_branches__top_img">
-            <h3 class="home_branches__title">VISIT ANY OF OUR BRANCHES</h3>
-
-            <div class="home_branches__flex_container">
-                <div class="home_branches__flex_item">
-                    <div class="home_branches__name_container">
-                        <img src="resources/images/MAP_HANDLE.svg" alt="" class="home_branches__location_img">
-                        <h3 class="home_branches__name">LAGOS - YABA</h3>
-                    </div>
-                    <p class="home_branches__text">6 Oweh Street, By WAEC Office, Jibowu, Yaba, Lagos.</p>
-                </div>
-                <div class="home_branches__flex_item">
-                    <div class="home_branches__name_container">
-                        <img src="resources/images/MAP_HANDLE.svg" class="home_branches__location_img" alt="">
-                        <h3 class="home_branches__name">IBADAN</h3>
-                    </div>
-                    <p class="home_branches__text">Ground Floor, Green House (Amigos Guest House), Fadeyi Street, (Opposite Libra Kitchen), Agbowo, UI,
-                        Ibadan
-                    </p>
-                </div>
-                <div class="home_branches__flex_item">
-                    <div class="home_branches__name_container">
-                        <img src="resources/images/MAP_HANDLE.svg" class="home_branches__location_img" alt="">
-                        <h3 class="home_branches__name">ABUJA</h3>
-                    </div>
-                    <p class="home_branches__text">Floris Garden, Al'fayyum Street, Off Abidjan Street, Wuse Zone 3, Abuja, FCT</p>
-                </div>
-                <div class="home_branches__flex_item">
-                    <a style="width: 100%;" href="location.html" class="home__btn home__btn--red_stroked home__btn--red_smaller">
-                        Click Here For More Branch
-                    </a>
-                </div>
-            </div>
-        </div>
+        @include('partials.branches')
 
     </section>
 

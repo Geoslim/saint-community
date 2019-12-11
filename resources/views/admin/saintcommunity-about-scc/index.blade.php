@@ -6,7 +6,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600"rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
-
     <link href="vendor/css/animate.css" rel="stylesheet">
     <link rel="stylesheet" href="vendor/css/jquery.ui.css">
     <style>
@@ -14,11 +13,9 @@
         @import url(resources/css/directory.css);
         @import url(resources/admin1.css);
         @import url(resources/mystyles.css);
-        @import url(resources/animate.css);
         .a-link{
             text-decoration:none;
             color:white;
-
         }
         .social_btn {
             width: 80px;
@@ -27,6 +24,10 @@
         .social_btn:active{
             background: #3a5;
         }
+        body{
+            font-family: Poppins;
+        }
+        
     </style>
 
     <title>Admin/Media Page</title>
@@ -86,40 +87,69 @@
                 <p class="text__description">Edit About Us</p>
             </div>
 
-
+            
             <div class="form__container" style="position:relative;">
                 <div class="geo">
 
-                    <div class="data__field--1">
-
-                        <input type="text" class="" id="title" name="title" placeholder="Title">
+                    <div class="featured__image" style="">
+                        <p class="text__description">About us Page Banner</p>
+                        {{--  resources/images/about_img.jpg  --}}
+                        <img src="storage/aboutBanner_image/{{ $aboutscc_banner->banner_image }}" alt="" class="bg__image" style="height: 550px; background-position: 0% 0%; background-size: cover;position: relative;">
+                        <button class="add__photo button"><span>ADD PHOTO</span></button>
+                        <form method="POST" action="{{ url('updateAboutBanner/'.$aboutscc_banner->id) }}" enctype="multipart/form-data">
+                            @method('PUT')
+                            <input type="file" class="" id="banner_image" name="banner_image" >
+                            @csrf
+                            <div class="save__button--container" style="margin-top:0px;">
+                                <button class="button" id="submit__button"><span>Save Banner</span></button>
+                            </div>
+                        </form>
                     </div>
-                    <div class="data__field--1">
+                    {{--  {{url('about-scc/'.$aboutsccsbody->id)}}  --}}
+                    {{--  {{route('about-scc.update', ['aboutsccsbody'=>$aboutsccsbody])}}  --}}
+                    <form method="POST" action="{{url('updateAboutBody/'.$aboutscc_body->id)}} ">
+                        @method('PUT') 
+                        <p class="text__description">About us Page Body </p>
+                        <div class="data__field--1">
 
-                        <textarea id="body" class="textarea__box" rows="4" cols="50"></textarea>
-
-                    </div>
-
-                </div>
-
-                <div class="geo ">
-                    <div class="col-md-6">
-                        <input type="text" class="" id="about_btn_title" name="about_btn_title" placeholder="About Button Title">
-                    </div>
-                    <div class="col-md-6">
-                            <input type="text" class="" id="contact_btn_title" name="contact_btn_title" placeholder="Contact Button Title">
+                            <input type="text" class="" id="title" name="title" placeholder="Title" value="{{$aboutscc_body->title}}">
                         </div>
-                    <div class="col-md-5 featured__image" style="position:absolute; right:0; top:130px;">
-                        <img src="resources/images/bg.jpg" alt="" class="bg__image">
-                        <button class="add__photo"><span>ADD PHOTO</span></button>
-                    </div>
+                        <div class="" style="margin:10px 30px; border-radius:10px;">
+
+                            <textarea id="body" name="body" cols="" rows="10">{{$aboutscc_body->body}}</textarea>
+        
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="" id="about_btn_title" name="about_btn_title" placeholder="About Button Title" value="{{$aboutscc_body->about_btn_title}}">
+                        </div>
+                        <div class="col-md-6">
+                                <input type="text" class="" id="contact_btn_title" name="contact_btn_title" placeholder="Contact Button Title" value="{{$aboutscc_body->contact_btn_title}}">
+                            </div>
+                            @csrf
+                        <div class="save__button--container" style="margin-top:0px;">
+
+                            <button class="button" id="submit__button"><span>Save Page Body</span></button>
+        
+                        </div>
+                    </form>
+                    {{--  resources/images/bg.jpg  --}}
+                <div class="geo ">
+                    <p class="text__description">About us Body Cover Image</p>
+                    <form method="POST" action="{{url('updateAboutCoverImage/'.$aboutscc_cover->id)}}" enctype="multipart/form-data">
+                        @method('PUT')
+                        <div class="col-md-5 featured__image" style="position:relative; left:0px; top:0px;">
+                            <img src="storage/aboutCover_image/{{$aboutscc_cover->cover_image}}" alt="" class="bg__image">
+                            <input type="file" class="" id="cover_image" name="cover_image" >
+                            @csrf
+                            <div class="save__button--container" style="margin-top:0px;">
+                                <button class="button" id="submit__button"><span>Save Cover</span></button>
+                            </div>
+                            {{--  <button class="add__photo button"><span>ADD PHOTO</span></button>  --}}
+                        </div>
+                    </form>
                 </div>
 
-                <div class="save__button--container" style="margin-top:400px;"">
-
-                    <button id="submit__button"><span>Save Changes</span></button>
-
-                </div>
+               
 
             </div>
 
@@ -134,15 +164,14 @@
 
 </section>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous"></script>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.js"></script>
-
 <script>
-
-$(document).ready(function(){
-
-$('#body').summernote();
-});
-
+    $('#body').summernote({
+        placeholder: '',
+        tabsize: 2,
+        height: 200
+      });
 </script>
 </body>
 </html>

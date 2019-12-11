@@ -1469,12 +1469,9 @@ section.featured__videos {
 /* styles for about us page */
 
 .header_hero--about_us {
-    height: 550px;
-    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(../images/about_img.jpg);
+    
     /* background-attachment: fixed; */
-    background-position: 0% 0%;
-    background-size: cover;
-    position: relative;
+    
 }
 
 .about_us_title {
@@ -1603,21 +1600,21 @@ section.featured__videos {
 /* media page css rules */
 
 .header_hero--partnership {
-    height: 550px;
+    /* height: 550px;
     background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(../images/partnership.jpg);
     background-position: 50% 0%;
     mix-blend-mode: multiply;
     background-size: cover;
-    position: relative;
+    position: relative; */
 }
 
 .header_hero--media {
-    height: 550px;
+    /* height: 550px;
     background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(../images/media.jpg);
     background-position: 0% 84%;
     mix-blend-mode: multiply;
     background-size: cover;
-    position: relative;
+    position: relative; */
 }
 
 .media__contact_details {
@@ -1933,12 +1930,12 @@ section.featured__videos {
 /* styles for contact us page */
 
 .header_hero--contact {
-    height: 550px;
+    /* height: 550px;
     background: linear-gradient(rgba(0, 0, 0, .86), rgba(0, 0, 0, .86)), url(../images/contact.jpg);
-    /* background-attachment: fixed; */
+    background-attachment: fixed; 
     background-position: 0% 0%;
     background-size: cover;
-    position: relative;
+    position: relative; */
 }
 
 .contact__details_title {
@@ -2169,11 +2166,11 @@ label.contact_modal__sub_title {
 }
 
 .header_hero--program {
-    height: 550px;
+    /* height: 550px;
     background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(../images/events.jpg);
     background-position: 0% 0%;
     background-size: cover;
-    position: relative;
+    position: relative; */
 }
 
 .pin_container {

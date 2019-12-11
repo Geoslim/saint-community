@@ -14,7 +14,7 @@
             </a>
         </div>
         <div class="home_social__link_container">
-            <a href="https://play.google.com/store/apps/details?id=org.livingwordmedia.saintcommunityc" target="_blank" class="home_social__link">
+            <a href="https://play.google.com/store/apps/details?id=<?php echo $socialmedia->play_store; ?>" target="_blank" class="home_social__link">
                 <img src="resources/images/GOOGLE_PLAY.png" class="home_social__img" alt="">
             </a>
         </div>
@@ -36,3 +36,7 @@
 
     </div>
 </div>
+
+
+
+  

@@ -138,13 +138,13 @@ p {
 
     font-family: Poppins;
     font-style: normal;
-    font-weight: bold;
+    /* font-weight: bold;
     font-size: 18px;
     text-align: justify;
     text-transform: capitalize;
     color: #DBA834;
     margin-bottom:20px;
-    display: block;
+    display: block; */
 
 }
 
@@ -205,7 +205,6 @@ p {
     border: 1px solid #C4C4C4;
     box-sizing: border-box;
     border-radius: 4px;
-    background: url(images/Group\ 2.4.svg);
     background-repeat: no-repeat;
     padding: 10px;
     background-position: left;
@@ -280,7 +279,7 @@ p {
 
 
 }
-button {
+.button {
     height: 50px;
     width: 120px;
     padding: 0px;

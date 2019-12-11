@@ -82,7 +82,7 @@
 
 
                                 <p><img src="resources/images/contactus_img.svg" alt="" class="homepage__img"></p>
-                                <p class="home__menu--description"><a href="" class="home__page--link">Programs & Events</a></p>
+                                <p class="home__menu--description"><a href="{{ url('latest-release') }}" class="home__page--link">Latest Release</a></p>
 
 
                             </div>
@@ -102,7 +102,14 @@
 
 
                             </div>
+                            <div class="left__home--item">
 
+
+                                <p><img src="resources/images/headline.svg" alt="" class="homepage__img" height="120px"></p>
+                                <p class="home__menu--description"><a href="{{url('/header-base/')}}" class="home__page--link">Header Base</a></p>
+
+
+                            </div>
                         </div>
                         <div class="right__home--menus">
 
@@ -140,6 +147,14 @@
 
 
                                 </div>
+                                <div class="right__home--item ">
+
+
+                                    <p><img src="resources/images/branches.svg" alt="" class="homepage__img" height="120px"></p>
+                                    <p class="home__menu--description"><a href="branches/" class="home__page--link">Branches</a></p>
+
+
+                        </div>
 
                             </div>
 

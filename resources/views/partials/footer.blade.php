@@ -10,7 +10,7 @@
             </li>
             <li>
                 <a class="home_footer_link" href="media.html">Media</a>
-            </li>
+            </li> 
             <li>
                 <a class="home_footer_link" href="location.html">Location</a>
             </li>

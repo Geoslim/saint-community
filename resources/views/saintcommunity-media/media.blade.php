@@ -20,7 +20,12 @@
 </head>
 
 <body>
-    <header class="header_hero header_hero--media">
+    <header class="header_hero header_hero--media" style="height: 550px;
+    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(storage/MeidaBanner_image/{{ $media_banner->banner_image }});
+    background-position: 0% 84%;
+    mix-blend-mode: multiply;
+    background-size: cover;
+    position: relative;">
 @include('partials.nav-header')
      
 
@@ -34,26 +39,24 @@
         <div class="media__contact_details main_row">
             <div class="media_contact_info">
                 <h2 class="media_contact_title_bg">
-                    Living Word Media
+                    {{ $media_body->title }}
                 </h2>
                 <p class="media_contact_text media_contact_text--space">
 
-                    The Living Word Media is the media arm of Saints Community Church that is responsible for the storage and transmission of
-                    recorded materials (audio, video and text) into media formats that are easily transmitted through CDs,
-                    DVDs, MP3s, MP4s, internet, Terrestrial & Satellite TV, Internet radio etc.
+                        {{  $media_body->body}}
                 </p>
-
+ 
                 <div class="media_text_group">
                     <h3 class="media_contact__title">
                         Contact Info:
                     </h3>
-                    <p class="media_contact_text">Saints Community Church</p>
+                    <p class="media_contact_text">{{$media_body->contact}}</p>
                 </div>
 
                 <div class="media_text_group media_text_group--low-space">
                     <h3 class="media_contact__title">Address:</h3>
                     <p class="media_contact_text">
-                        6 Oweh Street, By WAEC Office, Jibowu, Yaba
+                            {{$media_body->address}}
                     </p>
                 </div>
 
@@ -64,7 +67,7 @@
                     <h3 class="media_contact__title">
                         Phone:
                     </h3>
-                    <p class="media_contact_text">08093002121</p>
+                    <p class="media_contact_text">{{$media_body->phone}}</p>
                 </div>
 
                 <div class="media_text_group">
@@ -72,7 +75,7 @@
                         Email:
                     </h3>
                     <p class="media_contact_text">
-                        <a href="info@livingwordmedia.org">info@livingwordmedia.org</a>
+                        <a href="info@livingwordmedia.org">{{$media_body->email}}</a>
                     </p>
 
                 </div>
@@ -82,13 +85,13 @@
                         Website:
                     </h3>
                     <p class="media_contact_text">
-                        <a href="https://www.livingwordmedia.org/">www.livingwordmedia.org</a>
+                        <a href="{{ url('https://'.$media_body->url)}}/">{{$media_body->url}}</a>
                     </p>
 
                 </div>
 
                 <div class="media_living_word_container">
-                    <img src="resources/images/living-word.png" height="146px" width="274px" alt="" class="media_living_word_img">
+                    <img src="storage/mediaCover_image/{{ $media_cover->cover_image }}" height="146px" width="274px" alt="" class="media_living_word_img">
                 </div>
 
             </div>
@@ -107,7 +110,12 @@
             <div class="cards-wrapper">
 
                 <ul class="cards__container">
-                    <li class="box" style="background-color:red">
+                    @foreach ($media_publish_details as $media_publish_detail)
+                        <li class="box" style="background-color:red">
+                            <img src="{{ asset('storage/mediaPublishcover/'.$media_publish_detail->cover) }}" alt="">
+                        </li>
+                    @endforeach
+                    {{--  <li class="box" style="background-color:red">
                         <img src="resources/images/Jesus+reads+Psalm+23.png" alt="">
                     </li>
                     <li class="box">
@@ -127,7 +135,7 @@
                     </li>
                     <li class="box box--hide">
                         <img src="resources/images/you+can+have+what+you+say.png" alt="">
-                    </li>
+                    </li>  --}}
                 </ul>
 
 
@@ -142,16 +150,21 @@
         <div class="media__book_details_outer_container">
 
             <div class="media__book_details_inner_container">
-
-                <div class="media__book_details_in_container">
+                    @foreach ($media_publish_details as $media_publish_detail)
+                    <div class="media__book_details_in_container">
+                        <h3>{{ $media_publish_detail->title }}</h3>
+                        <p>{{ $media_publish_detail->details }}</p>
+                    </div>
+                    @endforeach
+                {{--  <div class="media__book_details_in_container">
                     <h3>
                         JESUS
                     </h3>
 
                     <p>The Psalms of David are pivotal to New Testament truths</p>
-                    <p>It is evident when read together they form much of Christ's doctrine and so learnt by His apostles</p>
+                    <p>It is evident when read together they form much of Christs doctrine and so learnt by His apostles</p>
                     <p>We do a purview into how Psalms are to be studied</p>
-                    <p>What was the 23rd Psalm for ?</p>
+                    <p>What was the 23rd Psalm for ? </p>
                     <p>How is it to be read today All these and more are in this study</p>
 
 
@@ -159,7 +172,7 @@
                         What does this mean today? Why did Jesus use the term eternal life the way he did ?
                     </p>
                     <p>
-                        All these and more in this study It's a joyful teaching
+                        All these and more in this study Its a joyful teaching
                     </p>
                 </div>
 
@@ -263,7 +276,7 @@
                     </p>
 
 
-                </div>
+                </div>  --}}
 
 
             </div>
@@ -284,101 +297,7 @@
 
     <footer class="home__footer">
 
-        <div class="home_footer__container main_row">
-            <ul class="home_footer_list_container">
-                <li>
-                    <a href="" class="home_footer_link home_footer_link--title">GET TO KNOW US</a>
-                </li>
-                <li>
-                    <a class="home_footer_link" href="index.html">Home</a>
-                </li>
-                <li>
-                    <a class="home_footer_link" href="media.html">Media</a>
-                </li>
-                <li>
-                    <a class="home_footer_link" href="location.html">Location</a>
-                </li>
-                <li>
-                    <a class="home_footer_link" href="patnership.html">Partnership</a>
-                </li>
-                <li>
-                    <a class="home_footer_link" href="program.html">Programs</a>
-                </li>
-                <li>
-                    <a class="home_footer_link" href="about-us.html">About Us</a>
-                </li>
-            </ul>
-            <ul class="home_footer_list_container">
-                <li>
-                    <a href="patnership.html" class="home_footer_link home_footer_link--title">PARTNER WITH US</a>
-                </li>
-                <li class="home_footer_link home_footer_link--spaced">
-                    Account Name:
-                    <br>
-                    <strong>Saints Community Church</strong>
-                    <br>
-                </li>
-
-                <li class="home_footer_link">
-                    Account No: 1015048313 (Zenith Bank)
-                    <br> Account N0: 1020186473 (UBA)
-                </li>
-
-                <li class="home_footer_link">
-                    <a href="" class="home__btn home__btn--red_filled home__btn--pay_footer">
-                        PAY ONLINE
-                    </a>
-                </li>
-
-            </ul>
-
-            <ul class="home_footer_list_container">
-                <li>
-                    <a href="" class="home_footer_link home_footer_link--title">DOWNLOAD</a>
-                </li>
-                <li>
-                    <a class="home_footer_link" href="">Get The Andriod app </a>
-                </li>
-                <li class="home__flex_list">
-                    <img src="resources/images/playstore2.png" alt="">
-                    <a class="home_footer_link home_footer_link--bold" href="https://play.google.com/store/apps/details?id=org.livingwordmedia.saintcommunityc"
-                        target="_blank">
-                        <strong>Available On Playstore</strong>
-                    </a>
-                </li>
-            </ul>
-
-            <ul class="home_footer_list_container">
-                <li>
-                    <a href="#" class="home_footer_link home_footer_link--title">SUBCRIBTION</a>
-                </li>
-                <li class="home_footer_link">Click Below To Suscribe
-                    <br>To Our Newsletter</li>
-                <li class="home_footer_link home_footer">
-                    <input type="text" placeholder="Enter Your Email" class="footer__input">
-                    <input type="submit" class="footer__input_submit" value="SUSCRIBE">
-                    <div class="home_footer__social_link_container">
-                        <span>Follow Us On:</span>
-                        <a href="https://web.facebook.com/saintscommunity.net/" target="_blank">
-                            <img class="home_social__icons" src="resources/images/FACEBOOK_ROUND.svg" alt="">
-                        </a>
-                        <a href="https://www.instagram.com/saintscommunitychurchofficial/" target="_blank">
-                            <img class="home_social__icons" src="resources/images/INSTA_ROUND.svg" alt="">
-                        </a>
-                        <a href="https://mobile.twitter.com/saintscommlagos" target="_blank">
-                            <img class="home_social__icons" src="resources/images/TWITTER_ROUND.svg" alt="">
-                        </a>
-                        <a href="https://www.youtube.com/channel/UCnWoDxbbcGFk8Y0-d-qPYEw" target="_blank">
-                            <img class="home_social__icons" src="resources/images/YOUTUBE_ROUND.svg" alt="">
-                        </a>
-                    </div>
-                </li>
-            </ul>
-
-        </div>
-
-
-
+        @include('partials.footer')
     </footer>
 
 

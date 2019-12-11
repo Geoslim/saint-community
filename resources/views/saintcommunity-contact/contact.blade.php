@@ -19,7 +19,11 @@
 
 <body>
 
-    <header class="header_hero header_hero--contact">
+    <header class="header_hero header_hero--contact" style="height: 550px;
+    background: linear-gradient(rgba(0, 0, 0, .86), rgba(0, 0, 0, .86)), url(storage/contactBanner_image/{{$contactBanner->banner_image}});
+    background-position: 0% 0%;
+    background-size: cover;
+    position: relative;">
             @include('partials.nav-header')
      
 
@@ -30,23 +34,17 @@
     <section>
         <div class="main_row contact_section_container">
             <h2 class="contact__details_title">
-                Saints Community Church
+                {{$contactScc->title}}
             </h2>
 
             <p class="contact__details_text">
-                <strong>Service Times:</strong> Sundays - 7.30am & 10.30am Wednesdays - 6.00pm
-            </p>
-            <p class="contact__details_text">
-                <strong>phone:</strong> 08093002121
-            </p>
-            <p class="contact__details_text">
-                <strong> ADDRESS: </strong>6 Oweh Street, By WAEC Office, Jibowu, Yaba
+                {!!$contactScc->body!!}
 
             </p>
 
             <div class="contact__btn_container">
-                <a href="location.html" class="home__btn home__btn--red_stroked">LOCATE OUR BRANCHES</a>
-                <a href="" class="js_modal_trigger__btn home__btn home__btn--red_stroked">SEND US A QUICK MESSAGE</a>
+                <a href="location.html" class="home__btn home__btn--red_stroked">{{strtoupper($contactScc->location_btn_title)}}</a>
+                <a href="" class="js_modal_trigger__btn home__btn home__btn--red_stroked">{{strtoupper($contactScc->contact_btn_title)}}</a>
             </div>
         </div>
 
@@ -56,7 +54,8 @@
         <div class="contact__map_placeholder">
             <div class="mapouter">
                 <div class="gmap_canvas">
-                    <iframe width="100vw" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=saint%20community&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                        {{--  https://maps.google.com/maps?q=saint%20community&t=&z=13&ie=UTF8&iwloc=&output=embed  --}}
+                    <iframe width="100vw" height="500" id="gmap_canvas" src="{{$ContactGoogleMap->google_map_link}}"
                         frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>
                     <a href="https://www.pureblack.de">pure black</a>
                 </div>
@@ -80,149 +79,20 @@
 
     <section class="home__branch_section">
 
-        <div class="home_branches main_row">
-            <img src="resources/images/MAP.svg" alt="" class="home_branches__top_img">
-            <h3 class="home_branches__title">VISIT ANY OF OUR BRANCHES</h3>
-
-            <div class="home_branches__flex_container">
-                <div class="home_branches__flex_item">
-                    <div class="home_branches__name_container">
-                        <img src="resources/images/MAP_HANDLE.svg" alt="" class="home_branches__location_img">
-                        <h3 class="home_branches__name">LAGOS - YABA</h3>
-                    </div>
-                    <p class="home_branches__text">6 Oweh Street, By WAEC Office, Jibowu, Yaba, Lagos.</p>
-                </div>
-                <div class="home_branches__flex_item">
-                    <div class="home_branches__name_container">
-                        <img src="resources/images/MAP_HANDLE.svg" class="home_branches__location_img" alt="">
-                        <h3 class="home_branches__name">IBADAN</h3>
-                    </div>
-                    <p class="home_branches__text">Ground Floor, Green House (Amigos Guest House), Fadeyi Street, (Opposite Libra Kitchen), Agbowo, UI,
-                        Ibadan
-                    </p>
-                </div>
-                <div class="home_branches__flex_item">
-                    <div class="home_branches__name_container">
-                        <img src="resources/images/MAP_HANDLE.svg" class="home_branches__location_img" alt="">
-                        <h3 class="home_branches__name">ABUJA</h3>
-                    </div>
-                    <p class="home_branches__text">Floris Garden, Al'fayyum Street, Off Abidjan Street, Wuse Zone 3, Abuja, FCT</p>
-                </div>
-                <div class="home_branches__flex_item">
-                    <a style="width: 100%;" href="location.html" class="home__btn home__btn--red_stroked home__btn--red_smaller">
-                        Click Here For More Branch
-                    </a>
-                </div>
-            </div>
-        </div>
+            @include('partials.branches')
 
     </section>
 
     <section class="home_social_link__section">
 
            @include('partials.socials')
-    
-    
+
         </section>
 
         <footer class="home__footer">
+            @include('partials.footer')
 
-                <div class="home_footer__container main_row">
-                    <ul class="home_footer_list_container">
-                        <li>
-                            <a href="" class="home_footer_link home_footer_link--title">GET TO KNOW US</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="index.html">Home</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="media.html">Media</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="location.html">Location</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="patnership.html">Partnership</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="program.html">Programs</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="about-us.html">About Us</a>
-                        </li>
-                    </ul>
-                    <ul class="home_footer_list_container">
-                        <li>
-                            <a href="patnership.html" class="home_footer_link home_footer_link--title">PARTNER WITH US</a>
-                        </li>
-                        <li class="home_footer_link home_footer_link--spaced">
-                            Account Name:
-                            <br>
-                            <strong>Saints Community Church</strong>
-                            <br>
-                        </li>
-        
-                        <li class="home_footer_link">
-                            Account No: 1015048313 (Zenith Bank)
-                            <br> Account N0: 1020186473 (UBA)
-                        </li>
-        
-                        <li class="home_footer_link">
-                            <a href="" class="home__btn home__btn--red_filled home__btn--pay_footer">
-                                PAY ONLINE
-                            </a>
-                        </li>
-        
-                    </ul>
-        
-                    <ul class="home_footer_list_container">
-                        <li>
-                            <a href="" class="home_footer_link home_footer_link--title">DOWNLOAD</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="">Get The Andriod app </a>
-                        </li>
-                        <li class="home__flex_list">
-                            <img src="resources/images/playstore2.png" alt="">
-                            <a class="home_footer_link home_footer_link--bold" href="https://play.google.com/store/apps/details?id=org.livingwordmedia.saintcommunityc"
-                                target="_blank">
-                                <strong>Available On Playstore</strong>
-                            </a>
-                        </li>
-                    </ul>
-        
-                    <ul class="home_footer_list_container">
-                        <li>
-                            <a href="#" class="home_footer_link home_footer_link--title">SUBCRIBTION</a>
-                        </li>
-                        <li class="home_footer_link">Click Below To Suscribe
-                            <br>To Our Newsletter</li>
-                        <li class="home_footer_link home_footer">
-                            <input type="text" placeholder="Enter Your Email" class="footer__input">
-                            <input type="submit" class="footer__input_submit" value="SUSCRIBE">
-                            <div class="home_footer__social_link_container">
-                                <span>Follow Us On:</span>
-                                <a href="https://web.facebook.com/saintscommunity.net/" target="_blank">
-                                    <img class="home_social__icons" src="resources/images/FACEBOOK_ROUND.svg" alt="">
-                                </a>
-                                <a href="https://www.instagram.com/saintscommunitychurchofficial/" target="_blank">
-                                    <img class="home_social__icons" src="resources/images/INSTA_ROUND.svg" alt="">
-                                </a>
-                                <a href="https://mobile.twitter.com/saintscommlagos" target="_blank">
-                                    <img class="home_social__icons" src="resources/images/TWITTER_ROUND.svg" alt="">
-                                </a>
-                                <a href="https://www.youtube.com/channel/UCnWoDxbbcGFk8Y0-d-qPYEw" target="_blank">
-                                    <img class="home_social__icons" src="resources/images/YOUTUBE_ROUND.svg" alt="">
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-        
-                </div>
-        
-        
-        
-            </footer>
+        </footer>
         
 
     <div class="contact_modal">

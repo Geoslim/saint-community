@@ -17,62 +17,38 @@
 
 
 <body>
-    <header class="header_hero header_hero--partnership">
+    <header class="header_hero header_hero--partnership" style="height: 550px;
+    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(storage/partnershipBanner_image/{{$partnership_banner->banner_image}});
+    background-position: 50% 0%;
+    mix-blend-mode: multiply;
+    background-size: cover;
+    position: relative;">
         @include('partials.nav-header')
      
 
         @include('partials.header-base')
 
     </header>
-
+    
 
     <section style="position: relative">
         <div class="partner_content_container main_row">
 
             <div class="partner_content_img">
-                <img src="resources/images/partner_img.png" alt="">
+                <img src="storage/partnershipCover_image/{{$partnership_cover_image->cover_image}}" alt="">
             </div>
 
             <div class="partner_text_content">
                 <h2 class="partner_text--title">
-                    PARTNERSHIP PROGRAM
+                    {{strtoupper($partnership_body->title)}}
                 </h2>
 
-                <p class="partner_text">
-                    It's a good season and time for us as a church and family. Partnering with Saints Community Church is the best financial commitment you can ever make. You will be touching Lives, Nations, and Institutions. You will be opening up yourself to heavenly rewards.You'll be walking in love, walking in the spirit and living by faith.
-                    Here you are starting the journey in giving generously and continuously to the gospel of Christ. It's your opportunity to bless and be massively blessed.
-                </p>
-
-                <p class="partner_text">
-                    <span class="partner_title--sub-title">Take It Now!!!</span>
-                    A potential to share the gospel to hundreds of millions of homes…
-                    In Angola, Botswana, Cameroon, Cote D'Ivoire, South Africa, Nigeria, Europe and More.
-                </p>
-
-                <p class="partner_text">
-                    <span class="partner_title--sub-title">Outreach:</span>
-
-                    Millions of people all over 50 countries in Africa, Europe and beyond via Living Word Telecast on Kingdom Life Network Reaching thousands of people through our books and messages on Living Word Media
-                    Internet livestreaming reaches several continents
-                    Online Radio Broadcast to millions around the world.
-                    And many more….
-
-                </p>
-
-                <h3 class="partnership_account--title">Partnership Account Details</h3>
-                <p class="partnership_account--details">
-                    Account Name: Saints Community Church
-                </p>
-                <p class="partnership_account--details">
-                    Account No: 1015048313 (Zenith Bank)
-                </p>
-                <p class="partnership_account--details">
-                    Account N0: 1020186473 (UBA)
+                <p class="partner_text">{!!$partnership_body->body!!}
                 </p>
 
                 <div class="partner__btn_container">
                     <a href="" class="home__btn home__btn--red_filled">
-                        PAY ONLINE
+                            {{strtoupper($partnership_body->pay_btn_title)}}
                     </a>
                 </div>
                 
@@ -89,10 +65,7 @@
 
             <div class="home_programs_container main_row">
     
-                <div class="home_programs__item home_programs__item--img">
-                    <img class="home_programs__img" src="resources/images/So+great+salvation+6a.png" alt="">
-                </div>
-    
+               
                        @include('partials.programs')
          
     
@@ -106,41 +79,8 @@
     
 
     <section class="home__branch_section">
-
-            <div class="home_branches main_row">
-                <img src="resources/images/MAP.svg" alt="" class="home_branches__top_img">
-                <h3 class="home_branches__title">VISIT ANY OF OUR BRANCHES</h3>
-    
-                <div class="home_branches__flex_container">
-                    <div class="home_branches__flex_item">
-                        <div class="home_branches__name_container">
-                            <img src="resources/images/MAP_HANDLE.svg" alt="" class="home_branches__location_img">
-                            <h3 class="home_branches__name">LAGOS - YABA</h3>
-                        </div>
-                        <p class="home_branches__text">6 Oweh Street, By WAEC Office, Jibowu, Yaba, Lagos.</p>
-                    </div>
-                    <div class="home_branches__flex_item">
-                        <div class="home_branches__name_container">
-                            <img src="resources/images/MAP_HANDLE.svg" class="home_branches__location_img" alt="">
-                            <h3 class="home_branches__name">IBADAN</h3>
-                        </div>
-                        <p class="home_branches__text">Ground Floor, Green House (Amigos Guest House), Fadeyi Street, (Opposite Libra Kitchen), Agbowo, UI, Ibadan</p>
-                    </div>
-                    <div class="home_branches__flex_item">
-                        <div class="home_branches__name_container">
-                            <img src="resources/images/MAP_HANDLE.svg" class="home_branches__location_img" alt="">
-                            <h3 class="home_branches__name">ABUJA</h3>
-                        </div>
-                        <p class="home_branches__text">Floris Garden, Al'fayyum Street, Off Abidjan Street, Wuse Zone 3, Abuja, FCT</p>
-                    </div>
-                    <div class="home_branches__flex_item">
-                        <a style="width: 100%;" href="location.html" class="home__btn home__btn--red_stroked home__btn--red_smaller">
-                            Click Here For More Branch
-                        </a>
-                    </div>
-                </div>
-            </div>
-    
+        @include('partials.branches')
+            
     </section>
 
     <section class="home_social_link__section">
@@ -152,102 +92,8 @@
 
         <footer class="home__footer">
 
-                <div class="home_footer__container main_row">
-                    <ul class="home_footer_list_container">
-                        <li>
-                            <a href="" class="home_footer_link home_footer_link--title">GET TO KNOW US</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="index.html">Home</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="media.html">Media</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="location.html">Location</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="patnership.html">Partnership</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="program.html">Programs</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="about-us.html">About Us</a>
-                        </li>
-                    </ul>
-                    <ul class="home_footer_list_container">
-                        <li>
-                            <a href="patnership.html" class="home_footer_link home_footer_link--title">PARTNER WITH US</a>
-                        </li>
-                        <li class="home_footer_link home_footer_link--spaced">
-                            Account Name:
-                            <br>
-                            <strong>Saints Community Church</strong>
-                            <br>
-                        </li>
-        
-                        <li class="home_footer_link">
-                            Account No: 1015048313 (Zenith Bank)
-                            <br> Account N0: 1020186473 (UBA)
-                        </li>
-        
-                        <li class="home_footer_link">
-                            <a href="" class="home__btn home__btn--red_filled home__btn--pay_footer">
-                                PAY ONLINE
-                            </a>
-                        </li>
-        
-                    </ul>
-        
-                    <ul class="home_footer_list_container">
-                        <li>
-                            <a href="" class="home_footer_link home_footer_link--title">DOWNLOAD</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="">Get The Andriod app </a>
-                        </li>
-                        <li class="home__flex_list">
-                            <img src="resources/images/playstore2.png" alt="">
-                            <a class="home_footer_link home_footer_link--bold" href="https://play.google.com/store/apps/details?id=org.livingwordmedia.saintcommunityc"
-                                target="_blank">
-                                <strong>Available On Playstore</strong>
-                            </a>
-                        </li>
-                    </ul>
-        
-                    <ul class="home_footer_list_container">
-                        <li>
-                            <a href="#" class="home_footer_link home_footer_link--title">SUBCRIBTION</a>
-                        </li>
-                        <li class="home_footer_link">Click Below To Suscribe
-                            <br>To Our Newsletter</li>
-                        <li class="home_footer_link home_footer">
-                            <input type="text" placeholder="Enter Your Email" class="footer__input">
-                            <input type="submit" class="footer__input_submit" value="SUSCRIBE">
-                            <div class="home_footer__social_link_container">
-                                <span>Follow Us On:</span>
-                                <a href="https://web.facebook.com/saintscommunity.net/" target="_blank">
-                                    <img class="home_social__icons" src="resources/images/FACEBOOK_ROUND.svg" alt="">
-                                </a>
-                                <a href="https://www.instagram.com/saintscommunitychurchofficial/" target="_blank">
-                                    <img class="home_social__icons" src="resources/images/INSTA_ROUND.svg" alt="">
-                                </a>
-                                <a href="https://mobile.twitter.com/saintscommlagos" target="_blank">
-                                    <img class="home_social__icons" src="resources/images/TWITTER_ROUND.svg" alt="">
-                                </a>
-                                <a href="https://www.youtube.com/channel/UCnWoDxbbcGFk8Y0-d-qPYEw" target="_blank">
-                                    <img class="home_social__icons" src="resources/images/YOUTUBE_ROUND.svg" alt="">
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-        
-                </div>
-        
-        
-        
-            </footer>
+            @include('partials.footer')
+        </footer>
         
 
     <div class="nav_menu__resp">

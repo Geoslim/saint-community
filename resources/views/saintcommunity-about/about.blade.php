@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600" rel="stylesheet">
@@ -16,7 +16,12 @@
 </head>
 
 <body>
-    <header class="header_hero header_hero--about_us">
+    <header class="header_hero header_hero--about_us" 
+    style="
+    height: 550px;
+    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(storage/aboutBanner_image/{{$aboutscc_banner->banner_image}});background-position: 0% 0%;
+    background-size: cover;
+    position: relative;">
 
            @include('partials.nav-header')
 
@@ -36,31 +41,22 @@
             <div class="home_info_link__container main_row">
                 <div class="home_info__box_container">
                     <div class="home_info__box">
-                        <h3 class="home_info__title">About Us</h3><br>
-                        <p class="home_info__write-up about_us_write_up">
-                                The Saints Community Church is a Church Ministry. Our Vision is to train believers in the work of the ministry in an atmosphere of love, fellowship, faith and power. We equip believers with the Word to the intent that the same is grounded and able to teach others the same also.
-                                <br><br>
-
-                                <strong>Hours - Sundays - 7.30am and 10.30am</strong> <br>
-                                <strong>Wednesdays - 6:00pm</strong> <br><br>
-
-                                Location - Saints Community Church Lagos - 6 Oweh Street, By WAEC Office,Jibowu, Yaba - Lagos<br>
-                                Phone Number: 08093002121
-                            </p>
+                        <h3 class="home_info__title">{{$aboutscc_body->title}}</h3><br>
+                        <p class="home_info__write-up about_us_write_up">{!!$aboutscc_body->body!!}</p>
                         <div class="home__btn_container">
                             <a href="about-us.html" class="home__btn home__btn--red_stroked home__btn--equal_width">
-                                GET TO KNOW US
+                                {{$aboutscc_body->about_btn_title}}
                             </a>
                             <a href="contact.html" class="home__btn home__btn--red_filled home__btn--equal_width">
-                                CONNECT WITH THE GROUP
+                                {{$aboutscc_body->contact_btn_title}}
                             </a>
 
                         </div>
 
                     </div>
                     <div class="home_info__box home_info__box_two">
-
-                        <img src="resources/images/bg.jpg" class="home_info_img"
+                        {{-- resources/images/bg.jpg --}}
+                        <img src="storage/aboutCover_image/{{$aboutscc_cover->cover_image}}" class="home_info_img"
                         srcset=""
                         sizes=""
                         alt="">
@@ -75,7 +71,7 @@
                                     latest message:
                                 </h4>
                                 <p class="home__video_word">
-                                    I pray thus that this media will be God's tool for revealing His WORD to you beyond mere words and data or information;
+                                    I pray thus that this media will be Gods tool for revealing His WORD to you beyond mere words and data or information;
                                 </p> -->
                             </div>
                         </div>
@@ -114,9 +110,6 @@
 
             <div class="home_programs_container main_row">
 
-                <div class="home_programs__item home_programs__item--img">
-                    <img class="home_programs__img" src="../resources/images/So+great+salvation+6a.png" alt="">
-                </div>
     @include('partials.programs')
 
                 {{-- <div class="home_programs__item">
@@ -164,45 +157,13 @@
         </section>
 
 
-    <section class="home__branch_section">
+        <section class="home__branch_section">
+            @include('partials.branches')
+                
 
-            <div class="home_branches main_row">
-                <img src="resources/images/MAP.svg" alt="" class="home_branches__top_img">
-                <h3 class="home_branches__title">VISIT ANY OF OUR BRANCHES</h3>
+        </section>
 
-                <div class="home_branches__flex_container">
-                    <div class="home_branches__flex_item">
-                        <div class="home_branches__name_container">
-                            <img src="resources/images/MAP_HANDLE.svg" alt="" class="home_branches__location_img">
-                            <h3 class="home_branches__name">LAGOS - YABA</h3>
-                        </div>
-                        <p class="home_branches__text">6 Oweh Street, By WAEC Office, Jibowu, Yaba, Lagos.</p>
-                    </div>
-                    <div class="home_branches__flex_item">
-                        <div class="home_branches__name_container">
-                            <img src="resources/images/MAP_HANDLE.svg" class="home_branches__location_img" alt="">
-                            <h3 class="home_branches__name">IBADAN</h3>
-                        </div>
-                        <p class="home_branches__text">Ground Floor, Green House (Amigos Guest House), Fadeyi Street, (Opposite Libra Kitchen), Agbowo, UI, Ibadan</p>
-                    </div>
-                    <div class="home_branches__flex_item">
-                        <div class="home_branches__name_container">
-                            <img src="resources/images/MAP_HANDLE.svg" class="home_branches__location_img" alt="">
-                            <h3 class="home_branches__name">ABUJA</h3>
-                        </div>
-                        <p class="home_branches__text">Floris Garden, Al'fayyum Street, Off Abidjan Street, Wuse Zone 3, Abuja, FCT</p>
-                    </div>
-                    <div class="home_branches__flex_item">
-                        <a style="width: 100%;" href="location.html" class="home__btn home__btn--red_stroked home__btn--red_smaller">
-                            Click Here For More Branch
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-    </section>
-
-    <section class="home_social_link__section">
+        <section class="home_social_link__section">
 
          @include('partials.socials')
 
@@ -211,102 +172,8 @@
 
         <footer class="home__footer">
 
-                <div class="home_footer__container main_row">
-                    <ul class="home_footer_list_container">
-                        <li>
-                            <a href="" class="home_footer_link home_footer_link--title">GET TO KNOW US</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="index.html">Home</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="media.html">Media</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="location.html">Location</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="patnership.html">Partnership</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="program.html">Programs</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="about-us.html">About Us</a>
-                        </li>
-                    </ul>
-                    <ul class="home_footer_list_container">
-                        <li>
-                            <a href="patnership.html" class="home_footer_link home_footer_link--title">PARTNER WITH US</a>
-                        </li>
-                        <li class="home_footer_link home_footer_link--spaced">
-                            Account Name:
-                            <br>
-                            <strong>Saints Community Church</strong>
-                            <br>
-                        </li>
-
-                        <li class="home_footer_link">
-                            Account No: 1015048313 (Zenith Bank)
-                            <br> Account N0: 1020186473 (UBA)
-                        </li>
-
-                        <li class="home_footer_link">
-                            <a href="" class="home__btn home__btn--red_filled home__btn--pay_footer">
-                                PAY ONLINE
-                            </a>
-                        </li>
-
-                    </ul>
-
-                    <ul class="home_footer_list_container">
-                        <li>
-                            <a href="" class="home_footer_link home_footer_link--title">DOWNLOAD</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="">Get The Andriod app </a>
-                        </li>
-                        <li class="home__flex_list">
-                            <img src="resources/images/playstore2.png" alt="">
-                            <a class="home_footer_link home_footer_link--bold" href="https://play.google.com/store/apps/details?id=org.livingwordmedia.saintcommunityc"
-                                target="_blank">
-                                <strong>Available On Playstore</strong>
-                            </a>
-                        </li>
-                    </ul>
-
-                    <ul class="home_footer_list_container">
-                        <li>
-                            <a href="#" class="home_footer_link home_footer_link--title">SUBCRIBTION</a>
-                        </li>
-                        <li class="home_footer_link">Click Below To Suscribe
-                            <br>To Our Newsletter</li>
-                        <li class="home_footer_link home_footer">
-                            <input type="text" placeholder="Enter Your Email" class="footer__input">
-                            <input type="submit" class="footer__input_submit" value="SUSCRIBE">
-                            <div class="home_footer__social_link_container">
-                                <span>Follow Us On:</span>
-                                <a href="https://web.facebook.com/saintscommunity.net/" target="_blank">
-                                    <img class="home_social__icons" src="resources/images/FACEBOOK_ROUND.svg" alt="">
-                                </a>
-                                <a href="https://www.instagram.com/saintscommunitychurchofficial/" target="_blank">
-                                    <img class="home_social__icons" src="resources/images/INSTA_ROUND.svg" alt="">
-                                </a>
-                                <a href="https://mobile.twitter.com/saintscommlagos" target="_blank">
-                                    <img class="home_social__icons" src="resources/images/TWITTER_ROUND.svg" alt="">
-                                </a>
-                                <a href="https://www.youtube.com/channel/UCnWoDxbbcGFk8Y0-d-qPYEw" target="_blank">
-                                    <img class="home_social__icons" src="resources/images/YOUTUBE_ROUND.svg" alt="">
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-
-                </div>
-
-
-
-            </footer>
+            @include('partials.footer')
+        </footer>
 
 
     <div class="nav_menu__resp">

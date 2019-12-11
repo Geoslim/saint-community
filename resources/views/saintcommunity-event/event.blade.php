@@ -17,59 +17,17 @@
 
 <body>
 
-    <header class="header_hero header_hero--program">
+    <header class="header_hero header_hero--program" style=" height: 550px;
+    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(storage/eventBanner_image/{{ $event_banner->banner_image }});
+    background-position: 0% 0%;
+    background-size: cover;
+    position: relative;">
             @include('partials.nav-header')
      
 
         @include('partials.header-base')
 
-        {{-- <nav class="nav">
-                <span class="menu_icon">
-                        <img src="resources/images/menu.svg" alt="">
-                    </span>
-            <div class="nav__inner_container main_row">
-                <a href="" class="nav__logo">
-                    <img src="resources/images/LOGO.png" alt="">
-                </a>
-                <div class="nav__menu">
-                    <a href="index.html" class="nav__link">HOME</a>
-                    <a href="about-us.html" class="nav__link">ABOUT SCC</a>
-                    <a href="location.html" class="nav__link">LOCATIONS</a>
-                    <a href="media.html" class="nav__link">MEDIA</a>
-                    <a href="patnership.html" class="nav__link">PARTNERSHIP</a>
-                    <a href="program.html" class="nav__link nav__link--active">EVENTS</a>
-                    <a href="contact.html" class="nav__link">CONTACT US</a>
-                </div>
-            </div>
-        </nav>
-
-        <div class="header_container">
-            <div class="header_container__flex main_row">
-                <div class="header__inner_container">
-                    <h3 class="header__text_name">
-                        YABA
-                    </h3>
-                    <p class="header__text_name header__text_name--small">CHURCH</p>
-                </div>
-                <div class="header__inner_container">
-                    <p class="header__service_text">
-                        Sunday Services
-                    </p>
-                    <p class="header__service_text header__service_text--big">7:30am 10:30am
-                    </p>
-                </div>
-                <div class="header__inner_container">
-                    <p class="header__service_text">
-                        Wednesday Services
-                        <p class="header__service_text header__service_text--big">6:00pm</p>
-                    </p>
-                </div>
-                <div class="header__inner_container">
-                    <a href="location.html" class="home__btn">GET DIRECTIONS</a>
-                </div>
-            </div>
-
-        </div> --}}
+        
         
     </header>
 
@@ -80,30 +38,18 @@
             <div class="program__main">
 
                 <div class="program__img_container">
-                    <img src="resources/images/events.png" alt="">
+                    <img src="storage/eventCover_image/{{ $event_cover->cover_image }}" alt="">
                 </div>
 
                 <div class="program__main_text_container">
                     <div class="program__main_inner_txt_container">
                         <h3 class="program_main__title">
                             <img src="resources/images/tent.svg" width="24px" alt="">
-                            CHARIS CAMP MEETING 2019</h3>
+                            {{ $event_body->title }}
+                        </h3>
 
                         <div class="program_main_inner_content_container">
-                            <h4 class="program_main__sub_title">
-                                Why we hold Charis Camp meeting.
-                            </h4>
-                            <p class="program_main__text">
-                                "Heralding the Lordship of the Word, Demonstrating the influence and character of the Spirit ”<br>
-                                This is our mandate in all the Nations of the earth . <br>
-                                Special meetings give us an avenue to fulfil this . <br>
-                                Charis Camp meeting is a special meeting. <br>
-                                It carries the same Flavour and character of meetings of such nature in the Book of Acts. <br>
-                                More recently ,Kenneth Hagin Ministries Campmeeting ( started since 1973) has inspired this for us. <br>
-                                In the Mornings and Afternoons the emphasis is more on teaching and explaining realities of the Pauline revelation ,the believers identification in Christ and how faith works
-                                <br>
-                                In the evenings ,we have more of utterance ,revelation and power gifts in operation and demonstration .Joy ,much glory ,tangibilities in the spirit .
-                            </p>
+                            {!!$event_body->body  !!}
                         </div>
 
                     </div>
@@ -174,38 +120,54 @@
         </div>
     </section>
 
-    <section class="home__programs_section home__programs_section--program">
-            <!-- <div class="home_bg_section_img_wrapper home_bg_section_img_wrapper--smaller">
-                <img src="resources/images/praise_img.jpg" alt="">
-            </div>
-     -->
+    <section class="home__programs_section home__programs_section--program" style="position: relative;
+    padding: 10px 0;
+    background: url(storage/eventBg_image/{{ $event_bg->bg_image }});
+    background-position: center;
+    background-size: cover;
+    padding: 5% 0;">
+           
     
             <div class="home_programs_container">
                 
-                    <div class="program_outer_wrapper">
-                            <div class="main_row">
-                
-                                <div class="program_row_container">
-                                    <div class="program_upcoming__first_text">
-                                        <h3 class="program_upcoming__title">
-                                            Upcoming Events
-                                        </h3>
-                                        <h2 class="program_upcoming__title--bigger">
-                                            CHARIS CAMP MEETING 2019
-                                        </h2>
-                                    </div>
-                
-                                    <div class="program_upcoming__inner_container">
-                                        <p class="program_upcoming__text_content">
-                                            Why we hold Charis Camp meeting
-                                            "Heralding the Lordship of the Word, Demonstrating the influence and character of the Spirit"
-                                        </p>
-                                        <a href="" class="program_upcoming__btn">
-                                            <img src="resources/images/read_more_btn.png" alt="">
-                                        </a>
-                                    </div>
-                                </div>
-                
+                    <div class="home_programs_container main_row">
+                          
+                 
+                                    <div class="home_programs__item home_programs__item--img">
+                                            <img class="home_programs__img" src="storage/programs_image/{{ $latest_cover->cover_image }}" alt="">
+                                        </div>
+                                
+                                
+                                        <div class="home_programs__item">
+                                            <h3 class="home_programs__title">{{ $latest_detail->title }}</h3>
+                                            <h4 class="home_programs__title home_programs__title--small">{{ $latest_detail->subtitle }}</h4>
+                                            <p class="home-programs__text home-programs--sized">
+                                                    {{ $latest_detail->body }}
+                                            </p>
+                                        </div>
+                                
+                                        <div class="home_programs__item">
+                                            <h3 class="home_programs__title home_programs__title--longer">{{ $upcoming_heading->heading }}</h3>
+                                            <div class="home_programs__flex_list_container">
+                                                <div class="home_programs__flex_list_items_container">
+                                                    <h4 class="home_programs__title home_programs__title--small home_programs__title--bold">EVENTS</h4>
+                                                    <ul class="home_programs__flex_list_inner_container">
+                                                        
+                                                        @foreach ($upcoming_events as $upcoming_event)
+                                                            <li class="home-programs__text home-programs__text--list">{{ $upcoming_event->title }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                                <div class="home_programs__flex_list_items_container">
+                                                    <h4 class="home_programs__title home_programs__title--small home_programs__title--bold">DATES</h4>
+                                                    <ul class="home_programs__flex_list_inner_container home_programs__flex_list_inner_container--remove-width">
+                                                        @foreach ($upcoming_events as $upcoming_event)
+                                                            <li class="home-programs__text home-programs__text--list">{{ $upcoming_event->event_date }}</li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            
+                                        </div>
                             </div>
                         </div>
                
@@ -217,39 +179,7 @@
 
     <section class="home__branch_section">
 
-            <div class="home_branches main_row">
-                <img src="resources/images/MAP.svg" alt="" class="home_branches__top_img">
-                <h3 class="home_branches__title">VISIT ANY OF OUR BRANCHES</h3>
-    
-                <div class="home_branches__flex_container">
-                    <div class="home_branches__flex_item">
-                        <div class="home_branches__name_container">
-                            <img src="resources/images/MAP_HANDLE.svg" alt="" class="home_branches__location_img">
-                            <h3 class="home_branches__name">LAGOS - YABA</h3>
-                        </div>
-                        <p class="home_branches__text">6 Oweh Street, By WAEC Office, Jibowu, Yaba, Lagos.</p>
-                    </div>
-                    <div class="home_branches__flex_item">
-                        <div class="home_branches__name_container">
-                            <img src="resources/images/MAP_HANDLE.svg" class="home_branches__location_img" alt="">
-                            <h3 class="home_branches__name">IBADAN</h3>
-                        </div>
-                        <p class="home_branches__text">Ground Floor, Green House (Amigos Guest House), Fadeyi Street, (Opposite Libra Kitchen), Agbowo, UI, Ibadan</p>
-                    </div>
-                    <div class="home_branches__flex_item">
-                        <div class="home_branches__name_container">
-                            <img src="resources/images/MAP_HANDLE.svg" class="home_branches__location_img" alt="">
-                            <h3 class="home_branches__name">ABUJA</h3>
-                        </div>
-                        <p class="home_branches__text">Floris Garden, Al'fayyum Street, Off Abidjan Street, Wuse Zone 3, Abuja, FCT</p>
-                    </div>
-                    <div class="home_branches__flex_item">
-                        <a style="width: 100%;" href="location.html" class="home__btn home__btn--red_stroked home__btn--red_smaller">
-                            Click Here For More Branch
-                        </a>
-                    </div>
-                </div>
-            </div>
+        @include('partials.branches')
     
     </section>
 
@@ -264,100 +194,7 @@
 
         <footer class="home__footer">
 
-                <div class="home_footer__container main_row">
-                    <ul class="home_footer_list_container">
-                        <li>
-                            <a href="" class="home_footer_link home_footer_link--title">GET TO KNOW US</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="index.html">Home</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="media.html">Media</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="location.html">Location</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="patnership.html">Partnership</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="program.html">Programs</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="about-us.html">About Us</a>
-                        </li>
-                    </ul>
-                    <ul class="home_footer_list_container">
-                        <li>
-                            <a href="patnership.html" class="home_footer_link home_footer_link--title">PARTNER WITH US</a>
-                        </li>
-                        <li class="home_footer_link home_footer_link--spaced">
-                            Account Name:
-                            <br>
-                            <strong>Saints Community Church</strong>
-                            <br>
-                        </li>
-        
-                        <li class="home_footer_link">
-                            Account No: 1015048313 (Zenith Bank)
-                            <br> Account N0: 1020186473 (UBA)
-                        </li>
-        
-                        <li class="home_footer_link">
-                            <a href="" class="home__btn home__btn--red_filled home__btn--pay_footer">
-                                PAY ONLINE
-                            </a>
-                        </li>
-        
-                    </ul>
-        
-                    <ul class="home_footer_list_container">
-                        <li>
-                            <a href="" class="home_footer_link home_footer_link--title">DOWNLOAD</a>
-                        </li>
-                        <li>
-                            <a class="home_footer_link" href="">Get The Andriod app </a>
-                        </li>
-                        <li class="home__flex_list">
-                            <img src="resources/images/playstore2.png" alt="">
-                            <a class="home_footer_link home_footer_link--bold" href="https://play.google.com/store/apps/details?id=org.livingwordmedia.saintcommunityc"
-                                target="_blank">
-                                <strong>Available On Playstore</strong>
-                            </a>
-                        </li>
-                    </ul>
-        
-                    <ul class="home_footer_list_container">
-                        <li>
-                            <a href="#" class="home_footer_link home_footer_link--title">SUBCRIBTION</a>
-                        </li>
-                        <li class="home_footer_link">Click Below To Suscribe
-                            <br>To Our Newsletter</li>
-                        <li class="home_footer_link home_footer">
-                            <input type="text" placeholder="Enter Your Email" class="footer__input">
-                            <input type="submit" class="footer__input_submit" value="SUSCRIBE">
-                            <div class="home_footer__social_link_container">
-                                <span>Follow Us On:</span>
-                                <a href="https://web.facebook.com/saintscommunity.net/" target="_blank">
-                                    <img class="home_social__icons" src="resources/images/FACEBOOK_ROUND.svg" alt="">
-                                </a>
-                                <a href="https://www.instagram.com/saintscommunitychurchofficial/" target="_blank">
-                                    <img class="home_social__icons" src="resources/images/INSTA_ROUND.svg" alt="">
-                                </a>
-                                <a href="https://mobile.twitter.com/saintscommlagos" target="_blank">
-                                    <img class="home_social__icons" src="resources/images/TWITTER_ROUND.svg" alt="">
-                                </a>
-                                <a href="https://www.youtube.com/channel/UCnWoDxbbcGFk8Y0-d-qPYEw" target="_blank">
-                                    <img class="home_social__icons" src="resources/images/YOUTUBE_ROUND.svg" alt="">
-                                </a>
-                            </div>
-                        </li>
-                    </ul>
-        
-                </div>
-        
-        
+            @include('partials.footer')
         
             </footer>
         
@@ -543,11 +380,59 @@
     <div class="scroll_to_top">
             <img src="resources/images/to_top.svg" width="18px"alt="">
         </div>
-
+        <?php 
+            $date_of_event = $event_body->event_date; 
+        ?>
         <script src="resources/js/scroll.js"></script>
         <script src="vendors/js/jquery.waypoints.min.js"></script>
         <script src="resources/js/nav.js"></script>
     <script src="resources/js/program.js"></script>
-    
+    <script>
+        
+            
+let eventDate = "<?php echo $date_of_event; ?>";
+let countDownDate = new Date(eventDate).getTime();
+
+
+
+
+
+let timeout = 1000;
+
+let distance;
+
+let x = setInterval(() => {
+    let now = new Date().getTime();
+
+    distance = countDownDate - now;
+
+    let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60))
+
+
+    document.querySelector(".time__txt--days").innerHTML = days.twoDigits();
+    document.querySelector(".time__txt--hours").innerHTML = hours.twoDigits();
+    document.querySelector(".time__txt--minutes").innerHTML = minutes.twoDigits();
+    document.querySelector(".time__txt--seconds").innerHTML = seconds.twoDigits();
+
+}, timeout);
+
+if (distance < 0) {
+    clearInterval(x);
+    document.querySelector(".time__txt--days").innerHTML = 0;
+    document.querySelector(".time__txt--hours").innerHTML = 0;
+    document.querySelector(".time__txt--minutes").innerHTML = 0;
+    document.querySelector(".time__txt--seconds").innerHTML = 0;
+
+}
+
+
+Number.prototype.twoDigits = function () {
+    let n = this;
+    return (n.toString().length == 2) ? n : "0" + n;
+}
+    </script>
 
 </body>

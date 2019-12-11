@@ -9,14 +9,14 @@ class SocialMediaSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run() 
     {
         DB::table('social_medias')->insert([
-            'twitter' => 'saint-twitter',
-            'play_store' => 'saint-playstore',
-            'facebook' => 'saint-facebook',
-            'youtube' => 'saint-youtube',
-            'instagram' => 'saint-instagram',
+            'twitter' => 'saintscommlagos',
+            'play_store' => 'org.livingwordmedia.saintcommunityc',
+            'facebook' => 'saintscommunity.net',
+            'youtube' => 'UCnWoDxbbcGFk8Y0-d-qPYEw',
+            'instagram' => 'saintscommunitychurchofficial',
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ]);

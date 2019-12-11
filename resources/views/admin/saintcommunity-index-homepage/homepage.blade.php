@@ -82,7 +82,7 @@
 
 
                                 <p><img src="resources/images/contactus_img.svg" alt="" class="homepage__img"></p>
-                                <p class="home__menu--description"><a href="" class="home__page--link">Contact Us</a></p>
+                                <p class="home__menu--description"><a href="{{url('contact-scc')}}" class="home__page--link">Contact Us</a></p>
 
 
                             </div>
@@ -90,7 +90,7 @@
 
 
                                 <p><img src="resources/images/media_img.svg" alt="" class="homepage__img"></p>
-                                <p class="home__menu--description"><a href="" class="home__page--link">Media</a></p>
+                                <p class="home__menu--description"><a href="{{url('media-scc')}}" class="home__page--link">Media</a></p>
 
 
                             </div>
@@ -120,7 +120,7 @@
 
 
                                             <p><img src="resources/images/programs_img.svg" alt="" class="homepage__img"></p>
-                                            <p class="home__menu--description"><a href="" class="home__page--link">Programs</a></p>
+                                            <p class="home__menu--description"><a href="{{ url('events-scc') }}" class="home__page--link">Events</a></p>
 
 
                                 </div>
@@ -128,7 +128,7 @@
 
 
                                             <p><img src="resources/images/partnership_img.svg" alt="" class="homepage__img"></p>
-                                            <p class="home__menu--description"><a href="" class="home__page--link">Partnerships</a></p>
+                                            <p class="home__menu--description"><a href="{{url('partnership-scc')}}" class="home__page--link">Partnerships</a></p>
 
 
                                 </div>
@@ -136,7 +136,7 @@
 
 
                                             <p><img src="resources/images/menu_img.svg" alt="" class="homepage__img"></p>
-                                            <p class="home__menu--description"><a href="" class="home__page--link">Menu</a></p>
+                                            <p class="home__menu--description"><a href="{{url('menu-scc')}}" class="home__page--link">Menu</a></p>
 
 
                                 </div>
