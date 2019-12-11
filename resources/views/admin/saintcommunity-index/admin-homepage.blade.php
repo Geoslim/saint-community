@@ -89,8 +89,8 @@
                             <div class="left__home--item">
 
 
-                                <p><img src="resources/images/media_img.svg" alt="" class="homepage__img"></p>
-                                <p class="home__menu--description"><a href="" class="home__page--link">Media</a></p>
+                                <p><img src="resources/images/mail.svg" alt="" class="homepage__img" height="120px"></p>
+                                <p class="home__menu--description"><a href="" class="home__page--link">Manage Subscriptions</a></p>
 
 
                             </div>

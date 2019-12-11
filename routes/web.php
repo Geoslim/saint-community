@@ -95,3 +95,5 @@ Route::put('updateUpcomingHeading/{id}', 'EventController@updateUpcomingHeading'
 Route::get('latest-release', 'LatestReleaseController@index');
 Route::put('updateDetials/{id}', 'LatestReleaseController@updateDetials')->name('updateDetials');
 Route::put('updateCover/{id}', 'LatestReleaseController@updateCover')->name('updateCover');
+
+Route::get('footer-scc', 'FooterController@index');

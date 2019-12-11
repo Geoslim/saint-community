@@ -158,6 +158,7 @@
                                                         @endforeach
                                                     </ul>
                                                 </div>
+
                                                 <div class="home_programs__flex_list_items_container">
                                                     <h4 class="home_programs__title home_programs__title--small home_programs__title--bold">DATES</h4>
                                                     <ul class="home_programs__flex_list_inner_container home_programs__flex_list_inner_container--remove-width">
@@ -170,7 +171,6 @@
                                         </div>
                             </div>
                         </div>
-               
             </div>
     
     

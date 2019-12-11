@@ -98,7 +98,7 @@
 
 
                                 <p><img src="resources/images/footer_img.svg" alt="" class="homepage__img"></p>
-                                <p class="home__menu--description"><a href="" class="home__page--link">Footer</a></p>
+                                <p class="home__menu--description"><a href="{{ url('footer-scc') }}" class="home__page--link">Footer</a></p>
 
 
                             </div>
