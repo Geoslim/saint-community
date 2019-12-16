@@ -22,7 +22,7 @@
         .social_btn_tw {
             width: 80px;
             height:40px;
-            background: url('resources/images/twitter_backend.png') ;
+            background-image: url('resources/images/twitter_backend.png') ;
         }
         body{
             font-family: Poppins;

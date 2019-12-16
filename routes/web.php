@@ -30,12 +30,12 @@ Auth::routes();
 //admin routes check if user has the right auth ID to visit this route
 //User Must Be authenticated and has a role ID that is less than or equal to three to acccess this route .
 //=======================================================================================================================================//
-//ROLE ID 1 :: Super Super Admin jumoke@kjk.com.africa   ....//exclude her from being display with other admin on the back end
-//ROLE ID 2" Super Admin //have all priviledges both delete adn edit
+//ROLE ID 1 :: Super Super Admin jumoke@kjk.com.africa   ....//exclude her from being displayed with other admin on the back end
+//ROLE ID 2" Super Admin //have all priviledges both delete and edit
 //ROLE ID 3   Editor     //Have only the priviledge to edit and not deleteb
 //============================================================================================================================//
-Route::get('/admin', 'HomepageController@adminIndex');
-Route::get('/admin-homepage/', 'HomepageController@adminHomepageIndex');
+Route::get('/admin', 'AdminHomepageController@adminIndex');
+Route::get('/admin-pages/', 'AdminHomepageController@adminPagesIndex');
 
 Route::resource('social-media', 'SocialMediaController');
 
@@ -97,3 +97,16 @@ Route::put('updateDetials/{id}', 'LatestReleaseController@updateDetials')->name(
 Route::put('updateCover/{id}', 'LatestReleaseController@updateCover')->name('updateCover');
 
 Route::get('footer-scc', 'FooterController@index');
+Route::put('updateFooterPartner/{id}', 'FooterController@updateFooterPartner')->name('updateFooterPartner');
+Route::put('updateFooterDownload/{id}', 'FooterController@updateFooterDownload')->name('updateFooterDownload');
+
+Route::get('home-scc', 'HomeFrontController@index');
+Route::get('home-scc-slider', 'HomeFrontController@homeSliderIndex');
+Route::put('homeSliderHeadingUpdate/{id}', 'HomeFrontController@homeSliderHeadingUpdate')->name('homeSliderHeadingUpdate');
+Route::get('home-scc-slider-create', 'HomeFrontController@homeSliderCreate');
+Route::post('home-scc-slider-create', 'HomeFrontController@homeSliderStore');
+Route::get('home-scc-slider/{id}/edit', 'HomeFrontController@homeSliderEdit');
+Route::put('homeSliderUpdate/{id}', 'HomeFrontController@homeSliderUpdate')->name('homeSliderUpdate');
+Route::get('home-scc-body', 'HomeFrontController@homeBody');
+Route::put('homeBodyUpdate/{id}', 'HomeFrontController@homeBodyUpdate')->name('homeBodyUpdate');
+Route::put('homeBodyCoverUpdate/{id}', 'HomeFrontController@homeBodyCoverUpdate')->name('homeBodyCoverUpdate');

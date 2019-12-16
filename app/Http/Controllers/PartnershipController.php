@@ -55,7 +55,7 @@ class PartnershipController extends Controller
         $partnership_body = PartnershipBody::find($id);
         $partnership_body->title = $request->input('title');
         $partnership_body->body = $request->input('body');
-        $partnership_body->pay_btn_title = Purifier::clean($request->input('pay_btn_title'));
+        $partnership_body->pay_btn_title = $request->input('pay_btn_title');
      
         
         $partnership_body->save();

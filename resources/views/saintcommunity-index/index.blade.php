@@ -47,12 +47,10 @@
 
             <div class="header_hero__text_box">
                 <h1 class="header_hero__main_text">
-                    SAINT COMMUNITY CHURCH,
-                    <br>MAKING YOUR LIFE COUNT&nbsp;.&nbsp;.&nbsp;.
+                        {!! wordwrap($slider_heading->slide_heading,28,"<br>\n") !!}
                 </h1>
                 <p class="header_hero__sub_text">
-                    Heralding the Lordship of the Word, <br>
-                     Demonstrating the Influence of the Spirit
+                        {!! wordwrap($slider_heading->slide_subtitle,45,"<br>\n") !!}
                 </p>
             </div>
 
@@ -60,10 +58,21 @@
         </div>
 
         <div class="header_slider--wrapper owl-carousel owl_three">
-            <div class="header_hero header_hero--one"></div>
-            <div class="header_hero header_hero--two"></div>
+            @if (count($slider_images) > 0 )
+            @foreach ($slider_images as $slider_image)
+                <div class="header_hero header_hero--one" style="
+                background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .7)), url(storage/slider_images/{{ $slider_image->slider_image }});
+                height: 100vh;
+                background-position: 0% 0%;
+                background-size: cover;
+                position: relative;
+                background-repeat: no-repeat; */"></div>
+
+            @endforeach
+            @endif
+            {{-- <div class="header_hero header_hero--two"></div>
             <div class="header_hero header_hero--three"></div>
-            <div class="header_hero header_hero--four"></div>
+            <div class="header_hero header_hero--four"></div> --}}
         </div>
 
 
@@ -90,28 +99,16 @@
         <div class="home_info_link__container main_row">
             <div class="home_info__box_container">
                 <div class="home_info__box">
-                    <h3 class="home_info__title">First Words...</h3>
+                    <h3 class="home_info__title">{{ $home_body->title }}</h3>
                     <p class="home_info__write-up">
-                        Hello friends,
-                        <br>
-                        <br> On behalf of Saints Community Church, I welcome you here We pray and trust Gods spirit to open your
-                        eyes to truths found in His word via his medium. The Word as a message and ministry is our mandate
-                        in all the earth.
-                        <br> It brings clarity of purpose, wholeness and wellness and above all stability in Christ. This we
-                        pray and receive is your experience here Dont just surf here Learn here and also tell your friends
-                        !
-                        <br> You are blessed !!!
-                        <br>
-                        <br>
-                        <strong>Chris Segun Onayinka</strong>
-
+                     {!! $home_body->body !!}
                     </p>
                     <div class="home__btn_container">
                         <a href="about-us.html" class="home__btn home__btn--red_stroked home__btn--equal_width">
-                            GET TO KNOW US
+                            {{ $home_body->about_btn_title }}
                         </a>
                         <a href="contact.html" class="home__btn home__btn--red_filled home__btn--equal_width">
-                            CONNECT WITH THE GROUP
+                            {{ $home_body->contact_btn_title }}
                         </a>
 
                     </div>
@@ -119,7 +116,7 @@
                 </div>
                 <div class="home_info__box">
 
-                    <img src="resources/images/VID_PLACEHOLDER.jpg" class="home_info_img" alt="">
+                    <img src="storage/home_cover_images/{{$home_body_cover_image->cover_image}}" class="home_info_img" alt="">
                     <div class="home__video_details">
                         <div class="home__control">
                             <!-- <div class="home__white_circle">

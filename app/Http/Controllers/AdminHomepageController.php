@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class HomepageController extends Controller
+class AdminHomepageController extends Controller
 {
     //
     public function adminIndex(){
@@ -12,9 +12,9 @@ class HomepageController extends Controller
         return view('admin.saintcommunity-index.admin-homepage');
     }
 
-    public function adminHomepageIndex(){
+    public function adminPagesIndex(){
 
-        return view('admin.saintcommunity-index-homepage.homepage');
+        return view('admin.saintcommunity-index-adminpages.homepage');
     }
     
 }

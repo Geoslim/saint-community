@@ -74,23 +74,8 @@
                             <div class="left__home--item">
 
 
-                                <p><img src="resources/images/homepage_img.svg" alt="" class="homepage__img"></p>
-                                <p class="home__menu--description"><a href="{{url('/admin-pages/')}}" class="home__page--link">Pages</a></p>
-
-                            </div>
-                            <div class="left__home--item">
-
-
-                                <p><img src="resources/images/contactus_img.svg" alt="" class="homepage__img"></p>
-                                <p class="home__menu--description"><a href="{{ url('latest-release') }}" class="home__page--link">Latest Release</a></p>
-
-
-                            </div>
-                            <div class="left__home--item">
-
-
-                                <p><img src="resources/images/mail.svg" alt="" class="homepage__img" height="120px"></p>
-                                <p class="home__menu--description"><a href="" class="home__page--link">Manage Subscriptions</a></p>
+                                <p><img src="resources/images/media_img.svg" alt="" class="homepage__img"></p>
+                                <p class="home__menu--description"><a href="{{url('home-scc-slider')}}" class="home__page--link">Home Slider</a></p>
 
 
                             </div>
@@ -98,18 +83,11 @@
 
 
                                 <p><img src="resources/images/footer_img.svg" alt="" class="homepage__img"></p>
-                                <p class="home__menu--description"><a href="{{url('/social-media/')}}" class="home__page--link">Social Media</a></p>
+                                <p class="home__menu--description"><a href="{{ url('footer-scc') }}" class="home__page--link">Home Media</a></p>
 
 
                             </div>
-                            <div class="left__home--item">
 
-
-                                <p><img src="resources/images/headline.svg" alt="" class="homepage__img" height="120px"></p>
-                                <p class="home__menu--description"><a href="{{url('/header-base/')}}" class="home__page--link">Header Base</a></p>
-
-
-                            </div>
                         </div>
                         <div class="right__home--menus">
 
@@ -119,42 +97,19 @@
 
 
                                             <p><img src="resources/images/aboutscc.svg" alt="" class="homepage__img" id="aboutscc__img"></p>
-                                            <p class="home__menu--description"><a href="" class="home__page--link">Add Admin</a></p>
+                                <p class="home__menu--description"><a href="{{url('home-scc-body')}}" class="home__page--link">Home Body</a></p>
 
 
                                 </div>
-                                <div class="right__home--item">
-
-
-                                            <p><img src="resources/images/programs_img.svg" alt="" class="homepage__img"></p>
-                                            <p class="home__menu--description"><a href="" class="home__page--link">View All Admins</a></p>
-
-
-                                </div>
-                                <div class="right__home--item">
-
-
-                                            <p><img src="resources/images/partnership_img.svg" alt="" class="homepage__img"></p>
-                                            <p class="home__menu--description"><a href="" class="home__page--link">Send Mails To Admin</a></p>
-
-
-                                </div>
+                                
                                 <div class="right__home--item ">
 
 
                                             <p><img src="resources/images/menu_img.svg" alt="" class="homepage__img"></p>
-                                            <p class="home__menu--description"><a href="" class="home__page--link">Contact KJK</a></p>
+                                            <p class="home__menu--description"><a href="{{url('menu-scc')}}" class="home__page--link">Home Broadcast</a></p>
 
 
                                 </div>
-                                <div class="right__home--item ">
-
-
-                                    <p><img src="resources/images/branches.svg" alt="" class="homepage__img" height="120px"></p>
-                                    <p class="home__menu--description"><a href="branches/" class="home__page--link">Branches</a></p>
-
-
-                        </div>
 
                             </div>
 

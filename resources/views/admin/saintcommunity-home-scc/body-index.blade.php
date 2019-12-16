@@ -30,7 +30,7 @@
         
     </style>
 
-    <title>Admin</title>
+    <title>Admin/Media Page</title>
 </head>
 <body>
 <div class="top__bar">
@@ -39,12 +39,13 @@
 
                 <p class="top__bar-hero">
 
-                        <span>{{ strtoupper($latest_detail->title) }}</span>
+                        <span>HOME BODY SECTION</span>
 
                 </p>
-                @include('includes.messages')
+                
 
         </div>
+
 </div>
 
 
@@ -78,51 +79,58 @@
         </div>
 
         <div class="center__Container">
-
+                @include('includes.messages')
             <div class="form__header--list">
                 <p class="form__header--sub">
-                   <a href="{{ url('admin') }}"> <img src="resources/images/right-arrow-forward.svg" alt="" class="back__arrow"><span>Back</span></a>
+                    <a href="{{ url('home-scc') }}"> <img src="resources/images/right-arrow-forward.svg" alt="" class="back__arrow"><span>Back</span></a>
                 </p>
-                <p class="text__description">Edit {{ $latest_detail->title }}</p>
+                <p class="text__description">Edit Home Page Body</p>
             </div>
 
             
             <div class="form__container" style="position:relative;">
-                <div class="geo">
-
-                   
-                    <form method="POST" action="{{ url('updateDetials/'.$latest_detail->id) }}">
-                        @csrf
+                <div class="geo ">
+                    <form method="POST" action="{{url('homeBodyUpdate/'.$home_body->id)}}">
+                            @csrf
                         @method('PUT') 
-                        <p class="text__description">{{ $latest_detail->title }} </p>
+                        <p class="text__description">Home Page Body </p>
                         <div class="data__field--1">
-                            <input type="text" class="" id="title" name="title" placeholder="Latest Release" value="{{ $latest_detail->title }}">
-                        </div>
-                        <div class="data__field--1">
-                                <input type="text" class="" id="subtitle" name="subtitle" placeholder="Subtitle" value="{{ $latest_detail->subtitle }}">
+
+                            <input type="text" class="" id="title" name="title" placeholder="Title" value="{{ $home_body->title }}">
                         </div>
                         <div class="" style="margin:10px 30px; border-radius:10px;">
 
-                            <textarea id="body" name="body" cols="" rows="10">{{ $latest_detail->body }}</textarea>
+                            <textarea id="body" name="body" cols="" rows="10">{{ $home_body->body }}</textarea>
         
-                        </div>                 
+                        </div>
+                        <div class="data__field--1">
+                            <input type="text" class="" id="" name="about_btn_title" placeholder="GET TO KNOW US" value="{{ $home_body->about_btn_title }}">
+                            <input type="text" class="" id="" name="contact_btn_title" placeholder="CONNECT WITH THE GROUP" value="{{ $home_body->contact_btn_title }}">
+                        </div>
+                        
                         <div class="save__button--container" style="margin-top:0px;">
 
-                            <button class="button" id="submit__button"><span>Save</span></button>
+                            <button class="button" id="submit__button"><span>Save Page Body</span></button>
         
                         </div>
                     </form>
+                </div>
+            </div>
+            <div class="form__container" style="position:relative;">
                 <div class="geo ">
-                    <p class="text__description">Cover Image</p>
-                    <form method="POST" action="{{ url('updateCover/'.$latest_cover->id) }}" enctype="multipart/form-data">
+                    <p class="text__description">Home Body Cover Image</p>
+                    <form method="POST" action="{{ url('homeBodyCoverUpdate/'.$home_body_cover_image->id) }}" enctype="multipart/form-data">
+                        @csrf
                         @method('PUT')
-                        <div class="col-md-5 featured__image" style="position:relative; left:0px; top:0px;">
-                            <img src="storage/programs_image/{{ $latest_cover->cover_image }}" alt="" class="bg__image">
+                        <div class="col-md-5 featured__image" style="position:relative; left:0px; top:0px; width:300px; height:300px;">
+                            <img src="storage/home_cover_images/{{$home_body_cover_image->cover_image}}" alt="" class="" width="300px" height="300px">
+                        </div>
                             <input type="file" class="" id="cover_image" name="cover_image" >
-                            @csrf
+                            
                             <div class="save__button--container" style="margin-top:0px;">
                                 <button class="button" id="submit__button"><span>Save Cover</span></button>
                             </div>
+                            {{--  <button class="add__photo button"><span>ADD PHOTO</span></button>  --}}
                         </div>
                     </form>
                 </div>

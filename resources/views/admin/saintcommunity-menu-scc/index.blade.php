@@ -39,7 +39,7 @@
 
                 <p class="top__bar-hero">
 
-                        <span>WEBSITE Navigation Menu</span>
+                        <span style="margin-left:100px;">WEBSITE Navigation Menu</span>
 
                 </p>
                 
@@ -92,7 +92,7 @@
                         <p class="text__description">Website Logo </p>
                         <img src="storage/menuLogo_image/{{ $menu_logo->logo }}" alt="" class="bg__image">
                         <form method="POST" action="{{ url('updateMenuLogo/'.$menu_logo->id) }}" enctype="multipart/form-data">
-                            @csrf
+                            @csrf 
                             @method('PUT')
                             <div class="col-md-5 featured__image" style="position:relative; left:0px; top:0px;">
                                 
@@ -116,32 +116,32 @@
                         @method('PUT')
                         
                         <div class="geo" style="">
-                            <label for="home">Home</label>
-                            <input type="text" class="" id="home" name="home" placeholder="" value="{{ $menu->home }}" style="width:30%; margin-left:100px;">                    
+                            <label for="home">Home</label><br>
+                            <input type="text" class="" id="home" name="home" placeholder="" value="{{ $menu->home }}" style="width:30%; margin-left:;">                    
                         </div>
                         <div class="geo">
-                            <label for="about">About SCC Page</label>
-                            <input type="text" class="" id="about" name="about_us" placeholder="" value="{{ $menu->about_us }}" style="width:30%; margin-left:30px;">                   
+                            <label for="about">About SCC Page</label><br>
+                            <input type="text" class="" id="about" name="about_us" placeholder="" value="{{ $menu->about_us }}" style="width:30%; ">                   
                         </div>
                         <div class="geo">
-                            <label for="locations">Locations</label>
-                            <input type="text" class="" id="locations" name="locations" placeholder="" value="{{ $menu->locations }}" style="width:30%;margin-left:80px;">   
+                            <label for="locations">Locations</label><br>
+                            <input type="text" class="" id="locations" name="locations" placeholder="" value="{{ $menu->locations }}" style="width:30%;">   
                         </div>
                         <div class="geo">
-                            <label for="media">Media</label>
-                            <input type="text" class="" id="media" name="media" placeholder="" value="{{ $menu->media }}" style="width:30%; margin-left:100px;">   
+                            <label for="media">Media</label><br>
+                            <input type="text" class="" id="media" name="media" placeholder="" value="{{ $menu->media }}" style="width:30%; ">   
                         </div>
                         <div class="geo">
-                            <label for="partnership">Partnership Page</label>
-                            <input type="text" class="" id="partnership" name="partnership" placeholder="" value="{{ $menu->partnership }}" style="width:30%; margin-left:34px;">   
+                            <label for="partnership">Partnership Page</label><br>
+                            <input type="text" class="" id="partnership" name="partnership" placeholder="" value="{{ $menu->partnership }}" style="width:30%;">   
                         </div>
                         <div class="geo">
-                            <label for="events">Events Page</label>
-                            <input type="text" class="" id="events" name="events" placeholder="" value="{{ $menu->events }}" style="width:30%; margin-left:60px;">   
+                            <label for="events">Events Page</label><br>
+                            <input type="text" class="" id="events" name="events" placeholder="" value="{{ $menu->events }}" style="width:30%;">   
                         </div>
                         <div class="geo">
-                            <label for="contact">Contact Page</label>
-                            <input type="text" class="" id="contact" name="contact" placeholder="" value="{{ $menu->contact }}" style="width:30%; margin-left:55px;">   
+                            <label for="contact">Contact Page</label><br>
+                            <input type="text" class="" id="contact" name="contact" placeholder="" value="{{ $menu->contact }}" style="width:30%; ">   
                         </div>
 
                         <div class="save__button--container" style="margin-top:0px;">

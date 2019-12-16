@@ -26,23 +26,15 @@
         </ul>
         <ul class="home_footer_list_container">
             <li>
-                <a href="patnership.html" class="home_footer_link home_footer_link--title">PARTNER WITH US</a>
+                <a href="patnership.html" class="home_footer_link home_footer_link--title">{{ $footer_partner->title }}</a>
             </li>
             <li class="home_footer_link home_footer_link--spaced">
-                Account Name:
-                <br>
-                <strong>Saints Community Church</strong>
-                <br>
-            </li>
-
-            <li class="home_footer_link">
-                Account No: 1015048313 (Zenith Bank)
-                <br> Account N0: 1020186473 (UBA)
+               {!! $footer_partner->body !!}
             </li>
 
             <li class="home_footer_link">
                 <a href="" class="home__btn home__btn--red_filled home__btn--pay_footer">
-                    PAY ONLINE
+                    {{ $footer_partner->pay_btn }}
                 </a>
             </li>
 
@@ -66,7 +58,7 @@
 
         <ul class="home_footer_list_container">
             <li>
-                <a href="#" class="home_footer_link home_footer_link--title">SUBCRIBTION</a>
+                <a href="#" class="home_footer_link home_footer_link--title">SUBSCRIPTION</a>
             </li>
             <li class="home_footer_link">Click Below To Suscribe
                 <br>To Our Newsletter</li>

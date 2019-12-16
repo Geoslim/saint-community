@@ -55,7 +55,7 @@ class ContactSccController extends Controller
         ]);
         $contactScc = ContactScc::find(1);
         $contactScc->title = $request->input('title');
-        $contactScc->body = Purifier::clean($request->input('body'));
+        $contactScc->body = $request->input('body');
         $contactScc->location_btn_title = $request->input('location_btn_title');
         $contactScc->contact_btn_title = $request->input('contact_btn_title');
         

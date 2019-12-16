@@ -1,6 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\SliderHeading;
+use App\SliderImage;
+use App\HomeBody;
+use App\HomeBodyCoverImage;
 use App\AboutSccBanner;
 use App\AboutSccBody;
 use App\AboutSccCoverImage;
@@ -28,6 +32,7 @@ use App\Branch;
 use App\BranchDetails;
 use App\Menu;
 use App\MenuLogo;
+use App\FooterPartner;
 use Illuminate\Http\Request;
 
 class SaintCommunityController extends Controller
@@ -37,6 +42,10 @@ class SaintCommunityController extends Controller
         $menu_logo = MenuLogo::find(1);
         $menu = Menu::find(1);
         $headerbase = HeaderBase::find(1);
+        $slider_images = SliderImage::get();
+        $slider_heading = SliderHeading::find(1);
+        $home_body = HomeBody::find(1);
+        $home_body_cover_image = homeBodyCoverImage::find(1);
         $latest_detail = LatestRelease::find(1);
         $latest_cover = LatestReleaseCover::find(1);
         $upcoming_events = EventUpcoming::get();
@@ -44,17 +53,23 @@ class SaintCommunityController extends Controller
         $socialmedia = SocialMedia::find(1);
         $branches = Branch::get();
         $branch_section_details = BranchDetails::find(1);
+        $footer_partner = FooterPartner::find(1);
         return view('saintcommunity-index.index')
         ->with('menu_logo', $menu_logo)
         ->with('menu', $menu)
         ->with('headerbase', $headerbase)
+        ->with('slider_heading', $slider_heading)
+        ->with('slider_images', $slider_images)
+        ->with('home_body', $home_body)
+        ->with('home_body_cover_image', $home_body_cover_image)
         ->with('latest_detail', $latest_detail)
         ->with('latest_cover', $latest_cover)
         ->with('upcoming_events', $upcoming_events)
         ->with('upcoming_heading', $upcoming_heading)
         ->with('socialmedia', $socialmedia)
         ->with('branches', $branches)
-        ->with('branch_section_details', $branch_section_details);
+        ->with('branch_section_details', $branch_section_details)
+        ->with('footer_partner', $footer_partner);
     }
 
 
@@ -72,6 +87,7 @@ class SaintCommunityController extends Controller
         $socialmedia = SocialMedia::find(1);
         $branches = Branch::get();
         $branch_section_details = BranchDetails::find(1);
+        $footer_partner = FooterPartner::find(1);
         return view('saintcommunity-about.about')
         ->with('menu_logo', $menu_logo)
         ->with('menu', $menu)
@@ -85,7 +101,8 @@ class SaintCommunityController extends Controller
         ->with('upcoming_heading', $upcoming_heading)
         ->with('socialmedia', $socialmedia)
         ->with('branches', $branches)
-        ->with('branch_section_details', $branch_section_details);
+        ->with('branch_section_details', $branch_section_details)
+        ->with('footer_partner', $footer_partner);
 
     }
 
@@ -98,6 +115,7 @@ class SaintCommunityController extends Controller
         $upcoming_events = EventUpcoming::get();
         $upcoming_heading = EventUpcomingHeading::find(1);
         $socialmedia = SocialMedia::find(1);
+        $footer_partner = FooterPartner::find(1);
         return view('saintcommunity-location.location')
         ->with('menu_logo', $menu_logo)
         ->with('menu', $menu)
@@ -106,7 +124,8 @@ class SaintCommunityController extends Controller
         ->with('latest_cover', $latest_cover)
         ->with('upcoming_events', $upcoming_events)
         ->with('upcoming_heading', $upcoming_heading)
-        ->with('socialmedia', $socialmedia);
+        ->with('socialmedia', $socialmedia)
+        ->with('footer_partner', $footer_partner);
     }
 
     public function mediaPage(){
@@ -118,6 +137,7 @@ class SaintCommunityController extends Controller
         $media_cover = mediaCover::find(1);
         $media_publish_details = MediaPublishDetail::get();
         $socialmedia = SocialMedia::find(1);
+        $footer_partner = FooterPartner::find(1);
         return view('saintcommunity-media.media')
         ->with('menu_logo', $menu_logo)
         ->with('menu', $menu)
@@ -126,7 +146,8 @@ class SaintCommunityController extends Controller
         ->with('media_banner', $media_banner)
         ->with('media_cover', $media_cover)
         ->with('media_publish_details', $media_publish_details)
-        ->with('socialmedia', $socialmedia);
+        ->with('socialmedia', $socialmedia)
+        ->with('footer_partner', $footer_partner);
     }
 
     public function partnershipPage(){
@@ -143,6 +164,7 @@ class SaintCommunityController extends Controller
         $branches = Branch::get();
         $branch_section_details = BranchDetails::find(1);
         $socialmedia = SocialMedia::find(1);
+        $footer_partner = FooterPartner::find(1);
         return view('saintcommunity-partnership.partnership')
         ->with('menu_logo', $menu_logo)
         ->with('menu', $menu)
@@ -156,7 +178,8 @@ class SaintCommunityController extends Controller
         ->with('upcoming_events', $upcoming_events)
         ->with('upcoming_heading', $upcoming_heading)
         ->with('branches', $branches)
-        ->with('branch_section_details', $branch_section_details);
+        ->with('branch_section_details', $branch_section_details)
+        ->with('footer_partner', $footer_partner);
     }
 
     public function eventPage(){
@@ -174,6 +197,7 @@ class SaintCommunityController extends Controller
         $socialmedia = SocialMedia::find(1);
         $branches = Branch::get();
         $branch_section_details = BranchDetails::find(1);
+        $footer_partner = FooterPartner::find(1);
         return view('saintcommunity-event.event')
         ->with('menu_logo', $menu_logo)
         ->with('menu', $menu)
@@ -188,7 +212,8 @@ class SaintCommunityController extends Controller
         ->with('upcoming_events', $upcoming_events)
         ->with('upcoming_heading', $upcoming_heading)
         ->with('branches', $branches)
-        ->with('branch_section_details', $branch_section_details);
+        ->with('branch_section_details', $branch_section_details)
+        ->with('footer_partner', $footer_partner);
     }
 
     public function contactUsPage(){
@@ -201,6 +226,7 @@ class SaintCommunityController extends Controller
         $ContactGoogleMap = ContactGoogleMap::find(1);
         $branches = Branch::get();
         $branch_section_details = BranchDetails::find(1);
+        $footer_partner = FooterPartner::find(1);
         return view('saintcommunity-contact.contact')
         ->with('menu_logo', $menu_logo)
         ->with('menu', $menu)
@@ -210,6 +236,7 @@ class SaintCommunityController extends Controller
         ->with('contactScc', $contactScc)
         ->with('ContactGoogleMap', $ContactGoogleMap)
         ->with('branches', $branches)
-        ->with('branch_section_details', $branch_section_details);
+        ->with('branch_section_details', $branch_section_details)
+        ->with('footer_partner', $footer_partner);
     }
 }
