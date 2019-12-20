@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class ContactSccController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     
     public function index() {
         $contact_banner = ContactBanner::find(1);

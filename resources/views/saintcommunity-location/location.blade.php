@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="resources/css/styles.css" rel="stylesheet">
+    <link href="resources/mystyles.css" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" href="favicon.ico">
     <script language="javascript" type="text/javascript" src="https://equinox.shoutca.st/system/player.js"></script>
@@ -17,7 +18,11 @@
 
 <body>
 
-    <header class="header_hero header_hero--location">
+    <header class="header_hero header_hero--location" style="  height: 550px;
+    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0,.8)), url(storage/locationBanner_image/{{ $locationscc_banner->banner_image }});
+    background-position: 72% 50%;
+    background-size: cover;
+    position: relative;">
       
         @include('partials.nav-header')
      
@@ -29,8 +34,30 @@
     <section class="location_main">
 
         <div class="main_row">
+            <div class="row" >
+                @foreach ($locations as $location)
+            
+                <div class="col-md-6">
+                    <div class="pin_container" style="margin-top:10px;">
+                        <img class="pin" src="resources/images/pin.svg" alt="">
+                    </div>
+                    <div class="individual_location_content" style="margin:auto; ">
+                        <div>
+                            <h3 class="individual_location_content__title">
+                                {{ $location->location_title }}
+                            </h3>
+                            <p class="individual_location_content__text">
+                                {{ $location->address }}
+                                CONTACT: {{ $location->contact_name }} - {{ $location->contact_phone }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
 
-            <div class="location__wrapper_one">
+            </div>
+            
+            {{-- <div class="location__wrapper_one">
 
                 <div class="individaul_location_container">
 
@@ -361,7 +388,8 @@
 
                 </div>
 
-            </div>
+            </div> --}}
+            
 
         </div>
 

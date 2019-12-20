@@ -37,7 +37,7 @@
 
             <form action="{{ route('login') }}" method="POST" class="admin__login_form">
                 @csrf
-                <input type="email" name="" class="@error('email') is-invalid @enderror" placeholder="Email Address" id="admin__mail" value="{{ old('email') }}" autocomplete="email">
+                <input type="email" name="email" class="@error('email') is-invalid @enderror" placeholder="Email Address" id="admin__mail" vvalue="{{ old('email') }}" required autocomplete="email" autofocus>
                     @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

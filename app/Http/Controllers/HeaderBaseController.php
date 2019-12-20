@@ -6,6 +6,11 @@ use Illuminate\Http\Request;
 
 class HeaderBaseController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index() {
         $headerbase = HeaderBase::find(1);
         return view('admin.saintcommunity-header-base.index')->with('headerbase', $headerbase);

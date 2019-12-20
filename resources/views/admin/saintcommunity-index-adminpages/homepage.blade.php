@@ -20,7 +20,7 @@
         }
     </style>
 
-    <title>Admin/Media Page</title>
+    <title>Admin</title>
 </head>
 <body>
 <div class="top__bar">
@@ -29,7 +29,7 @@
 
                 <p class="top__bar-hero">
 
-                        <span>Home</span>
+                        <span>ADMIN - PAGES</span>
 
                 </p>
 
@@ -74,14 +74,14 @@
                             <div class="left__home--item">
 
 
-                                <p><img src="resources/images/homepage_img.svg" alt="" class="homepage__img"></p>
+                                <p><a href="{{url('home-scc')}}" class="home__page--link"><img src="resources/images/homepage_img.svg" alt="" class="homepage__img"></a></p>
                                 <p class="home__menu--description"><a href="{{url('home-scc')}}" class="home__page--link">Home Page</a></p>
 
                             </div>
                             <div class="left__home--item">
 
 
-                                <p><img src="resources/images/contactus_img.svg" alt="" class="homepage__img"></p>
+                                <p><a href="{{ url('contact-scc') }}" class="home__page--link"><img src="resources/images/contactus_img.svg" alt="" class="homepage__img"></a></p>
                                 <p class="home__menu--description"><a href="{{ url('contact-scc') }}" class="home__page--link">Contact Us</a></p>
 
 
@@ -89,7 +89,7 @@
                             <div class="left__home--item">
 
 
-                                <p><img src="resources/images/media_img.svg" alt="" class="homepage__img"></p>
+                                <p><a href="{{url('media-scc')}}" class="home__page--link"><img src="resources/images/media_img.svg" alt="" class="homepage__img"></a></p>
                                 <p class="home__menu--description"><a href="{{url('media-scc')}}" class="home__page--link">Media</a></p>
 
 
@@ -97,7 +97,7 @@
                             <div class="left__home--item">
 
 
-                                <p><img src="resources/images/footer_img.svg" alt="" class="homepage__img"></p>
+                                <p><a href="{{ url('footer-scc') }}" class="home__page--link"><img src="resources/images/footer_img.svg" alt="" class="homepage__img"></a></p>
                                 <p class="home__menu--description"><a href="{{ url('footer-scc') }}" class="home__page--link">Footer</a></p>
 
 
@@ -111,15 +111,15 @@
                                 <div class="right__home--item">
 
 
-                                            <p><img src="resources/images/aboutscc.svg" alt="" class="homepage__img" id="aboutscc__img"></p>
-                                <p class="home__menu--description"><a href="{{url('about-scc')}}" class="home__page--link">About SCC</a></p>
+                                            <p><a href="{{ url('about-scc')}}"class="home__page--link"> <img src="resources/images/aboutscc.svg" alt="" class="homepage__img" id="aboutscc__img"></a></p>
+                                <p class="home__menu--description"><a href="{{ url('about-scc')}}"class="home__page--link"> About SCC</a></p>
 
 
                                 </div>
                                 <div class="right__home--item">
 
 
-                                            <p><img src="resources/images/programs_img.svg" alt="" class="homepage__img"></p>
+                                            <p><a href="{{ url('events-scc') }}" class="home__page--link"><img src="resources/images/programs_img.svg" alt="" class="homepage__img"></a></p>
                                             <p class="home__menu--description"><a href="{{ url('events-scc') }}" class="home__page--link">Events</a></p>
 
 
@@ -127,7 +127,7 @@
                                 <div class="right__home--item">
 
 
-                                            <p><img src="resources/images/partnership_img.svg" alt="" class="homepage__img"></p>
+                                            <p><a href="{{url('partnership-scc')}}" class="home__page--link"><img src="resources/images/partnership_img.svg" alt="" class="homepage__img"></a></p>
                                             <p class="home__menu--description"><a href="{{url('partnership-scc')}}" class="home__page--link">Partnerships</a></p>
 
 
@@ -135,8 +135,8 @@
                                 <div class="right__home--item ">
 
 
-                                            <p><img src="resources/images/menu_img.svg" alt="" class="homepage__img"></p>
-                                            <p class="home__menu--description"><a href="{{url('menu-scc')}}" class="home__page--link">Menu</a></p>
+                                            <p><a href="{{url('locations-scc')}}" class="home__page--link"><img src="resources/images/menu_img.svg" alt="" class="homepage__img"></a></p>
+                                            <p class="home__menu--description"><a href="{{url('locations-scc')}}" class="home__page--link">Locations</a></p>
 
 
                                 </div>

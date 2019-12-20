@@ -87,7 +87,7 @@
                 <p class="text__description">Update Publish</p>
             </div>
             <div class="form__container">
-                <a href="{{ url('create-publish') }}"><button class=" btn btn-sm" style="text-align:center; margin-left:50px; margin-top:50px;"><span>Add Publish</span></button></a>
+                <a href="{{ url('create-publish') }}"><button class=" btn btn-sm btn-warning" style="text-align:center; margin-left:50px; margin-top:50px;"><span>Add Publish</span></button></a>
                     <div class="table__container">
                         
                         <table class="table__container--main">
@@ -103,9 +103,11 @@
     
                             </thead>
                             @if (count($media_publishs) > 0 )
+                            <?php $i = 0; ?>
                                 @foreach ($media_publishs as $media_publish)
+                                <?php $i++; ?>
                                     <tr class="table__row">
-                                        <td class="table__data">{{$media_publish->id}}</td>
+                                        <td class="table__data">{{$i}}</td>
                                         <td class="table__data">{{$media_publish->updated_at}}</td>
                                         <td class="table__data">{{$media_publish->title}}</td>
                                         <td class="table__data">

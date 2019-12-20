@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 
 class PartnershipController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index() {
         $partnership_banner = PartnershipBanner::find(1);
         $partnership_body = PartnershipBody::find(1);

@@ -6,22 +6,22 @@
                 <a href="" class="home_footer_link home_footer_link--title">GET TO KNOW US</a>
             </li>
             <li>
-                <a class="home_footer_link" href="index.html">Home</a>
+                <a class="home_footer_link" href="{{ url('/') }}">{{ $menu->home}}</a>
             </li>
             <li>
-                <a class="home_footer_link" href="media.html">Media</a>
+                <a class="home_footer_link" href="{{ url('/media/') }}">{{ $menu->media}}</a>
             </li> 
             <li>
-                <a class="home_footer_link" href="location.html">Location</a>
+                <a class="home_footer_link" href="{{ url('/location/') }}">{{ $menu->locations}}</a>
             </li>
             <li>
-                <a class="home_footer_link" href="patnership.html">Partnership</a>
+                <a class="home_footer_link" href="{{ url('/partnership/') }}">{{ $menu->partnership}}</a>
             </li>
             <li>
-                <a class="home_footer_link" href="program.html">Programs</a>
+                <a class="home_footer_link" href="{{ url('/event/') }}">{{ $menu->events}}</a>
             </li>
             <li>
-                <a class="home_footer_link" href="about-us.html">About Us</a>
+                <a class="home_footer_link" href="{{ url('/about-us/') }}">{{ $menu->about_us}}</a>
             </li>
         </ul>
         <ul class="home_footer_list_container">

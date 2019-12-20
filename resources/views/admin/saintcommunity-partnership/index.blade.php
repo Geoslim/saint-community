@@ -43,7 +43,7 @@
                         <span>PARTNERSHIP</span>
 
                 </p>
-                @include('includes.messages')
+               
 
         </div>
 
@@ -80,8 +80,11 @@
         </div>
 
         <div class="center__Container">
-
+            @include('includes.messages')
             <div class="form__header--list">
+                <p class="form__header--sub">
+                    <a href="{{ url('admin-pages') }}"> <img src="resources/images/right-arrow-forward.svg" alt="" class="back__arrow"><span>Back</span></a>
+                 </p>
                 <p class="form__header--sub">
                 </p>
                 <p class="text__description">Edit Partnership Page</p>

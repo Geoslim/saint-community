@@ -7,6 +7,10 @@ use App\Menu;
 use App\MenuLogo;
 class MenuController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $menu = Menu::find(1);

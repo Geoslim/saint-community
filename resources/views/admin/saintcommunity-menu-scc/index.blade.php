@@ -82,8 +82,8 @@
                 @include('includes.messages')
             <div class="form__header--list">
                 <p class="form__header--sub">
-                    {{-- <img src="images/right-arrow-forward.svg" alt="" class="back__arrow"><span>Back</span> --}}
-                </p>
+                    <a href="{{ url('admin') }}"> <img src="resources/images/right-arrow-forward.svg" alt="" class="back__arrow"><span>Back</span></a>
+                 </p>
                 <p class="text__description">Edit Navigation Menu Titles</p>
             </div>
 

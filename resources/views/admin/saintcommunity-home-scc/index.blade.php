@@ -20,7 +20,7 @@
         }
     </style>
 
-    <title>Admin/Media Page</title>
+    <title>Admin/Home Page</title>
 </head>
 <body>
 <div class="top__bar">
@@ -74,7 +74,7 @@
                             <div class="left__home--item">
 
 
-                                <p><img src="resources/images/media_img.svg" alt="" class="homepage__img"></p>
+                                <p><a href="{{url('home-scc-slider')}}" class="home__page--link"><img src="resources/images/media_img.svg" alt="" class="homepage__img"></a></p>
                                 <p class="home__menu--description"><a href="{{url('home-scc-slider')}}" class="home__page--link">Home Slider</a></p>
 
 
@@ -82,8 +82,8 @@
                             <div class="left__home--item">
 
 
-                                <p><img src="resources/images/footer_img.svg" alt="" class="homepage__img"></p>
-                                <p class="home__menu--description"><a href="{{ url('footer-scc') }}" class="home__page--link">Home Media</a></p>
+                                <p><a href="{{ url('home-scc-media') }}" class="home__page--link"><img src="resources/images/footer_img.svg" alt="" class="homepage__img"></a></p>
+                                <p class="home__menu--description"><a href="{{ url('home-scc-media') }}" class="home__page--link">Home Media</a></p>
 
 
                             </div>
@@ -96,7 +96,7 @@
                                 <div class="right__home--item">
 
 
-                                            <p><img src="resources/images/aboutscc.svg" alt="" class="homepage__img" id="aboutscc__img"></p>
+                                            <p><a href="{{url('home-scc-body')}}" class="home__page--link"><img src="resources/images/aboutscc.svg" alt="" class="homepage__img" id="aboutscc__img"></a></p>
                                 <p class="home__menu--description"><a href="{{url('home-scc-body')}}" class="home__page--link">Home Body</a></p>
 
 
@@ -105,8 +105,8 @@
                                 <div class="right__home--item ">
 
 
-                                            <p><img src="resources/images/menu_img.svg" alt="" class="homepage__img"></p>
-                                            <p class="home__menu--description"><a href="{{url('menu-scc')}}" class="home__page--link">Home Broadcast</a></p>
+                                            <p><a href="{{url('home-scc-broadcast')}}" class="home__page--link"><img src="resources/images/menu_img.svg" alt="" class="homepage__img"></a></p>
+                                            <p class="home__menu--description"><a href="{{url('home-scc-broadcast')}}" class="home__page--link">Home Broadcast</a></p>
 
 
                                 </div>

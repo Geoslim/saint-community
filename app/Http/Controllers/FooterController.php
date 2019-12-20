@@ -7,6 +7,10 @@ use App\FooterPartner;
 use App\FooterDownload;
 class FooterController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $footer_partner = FooterPartner::find(1);

@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 
 class LatestReleaseController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $latest_detail = LatestRelease::find(1);

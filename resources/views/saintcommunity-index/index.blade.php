@@ -138,8 +138,8 @@
         </div>
 
         <div class="main_row">
-            <a href="https://www.livingwordmedia.org/" class="home__btn home__btn--full home__btn--no_border_radius">Download Teaching FREE
-                <span class="download__url"> || www.livingwordmedia.org</span>
+            <a href="{{ url('https://'.$media_heading->media_url) }}" class="home__btn home__btn--full home__btn--no_border_radius">
+                {{ $media_heading->media_heading }} <span class="download__url">  || {{ $media_heading->media_url_title }}</span>
             </a>
         </div>
 
@@ -153,15 +153,19 @@
                     <img src="resources/images/RIGHT_NAV.svg" alt="">
                 </div>
                 <div class="home_slider__inner_container owl-carousel owl-one owl-theme">
-                    <div class="home_slide">
-                        <img src="resources/images/charis-camp-meeting-2019.jpg" alt="" class="home_slide_img">
-                    </div>
-                    <div class="home_slide">
+                    @if (count($media_images) > 0 )
+                    @foreach ($media_images as $media_image)
+                        <div class="home_slide">
+                            <img src="storage/home_media_images/{{ $media_image->media_image }}" alt="" class="home_slide_img">
+                        </div>
+                    @endforeach
+                    @endif
+                    {{-- <div class="home_slide">
                         <img src="resources/images/NewTelecast.png" class="home_slide_img" alt="">
                     </div>
                     <div class="home_slide">
                         <img src="resources/images/livingwordmedia-banner.png" class="home_slide_img" alt="">
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>
@@ -180,12 +184,12 @@
                         <span class="video_icon">
                             <img width="16px" src="resources/images/video-cam.svg" alt="">
                         </span>
-                        VIDEO OF THE WEEK
+                        {{ $home_online_video->title }}
                     </h2>
                 </div>
                 <div class="featured_video__content">
                     <video class="video_of_the_week" controls>
-                        <source src="resources/video/Be+ye+angry+22nd+July+2018-Segment 1_6.mp4" type="video/mp4"> Your browser does not support the video tag.
+                        <source src="storage/home_online_videos/{{ $home_online_video->online_video }}" type="video/mp4"> Your browser does not support the video tag.
                     </video>
                 </div>
             </div>
@@ -196,11 +200,11 @@
                         <span class="video_icon">
                             <img width="16px" src="resources/images/satellite.svg" alt="">
                         </span>
-                        TELECAST
+                        {{ $home_telecast_url->title }}
                     </h2>
                 </div>
                 <div class="featured_video__content">
-                    <iframe width="560" height="200%" src="https://www.youtube.com/embed/86QdWvC2v8M" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                    <iframe width="560" height="200%" src="{{ $home_telecast_url->video_url }}" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
                         allowfullscreen></iframe>
                 </div>
             </div>
@@ -211,7 +215,7 @@
                         <span class="video_icon">
                             <img width="16px" src="resources/images/antenna.svg" alt="">
                         </span>
-                        ONLINE RADIO
+                        {{ $home_online_radio->title }}
                     </h2>
 
                 </div>
@@ -221,7 +225,7 @@
                         <span class="cc_streaminfo" data-type="song" data-username="livingwordmedia">
 
                         </span>
-                        <iframe style="border:none;" src="https://livingwordmedia.radioca.st/stream"></iframe>
+                        <iframe style="border:none;" src="{{ $home_online_radio->online_radio_url }}"></iframe>
                     </div>
                 </div>
             </div>

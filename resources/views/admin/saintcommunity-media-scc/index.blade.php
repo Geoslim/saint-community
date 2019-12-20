@@ -29,7 +29,7 @@
 
                 <p class="top__bar-hero">
 
-                        <span>Home</span>
+                        <span>MEDIA</span>
 
                 </p>
 
@@ -76,7 +76,7 @@
                             <div class="left__home--item">
 
 
-                                <p><img src="resources/images/footer_img.svg" alt="" class="homepage__img"></p>
+                                <p><a href="{{ url('media-body') }}" class="home__page--link"><img src="resources/images/footer_img.svg" alt="" class="homepage__img"></a></p>
                                 <p class="home__menu--description"><a href="{{ url('media-body') }}" class="home__page--link">Media Body</a></p>
 
 
@@ -88,7 +88,7 @@
                                 <div class="left__home--item">
 
 
-                                        <p><img src="resources/images/media_img.svg" alt="" class="homepage__img"></p>
+                                        <p><a href="{{ url('media-publish') }}" class="home__page--link"><img src="resources/images/media_img.svg" alt="" class="homepage__img"></a></p>
                                         <p class="home__menu--description"><a href="{{ url('media-publish') }}" class="home__page--link">Media Publish</a></p>
         
         

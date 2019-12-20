@@ -10,6 +10,11 @@ use App\MediaPublishDetail;
 
 class MediaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         return view('admin.saintcommunity-media-scc.index');

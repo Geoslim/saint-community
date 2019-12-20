@@ -117,9 +117,11 @@
     
                             </thead>
                             @if (count($upcoming_events) > 0 )
+                            <?php $i = 0; ?>
                                 @foreach ($upcoming_events as $upcoming_event)
+                                <?php $i++; ?>
                                     <tr class="table__row">
-                                        <td class="table__data">{{$upcoming_event->id}}</td>
+                                        <td class="table__data">{{ $i }}</td>
                                         <td class="table__data">{{$upcoming_event->updated_at}}</td>
                                         <td class="table__data">{{ $upcoming_event->title }}</td>
                                         <td class="table__data">

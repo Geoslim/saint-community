@@ -1003,7 +1003,7 @@ section{
 .home_social_wrapper {
     padding: 64px 0;
 }
-
+ 
 .home_social__title {
     font-family: Montserrat;
     font-style: Bold;
@@ -2158,11 +2158,11 @@ label.contact_modal__sub_title {
 /* style rules for location  */
 
 .header_hero--location {
-    height: 550px;
+    /* height: 550px;
     background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0,.8)), url(../images/location.jpg);
     background-position: 72% 50%;
     background-size: cover;
-    position: relative;
+    position: relative; */
 }
 
 .header_hero--program {
@@ -2183,10 +2183,10 @@ label.contact_modal__sub_title {
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
     width: 502px;
     height: 155px;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    /* flex-direction: column; */
     padding: 24px;
 }
 
@@ -2218,15 +2218,15 @@ label.contact_modal__sub_title {
 }
 
 .location__wrapper_one {
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 .location__wrapper_two {
-    display: flex;
+    /* display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: center; */
 }
 
 

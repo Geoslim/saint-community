@@ -39,10 +39,10 @@
 
                 <p class="top__bar-hero">
 
-                        <span>WEBSITE HEADER BASE</span>
+                        <span style="margin-left:100px;">WEBSITE HEADER BASE</span>
 
                 </p>
-                @include('includes.messages')
+                
 
         </div>
 
@@ -79,10 +79,10 @@
         </div>
 
         <div class="center__Container">
-
+            @include('includes.messages')
             <div class="form__header--list">
                 <p class="form__header--sub">
-                    {{-- <img src="images/right-arrow-forward.svg" alt="" class="back__arrow"><span>Back</span> --}}
+                    <a href="{{ url('admin') }}"><img src="resources/images/right-arrow-forward.svg" alt="" class="back__arrow"><span>Back</span></a>
                 </p>
                 <p class="text__description">Edit Header Base</p>
             </div>

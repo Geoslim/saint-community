@@ -29,7 +29,7 @@
         }
     </style>
 
-    <title>Admin/Media Page</title>
+    <title>Admin/Social Media</title>
 </head>
 <body>
 <div class="top__bar">
@@ -41,7 +41,7 @@
                         <span>Social Media</span>
 
                 </p>
-                @include('includes.messages')
+               
 
         </div>
 
@@ -78,7 +78,11 @@
         </div>
 
         <div class="center__Container">
+            @include('includes.messages')
                 <div class="form__header--list">
+                    <p class="form__header--sub">
+                        <a href="{{ url('admin') }}"> <img src="resources/images/right-arrow-forward.svg" alt="" class="back__arrow"><span>Back</span></a>
+                     </p>
                         <h2 class="form__header--sub">
                             Make Changes to your Social Media Handles
                         </h2>

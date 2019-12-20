@@ -108,7 +108,7 @@
         <div class="container">
 
             <div class="cards-wrapper">
-
+ 
                 <ul class="cards__container">
                     @foreach ($media_publish_details as $media_publish_detail)
                         <li class="box" style="background-color:red">

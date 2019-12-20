@@ -5,6 +5,11 @@ use App\SliderHeading;
 use App\SliderImage;
 use App\HomeBody;
 use App\HomeBodyCoverImage;
+use App\HomeMediaHeading;
+use App\HomeMediaImage;
+use App\HomeOnlineVideo;
+use App\HomeTelecast;
+use App\HomeOnlineRadio;
 use App\AboutSccBanner;
 use App\AboutSccBody;
 use App\AboutSccCoverImage;
@@ -12,6 +17,8 @@ use App\Media;
 use App\MediaBanner;
 use App\MediaCover;
 use App\MediaPublishDetail;
+use App\LocationSccBanner;
+use App\Location;
 use App\EventBanner;
 use App\EventBody;
 use App\EventCover;
@@ -46,6 +53,11 @@ class SaintCommunityController extends Controller
         $slider_heading = SliderHeading::find(1);
         $home_body = HomeBody::find(1);
         $home_body_cover_image = homeBodyCoverImage::find(1);
+        $media_heading = HomeMediaHeading::find(1);
+        $media_images = homeMediaImage::get();
+        $home_online_video = HomeOnlineVideo::find(1);
+        $home_telecast_url = HomeTelecast::find(1);
+        $home_online_radio = HomeOnlineRadio::find(1);
         $latest_detail = LatestRelease::find(1);
         $latest_cover = LatestReleaseCover::find(1);
         $upcoming_events = EventUpcoming::get();
@@ -62,6 +74,11 @@ class SaintCommunityController extends Controller
         ->with('slider_images', $slider_images)
         ->with('home_body', $home_body)
         ->with('home_body_cover_image', $home_body_cover_image)
+        ->with('media_heading', $media_heading)
+        ->with('media_images', $media_images)
+        ->with('home_online_video', $home_online_video)
+        ->with('home_telecast_url', $home_telecast_url)
+        ->with('home_online_radio', $home_online_radio)
         ->with('latest_detail', $latest_detail)
         ->with('latest_cover', $latest_cover)
         ->with('upcoming_events', $upcoming_events)
@@ -109,7 +126,9 @@ class SaintCommunityController extends Controller
     public function locationPage(){
         $menu_logo = MenuLogo::find(1);
         $menu = Menu::find(1);
+        $locationscc_banner = LocationSccBanner::find(1);
         $headerbase = HeaderBase::find(1);
+        $locations = Location::get();
         $latest_detail = LatestRelease::find(1);
         $latest_cover = LatestReleaseCover::find(1);
         $upcoming_events = EventUpcoming::get();
@@ -119,7 +138,9 @@ class SaintCommunityController extends Controller
         return view('saintcommunity-location.location')
         ->with('menu_logo', $menu_logo)
         ->with('menu', $menu)
+        ->with('locationscc_banner', $locationscc_banner)
         ->with('headerbase', $headerbase)
+        ->with('locations', $locations)
         ->with('latest_detail', $latest_detail)
         ->with('latest_cover', $latest_cover)
         ->with('upcoming_events', $upcoming_events)

@@ -115,15 +115,17 @@
                                 <tr class="table__row" >
                                     <th class="table__section" >S/N</th>
                                     <th class="table__section">DATE UPDATED</th>
-                                    <th class="table__section">LOCATION</th>
+                                    <th class="table__section">LOCATIONS</th>
                                     <th class="table__section">ACTIONS</th>
                                 </tr>
     
                             </thead>
                             @if (count($branches) > 0 )
+                            <?php $i = 0; ?>
                                 @foreach ($branches as $branch)
+                                <?php $i++; ?>
                                     <tr class="table__row">
-                                        <td class="table__data">{{$branch->id}}</td>
+                                        <td class="table__data">{{ $i }}</td>
                                         <td class="table__data">{{$branch->updated_at}}</td>
                                         <td class="table__data">{{$branch->location}}</td>
                                         <td class="table__data">
@@ -142,7 +144,7 @@
                         
     
                     </div>
-                    <a href="{{action('BranchesController@create')}}"><button class=" btn btn-sm btn-warning" style="text-align:center;"><span>Add Branch</span></button></a>
+                    <a href="{{ action('BranchesController@create') }}"><button class=" btn btn-sm btn-warning" style="text-align:center;"><span>Add Branch</span></button></a>
                   
             </div>
 
@@ -155,8 +157,6 @@
 </section>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous"></script>
 
-
-</script>
 </body>
 </html>
 

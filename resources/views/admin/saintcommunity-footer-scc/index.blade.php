@@ -8,7 +8,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
     <link href="vendor/css/animate.css" rel="stylesheet">
     <link rel="stylesheet" href="vendor/css/jquery.ui.css">
-    <style>
+    <style> 
         @import url('https://fonts.googleapis.com/css?family=Lato:100,300,300i,400');
         @import url(resources/css/directory.css);
         @import url(resources/admin1.css);
@@ -81,7 +81,7 @@
             @include('includes.messages')
             <div class="form__header--list">
                 <p class="form__header--sub">
-                   <a href="{{ url('admin-homepage') }}"> <img src="resources/images/right-arrow-forward.svg" alt="" class="back__arrow"><span>Back</span></a>
+                   <a href="{{ url('admin-pages') }}"> <img src="resources/images/right-arrow-forward.svg" alt="" class="back__arrow"><span>Back</span></a>
                 </p>
                 <p class="text__description">Edit Footer Section</p>
             </div>

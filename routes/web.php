@@ -32,7 +32,7 @@ Auth::routes();
 //=======================================================================================================================================//
 //ROLE ID 1 :: Super Super Admin jumoke@kjk.com.africa   ....//exclude her from being displayed with other admin on the back end
 //ROLE ID 2" Super Admin //have all priviledges both delete and edit
-//ROLE ID 3   Editor     //Have only the priviledge to edit and not deleteb
+//ROLE ID 3   Editor     //Have only the priviledge to edit and not delete
 //============================================================================================================================//
 Route::get('/admin', 'AdminHomepageController@adminIndex');
 Route::get('/admin-pages/', 'AdminHomepageController@adminPagesIndex');
@@ -100,6 +100,7 @@ Route::get('footer-scc', 'FooterController@index');
 Route::put('updateFooterPartner/{id}', 'FooterController@updateFooterPartner')->name('updateFooterPartner');
 Route::put('updateFooterDownload/{id}', 'FooterController@updateFooterDownload')->name('updateFooterDownload');
 
+
 Route::get('home-scc', 'HomeFrontController@index');
 Route::get('home-scc-slider', 'HomeFrontController@homeSliderIndex');
 Route::put('homeSliderHeadingUpdate/{id}', 'HomeFrontController@homeSliderHeadingUpdate')->name('homeSliderHeadingUpdate');
@@ -110,3 +111,27 @@ Route::put('homeSliderUpdate/{id}', 'HomeFrontController@homeSliderUpdate')->nam
 Route::get('home-scc-body', 'HomeFrontController@homeBody');
 Route::put('homeBodyUpdate/{id}', 'HomeFrontController@homeBodyUpdate')->name('homeBodyUpdate');
 Route::put('homeBodyCoverUpdate/{id}', 'HomeFrontController@homeBodyCoverUpdate')->name('homeBodyCoverUpdate');
+Route::get('home-scc-media', 'HomeFrontController@homeMediaIndex');
+Route::put('homeMediaHeadingUpdate/{id}', 'HomeFrontController@homeMediaHeadingUpdate')->name('homeMediaHeadingUpdate');
+Route::get('home-scc-media-create', 'HomeFrontController@homeMediaCreate');
+Route::post('home-scc-media-create', 'HomeFrontController@homeMediaStore');
+Route::get('home-scc-media/{id}/edit', 'HomeFrontController@homeMediaEdit');
+Route::put('homeMediaUpdate/{id}', 'HomeFrontController@homeMediaUpdate')->name('homeMediaUpdate');
+Route::get('home-scc-broadcast', 'HomeFrontController@homeBroadcast');
+Route::put('homeBroadcastTelecastUpdate/{id}', 'HomeFrontController@homeBroadcastTelecastUpdate')->name('homeBroadcastTelecastUpdate');
+Route::put('homeBroadcastOnlineRadioUpdate/{id}', 'HomeFrontController@homeBroadcastOnlineRadioUpdate')->name('homeBroadcastOnlineRadioUpdate');
+Route::put('homeBroadcastVideoUpdate/{id}', 'HomeFrontController@homeBroadcastVideoUpdate')->name('homeBroadcastVideoUpdate');
+
+Route::get('locations-scc', 'LocationsController@index');
+Route::get('locations-scc-body', 'LocationsController@bodyIndex');
+Route::get('locations-scc-create', 'LocationsController@locationCreate');
+Route::post('locations-scc-create', 'LocationsController@locationStore');
+Route::get('locations-scc-body/{id}/edit', 'LocationsController@locationEdit');
+Route::put('locationUpdate/{id}', 'LocationsController@locationUpdate')->name('locationUpdate');
+Route::get('locations-scc-banner', 'LocationsController@bannerIndex');
+Route::put('locationBannerUpdate/{id}', 'LocationsController@locationBannerUpdate')->name('locationBannerUpdate');
+
+Route::get('add-admin', 'AdminMemberController@index');
+Route::post('add-admin', 'AdminMemberController@adminMemberStore');
+Route::get('manage-admin', 'AdminMemberController@adminMemberIndex');
+Route::get('manage-admin/{id}/edit', 'AdminMemberController@adminMemberEdit');

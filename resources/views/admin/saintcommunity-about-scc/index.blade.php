@@ -30,7 +30,7 @@
         
     </style>
 
-    <title>Admin/Media Page</title>
+    <title>Admin/About Page</title>
 </head>
 <body>
 <div class="top__bar">
@@ -42,7 +42,6 @@
                         <span>About SCC</span>
 
                 </p>
-                @include('includes.messages')
 
         </div>
 
@@ -79,11 +78,11 @@
         </div>
 
         <div class="center__Container">
-
+            @include('includes.messages')
             <div class="form__header--list">
                 <p class="form__header--sub">
-                    {{-- <img src="images/right-arrow-forward.svg" alt="" class="back__arrow"><span>Back</span> --}}
-                </p>
+                    <a href="{{ url('admin-pages') }}"> <img src="resources/images/right-arrow-forward.svg" alt="" class="back__arrow"><span>Back</span></a>
+                 </p>
                 <p class="text__description">Edit About Us</p>
             </div>
 
