@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Branch;
 use App\BranchDetails;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class BranchesController extends Controller
 {
@@ -32,7 +33,11 @@ class BranchesController extends Controller
      */
     public function create()
     {
+        if (Gate::allows('admin-only', auth()->user())) { 
         return view('admin.saintcommunity-branches.create');
+    }
+    return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
+   
     }
 
     /**
@@ -43,6 +48,7 @@ class BranchesController extends Controller
      */
     public function store(Request $request)
     {
+        if (Gate::allows('admin-only', auth()->user())) { 
         $this->validate($request, [
             'location' => 'required',
             'address' => 'required'
@@ -53,7 +59,9 @@ class BranchesController extends Controller
         $branches->save();
 
         return redirect()->action('BranchesController@index')->with('success', 'Branch Added Successfully');
-    
+    }
+    return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
+   
     }
 
     /**
@@ -124,6 +132,12 @@ class BranchesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (Gate::allows('admin-only', auth()->user())) { 
+            $branch = Branch::find($id);
+            $branch->delete();
+            return redirect()->action('BranchesController@index')->with('success', 'Branch Deleted Successfully');
+        }
+        return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
+        
     }
 }

@@ -17,13 +17,7 @@
             text-decoration:none;
             color:white;
         }
-        .social_btn {
-            width: 80px;
-            height:40px;
-        }
-        .social_btn:active{
-            background: #3a5;
-        }
+        
         body{
             font-family: Poppins;
         }
@@ -39,7 +33,8 @@
 
                 <p class="top__bar-hero">
 
-                        <span style="margin-left:100px;">UPCOMING EVENTS/PROGRAMS SECTION</span>
+                    <span style="margin-left:300px;">Upcoming Events</span>
+                    <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
 
                 </p>
                 
@@ -58,21 +53,7 @@
 
             <div class="left__menu--container">
 
-                <div class="left__menu--item">
-                    <img src="resources/images/LOGO.svg" alt="" class="left__bar--image">
-                </div>
-                <div class="left__menu--item">
-                    <img src="resources/images/home-page (1).svg" alt="" class="left__menu--icon">
-                    <span><a href="{{url('/admin')}}" class="a-link">Dashboard</a></span>
-                </div>
-                <div class="left__menu--item">
-                    <img src="resources/images/church.svg" alt="" class="left__menu--icon">
-                    <span><a href="{{url('/')}}" class="a-link">Back To Main Site</a></span>
-                </div>
-                <div class="left__menu--item">
-                    <img src="resources/images/logout.svg" alt="" class="left__menu--icon">
-                    <span>Log Out</span>
-                </div>
+                @include('admin.admin-menu')
 
             </div>
 
@@ -125,12 +106,20 @@
                                         <td class="table__data">{{$upcoming_event->updated_at}}</td>
                                         <td class="table__data">{{ $upcoming_event->title }}</td>
                                         <td class="table__data">
-                                            <a
-                                                href="{{ action('EventController@editUpcoming', ['upcoming_event' => $upcoming_event->id]) }}"
-                                                alt="Edit"
-                                                title="Edit">
-                                              EDIT
-                                            </a>|DELETE
+                                            <a href="{{ action('EventController@editUpcoming', ['upcoming_event' => $upcoming_event->id]) }}" alt="Edit" title="Edit">
+                                                <button class="btn btn-sm">Edit</button>
+                                            </a>
+                                            
+                                            @can('admin-only', auth()->user())
+                                            |
+                                            
+                                            <form action="{{action('EventController@destroy', ['upcoming_event' => $upcoming_event->id])}}" method="POST">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit" class="btn btn-sm" title="Delete" value="DELETE"
+                                                onclick="confirm('Click OK to Confirm Deletion');">Delete</button>
+                                            </form>
+                                            @endcan
                                         </td>
                                     </tr>
                                 @endforeach
@@ -140,8 +129,9 @@
                         
     
                     </div>
-                    <a href="{{ url('create-upcoming') }}"><button class=" btn btn-sm btn-warning" style="text-align:center; margin-left:50px; margin-top:50px;"><span>Add Events</span></button></a>
-                
+                    @can('admin-only', auth()->user())
+                        <a href="{{ url('create-upcoming') }}"><button class=" btn btn-sm btn-warning" style="text-align:center; margin-left:50px; margin-top:50px;"><span>Add Event</span></button></a>
+                    @endcan
             </div>
 
 
@@ -153,8 +143,6 @@
 </section>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous"></script>
 
-
-</script>
 </body>
 </html>
 

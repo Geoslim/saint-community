@@ -8,6 +8,7 @@ use App\AdminMember;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Gate;
 
 class AdminMemberController extends Controller
 {
@@ -17,11 +18,18 @@ class AdminMemberController extends Controller
     }
     public function index()
     {
+        if (Gate::allows('admin-only', auth()->user())) {  
+
         return view('admin.saintcommunity-add-admin.index');
+    }
+    return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
     }
 
     public function adminMemberStore(Request $request)
     {
+        if (Gate::allows('admin-only', auth()->user())) {
+            
+        
         $this->validate($request, [
             'name' => 'required|string|max:225',
             'email' => 'required|string|email|max:255',
@@ -38,22 +46,42 @@ class AdminMemberController extends Controller
 
         return redirect()->action('AdminMemberController@adminMemberIndex')->with('success', 'New Admin Member Added successfully');
     }
+    return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
+    }
 
     //manage admin members
 
     public function adminMemberIndex()
     {
+        if (Gate::allows('admin-only', auth()->user())) {  
+        
         $admin_members = AdminMember::get();
         return view('admin.saintcommunity-manage-admin.index')
         ->with('admin_members', $admin_members);
     }
+    return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
+    
+    }
 
     public function adminMemberEdit($id)
     {
+        if (Gate::allows('admin-only', auth()->user())) { 
         $admin_members = AdminMember::find($id);
         return view('admin.saintcommunity-manage-admin.edit')
         ->with('admin_members', $admin_members);
     }
+    return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
+    
+    }
 
-
+    public function destroy($id)
+    {
+        if (Gate::allows('admin-only', auth()->user())) { 
+        $admin_member = AdminMember::find($id);
+        $admin_member->delete();
+        return redirect()->action('AdminMemberController@adminMemberIndex')->with('success', 'Member Deleted Successfully');
+    }
+    return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
+    
+            }
 }

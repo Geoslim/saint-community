@@ -38,8 +38,8 @@
         <div class="top__bar--main">
 
                 <p class="top__bar-hero">
-
-                        <span>Media</span>
+                    <span style="margin-left:210px;">Media</span>
+                    <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
 
                 </p>
                 
@@ -58,21 +58,7 @@
 
             <div class="left__menu--container">
 
-                <div class="left__menu--item">
-                    <img src="resources/images/LOGO.svg" alt="" class="left__bar--image">
-                </div>
-                <div class="left__menu--item">
-                    <img src="resources/images/home-page (1).svg" alt="" class="left__menu--icon">
-                    <span><a href="{{url('/admin')}}" class="a-link">Dashboard</a></span>
-                </div>
-                <div class="left__menu--item">
-                    <img src="resources/images/church.svg" alt="" class="left__menu--icon">
-                    <span><a href="{{url('/')}}" class="a-link">Back To Main Site</a></span>
-                </div>
-                <div class="left__menu--item">
-                    <img src="resources/images/logout.svg" alt="" class="left__menu--icon">
-                    <span>Log Out</span>
-                </div>
+                @include('admin.admin-menu')
 
             </div>
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\LocationSccBanner;
 use App\Location;
+use Illuminate\Support\Facades\Gate;
 class LocationsController extends Controller
 {
 
@@ -26,10 +27,15 @@ class LocationsController extends Controller
     }
     public function locationCreate()
     {
+        if (Gate::allows('admin-only', auth()->user())) { 
         return view('admin.saintcommunity-locations-scc.location-create');
+    }
+    return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
+   
     }
     public function locationStore(Request $request)
     {
+        if (Gate::allows('admin-only', auth()->user())) { 
         $this->validate($request, [
             'location_title' => 'required',
             'address' => 'required',
@@ -44,7 +50,9 @@ class LocationsController extends Controller
         $locations->save();
     
         return redirect()->action('LocationsController@bodyIndex')->with('success', 'Location Added Successfully');
-    
+    }
+    return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
+   
     }
     public function locationEdit($id)
     {
@@ -105,4 +113,15 @@ class LocationsController extends Controller
         return redirect()->action('LocationsController@bannerIndex')->with('success', 'Location Banner updated successfully');
    
     }
+    public function destroy($id)
+    {
+        if (Gate::allows('admin-only', auth()->user())) { 
+            $location = Location::find($id);
+            $location->delete();
+            return redirect()->action('LocationsController@adminMemberIndex')->with('success', 'Location Deleted Successfully');
+        }
+        return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
+        
+    }
+
 }

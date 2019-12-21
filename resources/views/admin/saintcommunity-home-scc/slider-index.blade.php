@@ -30,7 +30,7 @@
         
     </style>
 
-    <title>Admin/Slider Section</title>
+<title>Admin/Home Page</title>
 </head>
 <body>
 <div class="top__bar">
@@ -39,7 +39,8 @@
 
                 <p class="top__bar-hero">
 
-                        <span style="margin-left:100px;">HOME PAGE SLIDER</span>
+                    <span style="margin-left:200px;">Home</span>
+                    <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
 
                 </p>
 
@@ -57,21 +58,7 @@
 
             <div class="left__menu--container">
 
-                <div class="left__menu--item">
-                    <img src="resources/images/LOGO.svg" alt="" class="left__bar--image">
-                </div>
-                <div class="left__menu--item">
-                    <img src="resources/images/home-page (1).svg" alt="" class="left__menu--icon">
-                    <span><a href="{{url('/admin')}}" class="a-link">Dashboard</a></span>
-                </div>
-                <div class="left__menu--item">
-                    <img src="resources/images/church.svg" alt="" class="left__menu--icon">
-                    <span><a href="{{url('/')}}" class="a-link">Back To Main Site</a></span>
-                </div>
-                <div class="left__menu--item">
-                    <img src="resources/images/logout.svg" alt="" class="left__menu--icon">
-                    <span>Log Out</span>
-                </div>
+                @include('admin.admin-menu')
 
             </div>
 
@@ -124,12 +111,20 @@
                                         <td class="table__data">{{$slider_image->updated_at}}</td>
                                         <td class="table__data">{{ $slider_image->slider_image }}</td>
                                         <td class="table__data">
-                                            <a
-                                                href="{{ action('HomeFrontController@homeSliderEdit', ['slider_image' => $slider_image->id]) }}"
-                                                alt="Edit"
-                                                title="Edit">
-                                              EDIT
-                                            </a>|DELETE
+                                            <a href="{{ action('HomeFrontController@homeSliderEdit', ['slider_image' => $slider_image->id]) }}" alt="Edit" title="Edit">
+                                                <button class="btn btn-sm">Edit</button>
+                                            </a>
+                                          
+                                            @can('admin-only', auth()->user())
+                                            |
+                                            
+                                            <form action="{{action('HomeFrontController@sliderDestroy', ['slider_image' => $slider_image->id])}}" method="POST">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit" class="btn btn-sm" title="Delete" value="DELETE"
+                                                onclick="confirm('Click OK to Confirm Deletion');">Delete</button>
+                                            </form>
+                                            @endcan
                                         </td>
                                     </tr>
                                 @endforeach
@@ -139,8 +134,9 @@
                         
     
                     </div>
+                    @can('admin-only', auth()->user())
                     <a href="{{ url('home-scc-slider-create')}}"><button class=" btn btn-sm btn-warning" style="text-align:center;"><span>Add Slider</span></button></a>
-                  
+                    @endcan
             </div>
 
 

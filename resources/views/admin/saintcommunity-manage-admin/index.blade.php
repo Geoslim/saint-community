@@ -39,7 +39,9 @@
 
                 <p class="top__bar-hero">
 
-                        <span style="margin-left:100px;">WEBSITE ADMINISTRATORS</span>
+                    <span style="margin-left:200px;">  Website Administrators</span>
+                    <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
+
 
                 </p>
                 
@@ -58,21 +60,7 @@
 
             <div class="left__menu--container">
 
-                <div class="left__menu--item">
-                    <img src="resources/images/LOGO.svg" alt="" class="left__bar--image">
-                </div>
-                <div class="left__menu--item">
-                    <img src="resources/images/home-page (1).svg" alt="" class="left__menu--icon">
-                    <span><a href="{{url('/admin')}}" class="a-link">Dashboard</a></span>
-                </div>
-                <div class="left__menu--item">
-                    <img src="resources/images/church.svg" alt="" class="left__menu--icon">
-                    <span><a href="{{url('/')}}" class="a-link">Back To Main Site</a></span>
-                </div>
-                <div class="left__menu--item">
-                    <img src="resources/images/logout.svg" alt="" class="left__menu--icon">
-                    <span>Log Out</span>
-                </div>
+                @include('admin.admin-menu')
 
             </div>
 
@@ -110,14 +98,17 @@
                                         <td class="table__data">{{ $i }}</td>
                                         <td class="table__data">{{$admin_member->updated_at}}</td>
                                         <td class="table__data">{{$admin_member->name}}</td>
-                                        <td class="table__data">{{$admin_member->role}}</td>
+                                        <td class="table__data">{{ ($admin_member->role ==3 ? "Editor" : "Administrator")}}</td>
                                         <td class="table__data">
-                                            <a
-                                                href="{{ action('AdminMemberController@adminMemberEdit', ['admin_member' => $admin_member->id]) }}"
-                                                alt="Edit"
-                                                title="Edit">
-                                              EDIT
-                                            </a>|DELETE
+                                            <a class="" href="{{ action('AdminMemberController@adminMemberEdit', ['admin_member' => $admin_member->id]) }}" alt="Edit" title="Edit">
+                                                <button class="btn btn-sm">Edit</button>
+                                            </a>|
+                                              
+                                            <form action="{{action('AdminMemberController@destroy', ['admin_member' => $admin_member->id])}}" method="POST">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit" class="btn btn-sm" title="Delete" value="DELETE">Delete</button>
+                                            </form>
                                         </td>
                                     </tr>
                                 @endforeach

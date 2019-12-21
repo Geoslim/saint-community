@@ -284,7 +284,7 @@
         </div>
 
         <div class="media__download animated">
-            <a href="" class="home__btn home__btn--red_filled">DOWNLOAD</a>
+            <a href="https://livingwordmedia.org/teachings/" class="home__btn home__btn--red_filled">DOWNLOAD</a>
         </div>
 
     </section>

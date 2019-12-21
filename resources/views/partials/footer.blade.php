@@ -67,16 +67,16 @@
                 <input type="submit" class="footer__input_submit" value="SUSCRIBE">
                 <div class="home_footer__social_link_container">
                     <span>Follow Us On:</span>
-                    <a href="https://web.facebook.com/saintscommunity.net/" target="_blank">
+                    <a href="{{ url('https://web.facebook.com/'.$socialmedia->facebook)}}" target="_blank">
                         <img class="home_social__icons" src="resources/images/FACEBOOK_ROUND.svg" alt="">
                     </a>
-                    <a href="https://www.instagram.com/saintscommunitychurchofficial/" target="_blank">
+                    <a href=""{{ url('https://www.instagram.com/'.$socialmedia->instagram)}}" target="_blank">
                         <img class="home_social__icons" src="resources/images/INSTA_ROUND.svg" alt="">
                     </a>
-                    <a href="https://mobile.twitter.com/saintscommlagos" target="_blank">
+                    <a href="{{ url('https://mobile.twitter.com/'.$socialmedia->twitter)}}" target="_blank">
                         <img class="home_social__icons" src="resources/images/TWITTER_ROUND.svg" alt="">
                     </a>
-                    <a href="https://www.youtube.com/channel/UCnWoDxbbcGFk8Y0-d-qPYEw" target="_blank">
+                    <a href="{{ url('https://www.youtube.com/channel/'.$socialmedia->youtube)}}" target="_blank">
                         <img class="home_social__icons" src="resources/images/YOUTUBE_ROUND.svg" alt="">
                     </a>
                 </div>

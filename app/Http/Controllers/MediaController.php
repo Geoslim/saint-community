@@ -7,6 +7,7 @@ use App\Media;
 use App\MediaBanner;
 use App\MediaCover;
 use App\MediaPublishDetail;
+use Illuminate\Support\Facades\Gate;
 
 class MediaController extends Controller
 {
@@ -121,11 +122,16 @@ class MediaController extends Controller
 
     public function createPublish()
     {
+        if (Gate::allows('admin-only', auth()->user())) { 
         return view('admin.saintcommunity-media-scc.create-publish');
+    }
+    return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
+   
     }
 
     public function storePublish(Request $request)
     {
+        if (Gate::allows('admin-only', auth()->user())) { 
         $this->validate($request, [
             'title' => 'required',
             'details' => 'required',
@@ -154,7 +160,9 @@ class MediaController extends Controller
         $media_publish_detail->save();
 
         return redirect()->action('MediaController@mediaPublish')->with('success', 'New Publish Added Successfully');
-    
+    }
+    return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
+   
     }
 
     public function editPublish($id) 
@@ -195,5 +203,16 @@ class MediaController extends Controller
 
         return redirect()->action('MediaController@mediaPublish')->with('success', 'Publish Updated Successfully');
     
+    }
+
+    public function destroy($id)
+    {
+        if (Gate::allows('admin-only', auth()->user())) { 
+            $media_publish = MediaPublishDetail::find($id);
+            $media_publish->delete();
+            return redirect()->action('MediaController@mediaPublish')->with('success', 'Published Media Deleted Successfully');
+        }
+        return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
+        
     }
 }

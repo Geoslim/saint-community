@@ -39,7 +39,8 @@
 
                 <p class="top__bar-hero">
 
-                        <span style="margin-left:100px;">LOCATIONS SECTION</span>
+                    <span style="margin-left:210px;">Locations Scc</span>
+                    <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
 
                 </p>
                 
@@ -58,21 +59,7 @@
 
             <div class="left__menu--container">
 
-                <div class="left__menu--item">
-                    <img src="resources/images/LOGO.svg" alt="" class="left__bar--image">
-                </div>
-                <div class="left__menu--item">
-                    <img src="resources/images/home-page (1).svg" alt="" class="left__menu--icon">
-                    <span><a href="{{url('/admin')}}" class="a-link">Dashboard</a></span>
-                </div>
-                <div class="left__menu--item">
-                    <img src="resources/images/church.svg" alt="" class="left__menu--icon">
-                    <span><a href="{{url('/')}}" class="a-link">Back To Main Site</a></span>
-                </div>
-                <div class="left__menu--item">
-                    <img src="resources/images/logout.svg" alt="" class="left__menu--icon">
-                    <span>Log Out</span>
-                </div>
+                @include('admin.admin-menu')
 
             </div>
 
@@ -111,12 +98,19 @@
                                         <td class="table__data">{{$location->updated_at}}</td>
                                         <td class="table__data">{{$location->location_title}}</td>
                                         <td class="table__data">
-                                            <a
-                                                href="{{ action('LocationsController@locationEdit', ['location' => $location->id]) }}"
-                                                alt="Edit"
-                                                title="Edit">
-                                              EDIT
-                                            </a>|DELETE
+                                            <a href="{{ action('LocationsController@locationEdit', ['location' => $location->id]) }}" alt="Edit" title="Edit">
+                                                <button class="btn btn-sm">Edit</button>
+                                            </a> 
+                                            @can('admin-only', auth()->user())
+                                            |
+                                            
+                                            <form action="{{action('LocationsController@destroy', ['location' => $location->id])}}" method="POST">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit" class="btn btn-sm" title="Delete" value="DELETE" 
+                                                onclick="confirm('Click OK to Confirm Deletion');">Delete</button>
+                                            </form>
+                                            @endcan
                                         </td>
                                     </tr>
                                 @endforeach
@@ -126,8 +120,9 @@
                         
     
                     </div>
+                    @can('admin-only', auth()->user())
                     <a href="{{ action('LocationsController@locationCreate') }}"><button class=" btn btn-sm btn-warning" style="text-align:center;"><span>Add Location</span></button></a>
-                  
+                    @endcan
             </div>
 
 

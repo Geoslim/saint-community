@@ -21,7 +21,7 @@
         
     </style>
 
-    <title>Admin/Media Section</title>
+<title>Admin/Home Page</title>
 </head>
 <body>
 <div class="top__bar">
@@ -30,7 +30,8 @@
 
                 <p class="top__bar-hero">
 
-                        <span style="margin-left:100px;">HOME PAGE MEDIA SLIDER</span>
+                    <span style="margin-left:200px;">Home</span>
+                    <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
 
                 </p>
 
@@ -48,21 +49,7 @@
 
                 <div class="left__menu--container">
 
-                        <div class="left__menu--item">
-                            <img src="{{asset('resources/images/LOGO.svg')}}" alt="" class="left__bar--image">
-                        </div>
-                        <div class="left__menu--item">
-                            <img src="{{asset('resources/images/home-page (1).svg')}}" alt="" class="left__menu--icon">
-                            <span><a href="{{url('/admin')}}" class="a-link">Dashboard</a></span>
-                        </div>
-                        <div class="left__menu--item">
-                            <img src="{{asset('resources/images/church.svg')}}" alt="" class="left__menu--icon">
-                            <span><a href="{{url('/')}}" class="a-link">Back To Main Site</a></span>
-                        </div>
-                        <div class="left__menu--item">
-                            <img src="{{asset('resources/images/logout.svg')}}" alt="" class="left__menu--icon">
-                            <span>Log Out</span>
-                        </div>
+                    @include('admin.admin-menu')
         
                     </div>
 

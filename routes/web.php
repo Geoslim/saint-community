@@ -41,9 +41,11 @@ Route::resource('social-media', 'SocialMediaController');
 
 Route::get('branches', 'BranchesController@index');
 Route::get('create', 'BranchesController@create');
+Route::post('create', 'BranchesController@store');
 Route::get('branches/{id}/edit', 'BranchesController@edit');
 Route::put('branches/{id}', 'BranchesController@update')->name('update');
 Route::put('updateDetails/{id}', 'BranchesController@updateDetails')->name('updateDetails');
+Route::delete('branches/{id}', 'BranchesController@destroy');
 
 Route::get('contact-scc', 'ContactSccController@index');
 Route::put('updateContactBanner/{id}', 'ContactSccController@updateContactBanner')->name('updateContactBanner');
@@ -78,6 +80,7 @@ Route::get('create-publish', 'MediaController@createPublish');
 Route::post('create-publish', 'MediaController@storePublish');
 Route::get('media-publish/{id}/edit', 'MediaController@editPublish');
 Route::put('updatePublish/{id}', 'MediaController@updatePublish')->name('updatePublish');
+Route::delete('media-publish/{id}', 'MediaController@destroy');
 
 Route::get('events-scc', 'EventController@index');
 Route::get('events-body', 'EventController@eventsBody');
@@ -91,6 +94,7 @@ Route::post('create-upcoming', 'EventController@storeUpcoming');
 Route::get('upcoming-events/{id}/edit', 'EventController@editUpcoming');
 Route::put('updateUpcoming/{id}', 'EventController@updateUpcoming')->name('updateUpcoming');
 Route::put('updateUpcomingHeading/{id}', 'EventController@updateUpcomingHeading')->name('updateUpcomingHeading');
+Route::delete('upcoming-events/{id}', 'EventController@destroy');
 
 Route::get('latest-release', 'LatestReleaseController@index');
 Route::put('updateDetials/{id}', 'LatestReleaseController@updateDetials')->name('updateDetials');
@@ -121,6 +125,8 @@ Route::get('home-scc-broadcast', 'HomeFrontController@homeBroadcast');
 Route::put('homeBroadcastTelecastUpdate/{id}', 'HomeFrontController@homeBroadcastTelecastUpdate')->name('homeBroadcastTelecastUpdate');
 Route::put('homeBroadcastOnlineRadioUpdate/{id}', 'HomeFrontController@homeBroadcastOnlineRadioUpdate')->name('homeBroadcastOnlineRadioUpdate');
 Route::put('homeBroadcastVideoUpdate/{id}', 'HomeFrontController@homeBroadcastVideoUpdate')->name('homeBroadcastVideoUpdate');
+Route::delete('home-scc-slider/{id}', 'HomeFrontController@sliderDestroy');
+Route::delete('home-scc-media/{id}', 'HomeFrontController@mediaDestroy');
 
 Route::get('locations-scc', 'LocationsController@index');
 Route::get('locations-scc-body', 'LocationsController@bodyIndex');
@@ -130,8 +136,10 @@ Route::get('locations-scc-body/{id}/edit', 'LocationsController@locationEdit');
 Route::put('locationUpdate/{id}', 'LocationsController@locationUpdate')->name('locationUpdate');
 Route::get('locations-scc-banner', 'LocationsController@bannerIndex');
 Route::put('locationBannerUpdate/{id}', 'LocationsController@locationBannerUpdate')->name('locationBannerUpdate');
+Route::delete('locations-scc-body/{id}', 'LocationsController@destroy');
 
 Route::get('add-admin', 'AdminMemberController@index');
 Route::post('add-admin', 'AdminMemberController@adminMemberStore');
 Route::get('manage-admin', 'AdminMemberController@adminMemberIndex');
 Route::get('manage-admin/{id}/edit', 'AdminMemberController@adminMemberEdit');
+Route::delete('manage-admin/{id}', 'AdminMemberController@destroy');

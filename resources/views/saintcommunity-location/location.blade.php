@@ -48,7 +48,7 @@
                             </h3>
                             <p class="individual_location_content__text">
                                 {{ $location->address }}
-                                CONTACT: {{ $location->contact_name }} - {{ $location->contact_phone }}
+                                <strong>CONTACT:</strong> {{ $location->contact_name }} - {{ $location->contact_phone }}
                             </p>
                         </div>
                     </div>

@@ -28,7 +28,7 @@
         </div>  --}}
 
         <div class="home_branches__flex_item">
-            <a style="width: 100%;" href="location.html" class="home__btn home__btn--red_stroked home__btn--red_smaller">
+            <a style="width: 100%;" href="{{ url('location') }}" class="home__btn home__btn--red_stroked home__btn--red_smaller">
                     {{ $branch_section_details->branch_btn}}
             </a>
         </div>

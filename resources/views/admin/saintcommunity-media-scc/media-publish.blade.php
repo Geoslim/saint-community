@@ -38,8 +38,8 @@
         <div class="top__bar--main">
 
                 <p class="top__bar-hero">
-
-                        <span style="margin-left:100px;">MEDIA PUBLISHING SECTION</span>
+                    <span style="margin-left:210px;">Media</span>
+                    <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
 
                 </p>
                 
@@ -58,21 +58,7 @@
 
             <div class="left__menu--container">
 
-                <div class="left__menu--item">
-                    <img src="resources/images/LOGO.svg" alt="" class="left__bar--image">
-                </div>
-                <div class="left__menu--item">
-                    <img src="resources/images/home-page (1).svg" alt="" class="left__menu--icon">
-                    <span><a href="{{url('/admin')}}" class="a-link">Dashboard</a></span>
-                </div>
-                <div class="left__menu--item">
-                    <img src="resources/images/church.svg" alt="" class="left__menu--icon">
-                    <span><a href="{{url('/')}}" class="a-link">Back To Main Site</a></span>
-                </div>
-                <div class="left__menu--item">
-                    <img src="resources/images/logout.svg" alt="" class="left__menu--icon">
-                    <span>Log Out</span>
-                </div>
+                @include('admin.admin-menu')
 
             </div>
 
@@ -87,8 +73,10 @@
                 <p class="text__description">Update Publish</p>
             </div>
             <div class="form__container">
-                <a href="{{ url('create-publish') }}"><button class=" btn btn-sm btn-warning" style="text-align:center; margin-left:50px; margin-top:50px;"><span>Add Publish</span></button></a>
-                    <div class="table__container">
+                @can('admin-only', auth()->user())
+                    <a href="{{ url('create-publish') }}"><button class=" btn btn-sm btn-warning" style="text-align:center; margin-left:50px; margin-top:50px;"><span>Add Publish</span></button></a>
+                @endcan 
+                <div class="table__container">
                         
                         <table class="table__container--main">
     
@@ -111,13 +99,19 @@
                                         <td class="table__data">{{$media_publish->updated_at}}</td>
                                         <td class="table__data">{{$media_publish->title}}</td>
                                         <td class="table__data">
-                                            <a
-                                                href="{{ action('MediaController@editPublish', ['media_publish' => $media_publish->id]) }}"
-                                                alt="Edit"
-                                                title="Edit">
-                                              EDIT
-                                            </a>|DELETE
-                                        </td>
+                                            <a href="{{ action('MediaController@editPublish', ['media_publish' => $media_publish->id]) }}" alt="Edit" title="Edit">
+                                                <button class="btn btn-sm">Edit</button>
+                                            </a>
+                                            @can('admin-only', auth()->user())
+                                            |
+                                            
+                                            <form action="{{action('MediaController@destroy', ['media_publish' => $media_publish->id])}}" method="POST">
+                                                @method('DELETE')
+                                                @csrf
+                                                <button type="submit" class="btn btn-sm" title="Delete" value="DELETE"
+                                                onclick="confirm('Click OK to Confirm Deletion');">Delete</button>
+                                            </form>
+                                            @endcan
                                     </tr>
                                 @endforeach
                            @endif
@@ -139,7 +133,6 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous"></script>
 
 
-</script>
 </body>
 </html>
 

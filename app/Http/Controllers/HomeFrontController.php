@@ -12,6 +12,7 @@ use App\HomeMediaImage;
 use App\HomeOnlineVideo;
 use App\HomeTelecast;
 use App\HomeOnlineRadio;
+use Illuminate\Support\Facades\Gate;
 class HomeFrontController extends Controller
 {
     public function __construct()
@@ -48,10 +49,15 @@ class HomeFrontController extends Controller
     }
     public function homeSliderCreate()
     {
+        if (Gate::allows('admin-only', auth()->user())) { 
         return view('admin.saintcommunity-home-scc.slider-create');
+    }
+    return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
+    
     }
     public function homeSliderStore(Request $request)
     {
+        if (Gate::allows('admin-only', auth()->user())) { 
         $this->validate($request, [
             'slider_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|dimensions:min_width=1000,min_height=700'
             
@@ -76,6 +82,8 @@ class HomeFrontController extends Controller
 
 
         return redirect()->action('HomeFrontController@homeSliderIndex')->with('success', 'New Slider Image Added Successfully');
+    }
+    return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
     
     }
     public function homeSliderEdit($id) 
@@ -192,10 +200,15 @@ class HomeFrontController extends Controller
     }
     public function homeMediaCreate()
     {
+        if (Gate::allows('admin-only', auth()->user())) { 
         return view('admin.saintcommunity-home-scc.media-create');
+    }
+    return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
+    
     }
     public function homeMediaStore(Request $request)
     {
+        if (Gate::allows('admin-only', auth()->user())) { 
         $this->validate($request, [
             'media_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|dimensions:min_width=1000,min_height=400'
             
@@ -218,6 +231,8 @@ class HomeFrontController extends Controller
         $media_images->save();
 
         return redirect()->action('HomeFrontController@homeMediaIndex')->with('success', 'New Media Image Added Successfully');
+    }
+    return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
     
     }
     public function homeMediaEdit($id) 
@@ -328,4 +343,26 @@ class HomeFrontController extends Controller
         return redirect()->action('HomeFrontController@homeBroadcast')->with('success', 'Online Video Updated Successfully');
     
     }
+
+
+    public function sliderDestroy($id)
+    {
+        if (Gate::allows('admin-only', auth()->user())) { 
+            $slider_image = SliderImage::find($id);
+            $slider_image->delete();
+            return redirect()->action('HomeFrontController@homeSliderIndex')->with('success', 'Home Slider Deleted Successfully');
+        }
+        return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
+    }
+        public function mediaDestroy($id)
+    {
+        if (Gate::allows('admin-only', auth()->user())) { 
+            $media_image = homeMediaImage::find($id);
+            $media_image->delete();
+            return redirect()->action('HomeFrontController@homeMediaIndex')->with('success', 'Home Media Deleted Successfully');
+        }
+        return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
+        
+    }
+    
 }

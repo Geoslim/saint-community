@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+ 
 <head>
     <meta id="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
@@ -13,6 +13,7 @@
         @import url('https://fonts.googleapis.com/css?family=Lato:100,300,300i,400');
         @import url(resources/css/directory.css);
         @import url(resources/admin1.css);
+        @import url(resources/mystyles.css);
         .a-link{
             text-decoration:none;
             color:white;
@@ -29,8 +30,9 @@
 
                 <p class="top__bar-hero">
 
-                        <span style="margin-left:200px;">Admin Dashboard</span>
-                        <span style="position:relative; right:-799px;">Howdy, {{ Auth::user()->name }}
+                    <span style="margin-left:230px;">Admin Dashboard</span>
+                    <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
+
                         </span>
                 </p>
                 
@@ -48,37 +50,14 @@
 
             <div class="left__menu--container">
 
-                <div class="left__menu--item">
-                    <img src="resources/images/LOGO.svg" alt="" class="left__bar--image">
-                </div>
-                <div class="left__menu--item">
-                    <img src="resources/images/home-page (1).svg" alt="" class="left__menu--icon">
-                    <span><a href="{{url('/admin')}}" class="a-link">Dashboard</a></span>
-                </div>
-                <div class="left__menu--item">
-                    <img src="resources/images/church.svg" alt="" class="left__menu--icon">
-                    <span><a href="{{url('/')}}" class="a-link">Back To Main Site</a></span>
-                </div>
-                <div class="left__menu--item">
-                    <img src="resources/images/logout.svg" alt="" class="left__menu--icon">
-                    <span> 
-                        <a href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                      document.getElementById('logout-form').submit();">
-                         {{ __('Log Out') }}
-                     </a>
-
-                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                         @csrf
-                     </form>
-                    </span>
-                </div>
+                @include('admin.admin-menu')
 
             </div>
 
         </div>
 
         <div class="center__Container">
+            @include('includes.messages')
             <div class="home__menu--container">
                     <div class="left__home--menus">
 
@@ -114,19 +93,22 @@
 
 
                             </div>
-                            <div class="left__home--item">
+                            @can('admin-only', auth()->user())
+                            <div class="right__home--item">
 
 
-                                <p><a href="{{url('/header-base/')}}" class="home__page--link"><img src="resources/images/headline.svg" alt="" class="homepage__img" height="120px"></a></p>
-                                <p class="home__menu--description"><a href="{{ url('header-base/') }}" class="home__page--link">Header Base</a></p>
+                                        <p><a href="" class="home__page--link"><img src="resources/images/partnership_img.svg" alt="" class="homepage__img"></a></p>
+                                        <p class="home__menu--description"><a href="" class="home__page--link">Send Mails To Admin</a></p>
 
 
                             </div>
+                            @endcan
+                            
                         </div>
                         <div class="right__home--menus">
 
 
-
+                            @can('admin-only', auth()->user())
                                 <div class="right__home--item">
 
 
@@ -135,6 +117,8 @@
 
 
                                 </div>
+                                @endcan
+                                @can('admin-only', auth()->user())
                                 <div class="right__home--item">
 
 
@@ -143,13 +127,14 @@
 
 
                                 </div>
-                                <div class="right__home--item">
+                                @endcan
+                                <div class="left__home--item">
 
 
-                                            <p><a href="" class="home__page--link"><img src="resources/images/partnership_img.svg" alt="" class="homepage__img"></a></p>
-                                            <p class="home__menu--description"><a href="" class="home__page--link">Send Mails To Admin</a></p>
-
-
+                                    <p><a href="{{url('/header-base/')}}" class="home__page--link"><img src="resources/images/headline.svg" alt="" class="homepage__img" height="120px"></a></p>
+                                    <p class="home__menu--description"><a href="{{ url('header-base/') }}" class="home__page--link">Header Base</a></p>
+    
+    
                                 </div>
                                 <div class="right__home--item ">
 

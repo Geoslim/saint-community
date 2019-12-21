@@ -8,6 +8,7 @@ use App\EventBg;
 use App\EventUpcoming;
 use App\EventUpcomingHeading;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class EventController extends Controller
 {
@@ -141,11 +142,16 @@ public function upcomingEvents()
 
 public function createUpcoming()
 {
+    if (Gate::allows('admin-only', auth()->user())) { 
     return view('admin.saintcommunity-events-scc.create-upcoming');
+}
+return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
+
 }
 
 public function storeUpcoming(Request $request)
 {
+    if (Gate::allows('admin-only', auth()->user())) { 
     $this->validate($request, [
         'title' => 'required',
         'event_date' => 'required'
@@ -156,6 +162,8 @@ public function storeUpcoming(Request $request)
     $upcoming_events->save();
 
     return redirect()->action('EventController@upcomingEvents')->with('success', 'Program Added Successfully');
+}
+return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
 
 }
 
@@ -192,6 +200,16 @@ public function updateUpcomingHeading(Request $request, $id)
 
     return redirect()->action('EventController@upcomingEvents')->with('success', 'Program Heading Updated Successfully');
 
+}
+public function destroy($id)
+{
+    if (Gate::allows('admin-only', auth()->user())) { 
+        $upcoming_event = EventUpcoming::find($id);
+        $upcoming_event->delete();
+        return redirect()->action('EventController@upcomingEvents')->with('success', 'Program Deleted Successfully');
+    }
+    return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
+    
 }
 
 }
