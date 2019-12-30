@@ -10,6 +10,7 @@
         <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" href="favicon.ico">
     <link href="resources/css/styles.css" rel="stylesheet">
+    <link href="{{ asset('resources/mystyles.css') }}" rel="stylesheet">
     <script language="javascript" type="text/javascript" src="https://equinox.shoutca.st/system/player.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
@@ -18,7 +19,7 @@
 
 
 <body>
-
+    @include('includes.messages')
     <header class="header_hero header_hero--contact" style="height: 550px;
     background: linear-gradient(rgba(0, 0, 0, .86), rgba(0, 0, 0, .86)), url(storage/contactBanner_image/{{$contactBanner->banner_image}});
     background-position: 0% 0%;

@@ -39,7 +39,7 @@
 
                 <p class="top__bar-hero">
                     <span style="margin-left:210px;">Media</span>
-                    <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
+                    <span style="position:relative; right:-700px;">{{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
 
                 </p>
                 
@@ -81,6 +81,7 @@
                         <p class="text__description">Media Page Banner</p>
                        
                         <img src="storage/MeidaBanner_image/{{ $media_banner->banner_image }}" alt="" class="bg__image" style="height: 550px; background-position: 0% 0%; background-size: cover;position: relative;">
+                        <p>Minimum upload banner image dimension: 1000 x 700</p>
                         <button class="add__photo button"><span>ADD PHOTO</span></button>
                         <form method="POST" action="{{ url('updateMediaBanner/'.$media_banner->id) }}" enctype="multipart/form-data">
                             @method('PUT')
@@ -129,6 +130,7 @@
                         @method('PUT')
                         <div class="col-md-5 featured__image" style="position:relative; left:0px; top:0px;">
                             <img src="storage/mediaCover_image/{{ $media_cover->cover_image }}" alt="" class="" width="250px" height="150px">
+                            <p>Minimum upload cover image dimension: 400 x 300</p>
                             <input type="file" class="" id="cover_image" name="cover_image" >
                             
                             <div class="save__button--container" style="margin-top:0px;">

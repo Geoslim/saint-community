@@ -26,10 +26,10 @@ Route::get('/contact-us/','SaintCommunityController@contactUsPage');
 Auth::routes();
 
 
-
-//admin routes check if user has the right auth ID to visit this route
-//User Must Be authenticated and has a role ID that is less than or equal to three to acccess this route .
-//=======================================================================================================================================//
+//====================================================================================================================================*
+//admin routes === check if user has the right auth ID to visit this route                                                            *
+//User Must Be authenticated and have a role ID that is less than or equal to three to acccess this route .                           *
+//====================================================================================================================================*
 //ROLE ID 1 :: Super Super Admin jumoke@kjk.com.africa   ....//exclude her from being displayed with other admin on the back end
 //ROLE ID 2" Super Admin //have all priviledges both delete and edit
 //ROLE ID 3   Editor     //Have only the priviledge to edit and not delete
@@ -143,3 +143,11 @@ Route::post('add-admin', 'AdminMemberController@adminMemberStore');
 Route::get('manage-admin', 'AdminMemberController@adminMemberIndex');
 Route::get('manage-admin/{id}/edit', 'AdminMemberController@adminMemberEdit');
 Route::delete('manage-admin/{id}', 'AdminMemberController@destroy');
+Route::put('adminMemberUpdate/{id}', 'AdminMemberController@adminMemberUpdate')->name('adminMemberUpdate');
+Route::get('admin-mail', 'AdminMailController@index');
+Route::post('admin-mail', 'AdminMailController@sendMail');
+
+Route::get('contact-kjk', 'ContactKJKFormController@index');
+Route::post('contact-kjk', 'ContactKJKFormController@sendMail');
+
+Route::post('newsletter','NewsletterController@store');

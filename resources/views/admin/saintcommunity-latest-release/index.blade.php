@@ -40,7 +40,7 @@
                 <p class="top__bar-hero">
 
                         <span style="margin-left:200px;">{{ strtoupper($latest_detail->title) }}</span>
-                        <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
+                        <span style="position:relative; right:-700px;">{{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
     
                 </p>
                 
@@ -57,7 +57,7 @@
         <div class="left__bar">
 
             <div class="left__menu--container">
-
+ 
                 @include('admin.admin-menu')
 
             </div>
@@ -105,6 +105,7 @@
                         @method('PUT')
                         <div class="col-md-5 featured__image" style="position:relative; left:0px; top:0px;">
                             <img src="storage/programs_image/{{ $latest_cover->cover_image }}" alt="" class="bg__image">
+                            <p>Minimum upload cover image dimension: 400 x 400</p>
                             <input type="file" class="" id="cover_image" name="cover_image" >
                             @csrf
                             <div class="save__button--container" style="margin-top:0px;">

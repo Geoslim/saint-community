@@ -29,7 +29,7 @@
 
                 <p class="top__bar-hero">
                     <span style="margin-left:210px;">Media</span>
-                    <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
+                    <span style="position:relative; right:-700px;">{{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
 
                 </p>
 

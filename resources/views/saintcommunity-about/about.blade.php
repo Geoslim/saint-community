@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="resources/css/styles.css" rel="stylesheet">
+    <link href="{{ asset('resources/mystyles.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" href="favicon.ico">
     <script language="javascript" type="text/javascript" src="https://equinox.shoutca.st/system/player.js"></script>
@@ -16,6 +17,7 @@
 </head>
 
 <body>
+    @include('includes.messages')
     <header class="header_hero header_hero--about_us" 
     style="
     height: 550px;
@@ -42,7 +44,7 @@
                 <div class="home_info__box_container">
                     <div class="home_info__box">
                         <h3 class="home_info__title">{{$aboutscc_body->title}}</h3><br>
-                        <p class="home_info__write-up about_us_write_up">{!!$aboutscc_body->body!!}</p>
+                        <span class="home_info__write-up about_us_write_up">{!!$aboutscc_body->body!!}</span>
                         <div class="home__btn_container">
                             <a href="about-us.html" class="home__btn home__btn--red_stroked home__btn--equal_width">
                                 {{$aboutscc_body->about_btn_title}}

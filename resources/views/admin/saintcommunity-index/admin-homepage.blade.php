@@ -30,8 +30,8 @@
 
                 <p class="top__bar-hero">
 
-                    <span style="margin-left:230px;">Admin Dashboard</span>
-                    <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
+                    <span style="margin-left:230px;">Dashboard</span>
+                    <span style="position:relative; right:-700px;">{{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
 
                         </span>
                 </p>
@@ -97,8 +97,8 @@
                             <div class="right__home--item">
 
 
-                                        <p><a href="" class="home__page--link"><img src="resources/images/partnership_img.svg" alt="" class="homepage__img"></a></p>
-                                        <p class="home__menu--description"><a href="" class="home__page--link">Send Mails To Admin</a></p>
+                                        <p><a href="{{ url('admin-mail') }}" class="home__page--link"><img src="resources/images/partnership_img.svg" alt="" class="homepage__img"></a></p>
+                                        <p class="home__menu--description"><a href="{{ url('admin-mail') }}" class="home__page--link">Send Mails To Admin</a></p>
 
 
                             </div>
@@ -139,8 +139,8 @@
                                 <div class="right__home--item ">
 
 
-                                            <p><a href="" class="home__page--link"><img src="resources/images/menu_img.svg" alt="" class="homepage__img"></a></p>
-                                            <p class="home__menu--description"><a href="" class="home__page--link">Contact KJK</a></p>
+                                            <p><a href="{{url('contact-kjk')}}" class="home__page--link"><img src="resources/images/menu_img.svg" alt="" class="homepage__img"></a></p>
+                                            <p class="home__menu--description"><a href="{{url('contact-kjk')}}" class="home__page--link">Contact KJK</a></p>
 
 
                                 </div>

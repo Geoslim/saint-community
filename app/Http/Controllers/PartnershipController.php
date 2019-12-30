@@ -25,7 +25,7 @@ class PartnershipController extends Controller
     public function updatePartnershipBanner(Request $request, $id)
     {
         $this->validate($request, [
-            'banner_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=1300,min_height=900'
+            'banner_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=1000,min_height=700'
             
         ]);
         if($request->hasFile('banner_image')){
@@ -71,7 +71,7 @@ class PartnershipController extends Controller
     public function updatePartnershipCoverImage(Request $request, $id)
     {
         $this->validate($request, [
-            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=800,min_height=1000'
+            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=400,min_height=600'
             
         ]);
         if($request->hasFile('cover_image')){

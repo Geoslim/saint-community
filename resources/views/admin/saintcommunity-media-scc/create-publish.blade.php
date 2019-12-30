@@ -31,7 +31,7 @@
                 <p class="top__bar-hero">
 
                     <span style="margin-left:210px;">Media</span>
-                    <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
+                    <span style="position:relative; right:-700px;">{{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
 
 
                 </p>
@@ -60,7 +60,7 @@
             @include('includes.messages')
                 <div class="form__header--list">
                     <p class="form__header--sub">
-                        {{-- <img src="images/right-arrow-forward.svg" alt="" class="back__arrow"><span>Back</span> --}}
+                        <a href="{{ url('media-publish') }}"><img src="{{ asset('resources/images/right-arrow-forward.svg') }}" alt="" class="back__arrow"><span>Back</span></a>
                     </p>
                     <p class="text__description">Create a New Publish</p>
                 </div>
@@ -72,6 +72,7 @@
                             <input type="text" class="" id="title" name="title" placeholder="Title" value="">
                             <textarea id="details" name="details" cols="" rows="10"></textarea>
                             <input type="file" class="" id="cover_image" name="cover" >
+                            <p>Minimum upload cover image dimension: 200 x 200</p>
                         </div>
                         <div class="save__button--container" style="margin-top:0px;">
                             <button class="button" id="submit__button"><span>Save</span></button>
@@ -87,7 +88,6 @@
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous"></script>
 
 
-</script>
 </body>
 </html>
 

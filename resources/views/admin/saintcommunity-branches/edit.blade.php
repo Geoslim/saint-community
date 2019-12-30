@@ -33,8 +33,8 @@
 
                 <p class="top__bar-hero">
 
-                    <span style="margin-left:224px;">Branches Section</span>
-                    <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
+                    <span style="margin-left:224px;">Branches </span>
+                    <span style="position:relative; right:-700px;">{{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
 
 
                 </p>

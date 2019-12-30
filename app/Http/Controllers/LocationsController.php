@@ -56,7 +56,7 @@ class LocationsController extends Controller
     }
     public function locationEdit($id)
     {
-        $location = Location::find(1);
+        $location = Location::find($id);
         return view('admin.saintcommunity-locations-scc.location-edit')
         ->with('location', $location);
     }
@@ -90,7 +90,7 @@ class LocationsController extends Controller
     public function locationBannerUpdate(Request $request, $id)
     {
         $this->validate($request, [
-            'banner_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=1200,min_height=800'
+            'banner_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=1000,min_height=700'
             
         ]);
         if($request->hasFile('banner_image')){

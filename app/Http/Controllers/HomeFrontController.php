@@ -210,7 +210,7 @@ class HomeFrontController extends Controller
     {
         if (Gate::allows('admin-only', auth()->user())) { 
         $this->validate($request, [
-            'media_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|dimensions:min_width=1000,min_height=400'
+            'media_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|dimensions:min_width=900,min_height=400'
             
         ]);
         if($request->hasFile('media_image')){

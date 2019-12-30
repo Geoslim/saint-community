@@ -29,7 +29,6 @@ class AdminMemberController extends Controller
     {
         if (Gate::allows('admin-only', auth()->user())) {
             
-        
         $this->validate($request, [
             'name' => 'required|string|max:225',
             'email' => 'required|string|email|max:255',
@@ -55,7 +54,7 @@ class AdminMemberController extends Controller
     {
         if (Gate::allows('admin-only', auth()->user())) {  
         
-        $admin_members = AdminMember::get();
+        $admin_members = AdminMember::where('role', '>', 1)->get();
         return view('admin.saintcommunity-manage-admin.index')
         ->with('admin_members', $admin_members);
     }
@@ -72,6 +71,30 @@ class AdminMemberController extends Controller
     }
     return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
     
+    }
+
+    public function adminMemberUpdate(Request $request, $id)
+    {
+        if (Gate::allows('admin-only', auth()->user())) {
+        
+        $this->validate($request, [
+            'name' => 'required|string|max:225',
+            'email' => 'required|string|email|max:255',
+            'password' => 'required|string|min:8|confirmed',
+            
+        ]);
+        $admin_member = AdminMember::find($id);
+        $admin_member->name = $request->input('name');
+        $admin_member->email = $request->input('email');
+        $admin_member->password = $request->input('password');
+        $admin_member->role = $request->input('role');
+        $admin_member->status = $request->input('status');
+
+        $admin_member->save();
+
+        return redirect()->action('AdminMemberController@adminMemberIndex')->with('success', 'Member Updated successfully');
+    }
+    return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
     }
 
     public function destroy($id)

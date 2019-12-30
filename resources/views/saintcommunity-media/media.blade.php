@@ -13,6 +13,7 @@
     <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="vendors/css/owl.theme.default.min.css">
     <link href="resources/css/styles.css" rel="stylesheet">
+    <link href="resources/mystyles.css" rel="stylesheet">
     <!-- <script language="javascript" type="text/javascript" src="https://equinox.shoutca.st/system/player.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
@@ -20,6 +21,7 @@
 </head>
 
 <body>
+    @include('includes.messages')
     <header class="header_hero header_hero--media" style="height: 550px;
     background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(storage/MeidaBanner_image/{{ $media_banner->banner_image }});
     background-position: 0% 84%;

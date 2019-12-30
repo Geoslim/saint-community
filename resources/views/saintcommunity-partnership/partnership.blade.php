@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="resources/css/styles.css" rel="stylesheet">
+    <link href="resources/mystyles.css" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" href="favicon.ico">
     <script language="javascript" type="text/javascript" src="https://equinox.shoutca.st/system/player.js"></script>
@@ -17,6 +18,7 @@
 
 
 <body>
+    @include('includes.messages')
     <header class="header_hero header_hero--partnership" style="height: 550px;
     background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(storage/partnershipBanner_image/{{$partnership_banner->banner_image}});
     background-position: 50% 0%;

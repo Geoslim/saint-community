@@ -1,3 +1,4 @@
+
 <nav class="nav">
     <span class="menu_icon">
         <img src="resources/images/menu.svg" alt="">

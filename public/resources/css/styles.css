@@ -2183,10 +2183,10 @@ label.contact_modal__sub_title {
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
     width: 502px;
     height: 155px;
-    /* display: flex; */
+    display: flex;
     justify-content: center;
     align-items: center;
-    /* flex-direction: column; */
+    flex-direction: column;
     padding: 24px;
 }
 
@@ -2218,15 +2218,15 @@ label.contact_modal__sub_title {
 }
 
 .location__wrapper_one {
-    /* display: flex;
+    display: flex;
     justify-content: center;
-    align-items: center; */
+    align-items: center;
 }
 
 .location__wrapper_two {
-    /* display: flex;
+    display: flex;
     justify-content: space-between;
-    align-items: center; */
+    align-items: center;
 }
 
 

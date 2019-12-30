@@ -37,7 +37,7 @@ public function eventsBody()
 public function updateEventBanner(Request $request, $id)
 {
     $this->validate($request, [
-        'banner_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=900,min_height=600'
+        'banner_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=1000,min_height=700'
         
     ]);
     if($request->hasFile('banner_image')){
@@ -82,7 +82,7 @@ public function updateEventBody(Request $request, $id)
 public function updateEventCover(Request $request, $id)
 {
     $this->validate($request, [
-        'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=300,min_height=100'
+        'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=400,min_height=300'
         
     ]);
     if($request->hasFile('cover_image')){
@@ -108,7 +108,7 @@ public function updateEventCover(Request $request, $id)
 public function updateEventBg(Request $request, $id)
 {
     $this->validate($request, [
-        'bg_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=300,min_height=100'
+        'bg_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=1000,min_height=700'
         
     ]);
     if($request->hasFile('bg_image')){

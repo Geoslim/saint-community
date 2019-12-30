@@ -40,7 +40,7 @@
                 <p class="top__bar-hero">
 
                     <span style="margin-left:200px;">Home</span>
-                    <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
+                    <span style="position:relative; right:-700px;">{{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
 
 
                 </p>
@@ -99,7 +99,7 @@
                         <div class="save__button--container" style="margin-top:0px;">
 
                             <button class="button" id="submit__button"><span>Save Page Body</span></button>
-        
+         
                         </div>
                     </form>
                 </div>
@@ -113,6 +113,8 @@
                         <div class="col-md-5 featured__image" style="position:relative; left:0px; top:0px; width:300px; height:300px;">
                             <img src="storage/home_cover_images/{{$home_body_cover_image->cover_image}}" alt="" class="" width="300px" height="300px">
                         </div>
+                        <p>Minimum upload cover image dimension: 400 x 400</p>
+
                             <input type="file" class="" id="cover_image" name="cover_image" >
                             
                             <div class="save__button--container" style="margin-top:0px;">

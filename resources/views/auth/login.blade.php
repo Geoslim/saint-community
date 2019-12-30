@@ -9,6 +9,8 @@
     <link href="{{ asset('resources/css/style2.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" href="favicon.ico">
+    <link href="{{ asset('resources/mystyles.css') }}" rel="stylesheet">
+
     <script language="javascript" type="text/javascript" src="https://equinox.shoutca.st/system/player.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
@@ -18,7 +20,7 @@
 <body>
     
     <div class="admin__main__container">
-
+        @include('includes.messages')
         <a href="{{ url('/') }}" class="admin__back_btn">
             back to main site
         </a>

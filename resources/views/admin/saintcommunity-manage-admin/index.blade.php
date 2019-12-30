@@ -39,8 +39,8 @@
 
                 <p class="top__bar-hero">
 
-                    <span style="margin-left:200px;">  Website Administrators</span>
-                    <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
+                    <span style="margin-left:200px;">  Website Admins.</span>
+                    <span style="position:relative; right:-700px;">{{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
 
 
                 </p>
@@ -69,9 +69,12 @@
         <div class="center__Container">
             @include('includes.messages')
             
-            
+             
             <div class="form__header--list">
-                   
+                <p class="form__header--sub">
+                    <a href="{{ url('admin') }}"><img src="{{ asset('resources/images/right-arrow-forward.svg') }}" alt="" class="back__arrow"><span>Back</span></a>
+                </p>
+          
                     <p class="text__description">USERS</p>
                 </div>
             <div class="form__container" style="margin-top:-30px;margin-bottom:50px; padding:50px 0;">
@@ -86,6 +89,7 @@
                                     <th class="table__section">DATE UPDATED</th>
                                     <th class="table__section">USERS</th>
                                     <th class="table__section">ROLES</th>
+                                    <th class="table__section">STATUS</th>
                                     <th class="table__section">ACTIONS</th>
                                 </tr>
     
@@ -94,20 +98,21 @@
                             <?php $i = 0; ?>
                                 @foreach ($admin_members as $admin_member)
                                 <?php $i++; ?>
-                                    <tr class="table__row">
+                                    <tr class="table__row"> 
                                         <td class="table__data">{{ $i }}</td>
                                         <td class="table__data">{{$admin_member->updated_at}}</td>
                                         <td class="table__data">{{$admin_member->name}}</td>
                                         <td class="table__data">{{ ($admin_member->role ==3 ? "Editor" : "Administrator")}}</td>
+                                        <td class="table__data">{{ ($admin_member->status == 'Active' ? "Active" : "Inactive")}}</td>
                                         <td class="table__data">
                                             <a class="" href="{{ action('AdminMemberController@adminMemberEdit', ['admin_member' => $admin_member->id]) }}" alt="Edit" title="Edit">
-                                                <button class="btn btn-sm">Edit</button>
+                                                <button class="btn btn-sm" style="background:;">Edit</button>
                                             </a>|
                                               
                                             <form action="{{action('AdminMemberController@destroy', ['admin_member' => $admin_member->id])}}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
-                                                <button type="submit" class="btn btn-sm" title="Delete" value="DELETE">Delete</button>
+                                                <button type="submit" style="background:;" class="btn btn-sm" title="Delete" value="DELETE">Delete</button>
                                             </form>
                                         </td>
                                     </tr>

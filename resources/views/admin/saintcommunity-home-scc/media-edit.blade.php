@@ -31,7 +31,7 @@
                 <p class="top__bar-hero">
 
                     <span style="margin-left:200px;">Home</span>
-                    <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
+                    <span style="position:relative; right:-700px;">{{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
 
                 </p>
 
@@ -66,12 +66,13 @@
                     </div>
                     <div class="form__container">
                             <img src="{{ asset('storage/home_media_images/'.$media_images->media_image) }}" alt="" class="bg__image" style="height: 550px; height:100%; background-position: 0% 0%; background-size: cover;position: relative;">
-                        <form method="POST" action="{{ url('homeMediaUpdate/'.$media_images->id) }}" enctype="multipart/form-data">
+                            <p>Minimum upload media image dimension: 900 x 400</p>
+                            <form method="POST" action="{{ url('homeMediaUpdate/'.$media_images->id) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="geo" style="padding:10px 100px;">
                                 <input type="file" class="" id="media_image" name="media_image">
-                              
+                                
                             </div>
                             
                             <div class="save__button--container" style="margin-top:0px;">

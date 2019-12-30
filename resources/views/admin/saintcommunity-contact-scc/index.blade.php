@@ -41,7 +41,7 @@
                 <p class="top__bar-hero">
 
                     <span style="margin-left:200px;">Contact Scc</span>
-                    <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
+                    <span style="position:relative; right:-700px;">{{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
 
 
                 </p>
@@ -82,6 +82,7 @@
                             <p class="text__description">Contact us Page Banner</p>
                             {{--  resources/images/about_img.jpg  --}}
                             <img src="storage/contactBanner_image/{{$contact_banner->banner_image}}" alt="" class="bg__image" style="height: 550px; background-position: 0% 0%; background-size: cover;position: relative;">
+                            <p>Minimum upload banner image dimension: 1000 x 700</p>
                             {{--  <button class="add__photo button"><span>ADD PHOTO</span></button>  --}}
                             <form method="POST" action="{{url('updateContactBanner/'.$contact_banner->id)}}" enctype="multipart/form-data">
                                 @method('PUT')

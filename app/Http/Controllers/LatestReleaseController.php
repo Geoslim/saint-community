@@ -41,7 +41,7 @@ class LatestReleaseController extends Controller
     public function updateCover(Request $request, $id)
     {
         $this->validate($request, [
-            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:max_width=500,max_height=800'
+            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:max_width=400,max_height=400'
             
         ]);
         if($request->hasFile('cover_image')){

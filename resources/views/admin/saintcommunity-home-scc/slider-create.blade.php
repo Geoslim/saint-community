@@ -31,7 +31,7 @@
                 <p class="top__bar-hero">
 
                     <span style="margin-left:200px;">Home</span>
-                    <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
+                    <span style="position:relative; right:-700px;">{{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
 
                 </p>
 
@@ -70,7 +70,7 @@
                                 @csrf
                             <div class="geo" style="padding:10px 100px;">
                                 <input type="file" class="" id="slider_image" name="slider_image">
-                              
+                                <p>Minimum upload slider image dimension: 1000 x 700</p>
                             </div>
                             
                             <div class="save__button--container" style="margin-top:0px;">

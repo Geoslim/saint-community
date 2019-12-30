@@ -37,7 +37,7 @@ class MediaController extends Controller
     public function updateMediaBanner(Request $request, $id)
     {
         $this->validate($request, [
-            'banner_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=900,min_height=600'
+            'banner_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=1000,min_height=700'
             
         ]);
         if($request->hasFile('banner_image')){
@@ -90,7 +90,7 @@ class MediaController extends Controller
     public function updateMediaCover(Request $request, $id)
     {
         $this->validate($request, [
-            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=200,min_height=100'
+            'cover_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=400,min_height=300'
             
         ]);
         if($request->hasFile('cover_image')){
@@ -135,7 +135,7 @@ class MediaController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'details' => 'required',
-            'cover' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'cover' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=200,min_height=200',
             
         ]);
         if($request->hasFile('cover')){
@@ -177,7 +177,7 @@ class MediaController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'details' => 'required',
-            'cover' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'cover' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=200,min_height=200',
             
         ]);
         if($request->hasFile('cover')){
@@ -193,6 +193,7 @@ class MediaController extends Controller
             $path = $request->file('cover')->storeAs('public/mediaPublishcover', $fileNameToStore);
             
         }
+        
         $media_publish_detail = MediaPublishDetail::find($id);
         $media_publish_detail->title = $request->input('title');
         $media_publish_detail->details = $request->input('details');
@@ -203,7 +204,7 @@ class MediaController extends Controller
 
         return redirect()->action('MediaController@mediaPublish')->with('success', 'Publish Updated Successfully');
     
-    }
+    } 
 
     public function destroy($id)
     {

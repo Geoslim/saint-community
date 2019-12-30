@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
     <link href="resources/css/styles.css" rel="stylesheet">
+    <link href="{{ asset('resources/mystyles.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" href="favicon.ico">
     <script language="javascript" type="text/javascript" src="https://equinox.shoutca.st/system/player.js"></script>
@@ -16,7 +17,7 @@
 </head>
 
 <body>
-
+    @include('includes.messages')
     <header class="header_hero header_hero--program" style=" height: 550px;
     background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(storage/eventBanner_image/{{ $event_banner->banner_image }});
     background-position: 0% 0%;
@@ -404,7 +405,7 @@ let distance;
 let x = setInterval(() => {
     let now = new Date().getTime();
 
-    distance = countDownDate - now;
+    let distance = countDownDate - now;
 
     let days = Math.floor(distance / (1000 * 60 * 60 * 24));
     let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -416,17 +417,18 @@ let x = setInterval(() => {
     document.querySelector(".time__txt--hours").innerHTML = hours.twoDigits();
     document.querySelector(".time__txt--minutes").innerHTML = minutes.twoDigits();
     document.querySelector(".time__txt--seconds").innerHTML = seconds.twoDigits();
+    
+    if (distance < 0) {
+    clearInterval(x);
+    document.querySelector(".time__txt--days").innerHTML = 00;
+    document.querySelector(".time__txt--hours").innerHTML = 00;
+    document.querySelector(".time__txt--minutes").innerHTML = 00;
+    document.querySelector(".time__txt--seconds").innerHTML = 00;
 
+    }
 }, timeout);
 
-if (distance < 0) {
-    clearInterval(x);
-    document.querySelector(".time__txt--days").innerHTML = 0;
-    document.querySelector(".time__txt--hours").innerHTML = 0;
-    document.querySelector(".time__txt--minutes").innerHTML = 0;
-    document.querySelector(".time__txt--seconds").innerHTML = 0;
 
-}
 
 
 Number.prototype.twoDigits = function () {

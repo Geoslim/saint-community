@@ -40,7 +40,7 @@
                 <p class="top__bar-hero">
 
                     <span style="margin-left:200px;">About Scc</span>
-                    <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
+                    <span style="position:relative; right:-700px;">{{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
 
                 </p>
 
@@ -81,10 +81,13 @@
                         <p class="text__description">About us Page Banner</p>
                         {{--  resources/images/about_img.jpg  --}}
                         <img src="storage/aboutBanner_image/{{ $aboutscc_banner->banner_image }}" alt="" class="bg__image" style="height: 550px; background-position: 0% 0%; background-size: cover;position: relative;">
+                
+                        <p>Minimum upload banner image dimension: 1000 x 700</p>
                         <button class="add__photo button"><span>ADD PHOTO</span></button>
                         <form method="POST" action="{{ url('updateAboutBanner/'.$aboutscc_banner->id) }}" enctype="multipart/form-data">
                             @method('PUT')
                             <input type="file" class="" id="banner_image" name="banner_image" >
+                           
                             @csrf
                             <div class="save__button--container" style="margin-top:0px;">
                                 <button class="button" id="submit__button"><span>Save Banner</span></button>
@@ -125,6 +128,7 @@
                         @method('PUT')
                         <div class="col-md-5 featured__image" style="position:relative; left:0px; top:0px;">
                             <img src="storage/aboutCover_image/{{$aboutscc_cover->cover_image}}" alt="" class="bg__image">
+                            <p>Minimum upload cover image dimension: 600 x 500</p>
                             <input type="file" class="" id="cover_image" name="cover_image" >
                             @csrf
                             <div class="save__button--container" style="margin-top:0px;">

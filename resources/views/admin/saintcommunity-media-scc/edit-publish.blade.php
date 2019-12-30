@@ -31,7 +31,7 @@
                 <p class="top__bar-hero">
 
                     <span style="margin-left:210px;">Media</span>
-                    <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
+                    <span style="position:relative; right:-700px;">{{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
 
                 </p>
 
@@ -73,6 +73,7 @@
                             <div class="col-md-5 featured__image" style="position:relative; left:0px; top:0px; width:150px; height:200px;">
                                 <img src="{{ asset('storage/mediaPublishcover/'.$media_publish_detail->cover)}}" alt="" class="bg__image" width="100%" >
                             </div>
+                            <p>Minimum upload cover image dimension: 200 x 200</p>
                             <input type="file" class="" id="cover_image" name="cover" >
                         </div>
                         <div class="save__button--container" style="margin-top:0px;">

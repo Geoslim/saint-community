@@ -30,8 +30,8 @@
 
                 <p class="top__bar-hero">
 
-                    <span style="margin-left:224px;">Branches Section</span>
-                    <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
+                    <span style="margin-left:200px;">Branches </span>
+                    <span style="position:relative; right:-700px;">{{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
 
 
                 </p>
@@ -59,9 +59,9 @@
         <div class="center__Container">
             @include('includes.messages')
                 <div class="form__header--list">
-                        <p class="form__header--sub">
-                            {{-- <img src="images/right-arrow-forward.svg" alt="" class="back__arrow"><span>Back</span> --}}
-                        </p>
+                    <p class="form__header--sub">
+                        <a href="{{ url('branches') }}"><img src="{{ asset('resources/images/right-arrow-forward.svg') }}" alt="" class="back__arrow"><span>Back</span></a>
+                    </p>
                         <p class="text__description">Create New Branch</p>
                     </div>
                     <div class="form__container">

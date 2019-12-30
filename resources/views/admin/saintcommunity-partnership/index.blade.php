@@ -41,7 +41,7 @@
                 <p class="top__bar-hero">
 
                     <span style="margin-left:210px;">Partnership</span>
-                    <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
+                    <span style="position:relative; right:-700px;">{{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
 
 
                 </p>
@@ -83,7 +83,7 @@
                         <div class="featured__image" style="">
                             <p class="text__description">Partnership Page Banner</p>
                             <img src="storage/partnershipBanner_image/{{$partnership_banner->banner_image}}" alt="" class="bg__image" style="height: 550px; background-position: 0% 0%; background-size: cover;position: relative;">
-                            
+                            <p>Minimum upload banner image dimension: 1000 x 700</p>
                             <form method="POST" action="{{url('updatePartnershipBanner/'.$partnership_banner->id)}}" enctype="multipart/form-data">
                                 @method('PUT')
                                 <input type="file" class="" id="banner_image" name="banner_image" >
@@ -136,6 +136,7 @@
                             <p class="text__description">Partnership Cover Image </p>
                             <div class="col-md-5 featured__image" style="position:relative; left:0px; top:0px;">
                                 <img src="storage/partnershipCover_image/{{$partnership_cover_image->cover_image}}" alt="" class="bg__image">
+                                <p>Minimum upload cover image dimension: 400 x 600</p>
                                 <input type="file" class="" id="cover_image" name="cover_image" >
                                     @csrf
                                 <div class="save__button--container" style="margin-top:0px;">

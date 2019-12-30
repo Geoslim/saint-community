@@ -63,8 +63,11 @@
             <li class="home_footer_link">Click Below To Suscribe
                 <br>To Our Newsletter</li>
             <li class="home_footer_link home_footer">
-                <input type="text" placeholder="Enter Your Email" class="footer__input">
-                <input type="submit" class="footer__input_submit" value="SUSCRIBE">
+                <form method="POST" action="{{ url('newsletter') }}">
+                    @csrf
+                <input type="email" placeholder="Enter Your Email" name="user_email" class="footer__input">
+                <input type="submit" class="footer__input_submit" value="SUBSCRIBE">
+                </form>
                 <div class="home_footer__social_link_container">
                     <span>Follow Us On:</span>
                     <a href="{{ url('https://web.facebook.com/'.$socialmedia->facebook)}}" target="_blank">

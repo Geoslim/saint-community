@@ -17,7 +17,7 @@
 </head>
 
 <body>
-
+    @include('includes.messages')
     <header class="header_hero header_hero--location" style="  height: 550px;
     background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0,.8)), url(storage/locationBanner_image/{{ $locationscc_banner->banner_image }});
     background-position: 72% 50%;
@@ -34,7 +34,7 @@
     <section class="location_main">
 
         <div class="main_row">
-            <div class="row" >
+            {{-- <div class="row" >
                 @foreach ($locations as $location)
             
                 <div class="col-md-6">
@@ -55,341 +55,353 @@
                 </div>
                 @endforeach
 
-            </div>
-            
-            {{-- <div class="location__wrapper_one">
-
-                <div class="individaul_location_container">
-
-                    <div class="pin_container">
-                        <img class="pin" src="resources/images/pin.svg" alt="">
-                    </div>
-                    <div class="individual_location_content">
-
-                        <div>
-                            <h3 class="individual_location_content__title">
-                                Saints Community Church - YABA
-                            </h3>
-                            <p class="individual_location_content__text">
-                                6 Oweh Street, By WAEC Office, Jibowu, Yaba, Lagos.
-                                CONTACTS: Seun Odunola - 08028316927 Tunde Ogundipe - 08024394277
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="location__wrapper_two">
-
-                <div class="individaul_location_container">
-                    <div class="pin_container">
-                        <img class="pin" src="resources/images/pin.svg" alt="">
-                    </div>
-                    <div class="individual_location_content">
-
-                        <div>
-                            <h3 class="individual_location_content__title">
-                                Saints Community Church - ALAGBADO
-                            </h3>
-                            <p class="individual_location_content__text">
-                                No 33, Raliat Adepeju Street Off Clem Road Via Ijaye B/stop.
-                                CONTACT: Tolani Alonge - 08029072237
-
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="individaul_location_container">
-
-                    <div class="pin_container">
-                        <img class="pin" src="resources/images/pin.svg" alt="">
-                    </div>
-                    <div class="individual_location_content">
-
-                        <div>
-                            <h3 class="individual_location_content__title">
-                                Saints Community Church - IBADAN
-                            </h3>
-                            <p class="individual_location_content__text">
-                                Ground Floor, Green House (Amigos Guest House), Fadeyi Street, (Opposite Libra Kitchen), Agbowo, UI, Ibadan.
-                                CONTACT: Ayo Anorue - 08027057176
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="location__wrapper_one">
-
-                <div class="individaul_location_container">
-
-                    <div class="pin_container">
-                        <img class="pin" src="resources/images/pin.svg" alt="">
-                    </div>
-                    <div class="individual_location_content">
-
-                        <div>
-                            <h3 class="individual_location_content__title">
-                                Saints Community Church - EPE
-                            </h3>
-                            <p class="individual_location_content__text">
-                                28 Akeusola Street, Off Lagos Road, Ayetoro, Epe
-                                CONTACT: Wale Adeeko - 08142409092
-
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="location__wrapper_two">
-
-                <div class="individaul_location_container">
-                    <div class="pin_container">
-                        <img class="pin" src="resources/images/pin.svg" alt="">
-                    </div>
-                    <div class="individual_location_content">
-
-                        <div>
-                            <h3 class="individual_location_content__title">
-                                Saints Community Church - AGO IWOYE
-                            </h3>
-                            <p class="individual_location_content__text">
-                                Brown house Opposite Limba Filling Station.
-                                Mini Campus Road, Ago Iwoye
-                                CONTACT: Alex Hunye - 08033712504
-
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="individaul_location_container">
-
-                    <div class="pin_container">
-                        <img class="pin" src="resources/images/pin.svg" alt="">
-                    </div>
-                    <div class="individual_location_content">
-
-                        <div>
-                            <h3 class="individual_location_content__title">
-                                Saints Community Church - IGANDO
-                            </h3>
-                            <p class="individual_location_content__text">
-                                No. 22 Olajumoke Awoye Street, Off Igando- Ikotun Road, Pako Bus-stop Igando.
-                                CONTACT: Lanre Alonge - 08023462243
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="location__wrapper_one">
-
-                <div class="individaul_location_container">
-
-                    <div class="pin_container">
-                        <img class="pin" src="resources/images/pin.svg" alt="">
-                    </div>
-                    <div class="individual_location_content">
-
-                        <div>
-                            <h3 class="individual_location_content__title">
-                                Saints Community Church - IKORODU
-                            </h3>
-                            <p class="individual_location_content__text">
-                                24b, Ayangburen road, ojubode, Ikorodu, Lagos, (The brown complex before sweet sensation)
-                                CONTACT: Daniel Hargley - 09035596977
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="location__wrapper_two">
-
-                <div class="individaul_location_container">
-                    <div class="pin_container">
-                        <img class="pin" src="resources/images/pin.svg" alt="">
-                    </div>
-                    <div class="individual_location_content">
-
-                        <div>
-                            <h3 class="individual_location_content__title">
-                                Saints Community Church - IFE
-                            </h3>
-                            <p class="individual_location_content__text">
-                                Conference Hall, Mayfair Hotels Complex, Mayfair, Ile-Ife, Osun State.
-                                CONTACT: Timothy Adebiyi - 08086067604
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="individaul_location_container">
-
-                    <div class="pin_container">
-                        <img class="pin" src="resources/images/pin.svg" alt="">
-                    </div>
-                    <div class="individual_location_content">
-
-                        <div>
-                            <h3 class="individual_location_content__title">
-                                Saints Community Church - IKENNE
-                            </h3>
-                            <p class="individual_location_content__text">
-                                Uren Bank Resort, Off Old Ilisan Road,
-                                Ikenne Remo, Ogun State
-                                CONTACT: Ogunsanya Oluwadunni - 08021024581
-
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="location__wrapper_one">
-
-                <div class="individaul_location_container">
-
-                    <div class="pin_container">
-                        <img class="pin" src="resources/images/pin.svg" alt="">
-                    </div>
-                    <div class="individual_location_content">
-
-                        <div>
-                            <h3 class="individual_location_content__title">
-                                Saints Community Church - PORT HARCOURT
-                            </h3>
-                            <p class="individual_location_content__text">
-                                Diana Hotel Hall, 40 Obiwall Road, Rumuigbo,
-                                Port Hacourt.
-                                CONTACT: John Bamgbose - 08060151800
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="location__wrapper_two">
-
-                <div class="individaul_location_container">
-                    <div class="pin_container">
-                        <img class="pin" src="resources/images/pin.svg" alt="">
-                    </div>
-                    <div class="individual_location_content">
-
-                        <div>
-                            <h3 class="individual_location_content__title">
-                                Saints Community Church - ABUJA
-                            </h3>
-                            <p class="individual_location_content__text">
-                                Floris Garden, Alfayyum Street, Off Abidjan Street, Wuse Zone 3, Abuja, FCT.
-                                CONTACT: Jide Olaleye - 08082755444
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="individaul_location_container">
-
-                    <div class="pin_container">
-                        <img class="pin" src="resources/images/pin.svg" alt="">
-                    </div>
-                    <div class="individual_location_content">
-
-                        <div>
-                            <h3 class="individual_location_content__title">
-                                Saints Community Church - OGBOMOSHO
-                            </h3>
-                            <p class="individual_location_content__text">
-                                Hezeco Kingdom Builders Hall, AlongPDS 1500 Lecture Hall, UNDER-G (LAUTECH), Ogbomoso, Oyo State.
-                                CONTACT: Igbagbo Oyedeji - 08188451934
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="location__wrapper_two">
-
-                <div class="individaul_location_container">
-                    <div class="pin_container">
-                        <img class="pin" src="resources/images/pin.svg" alt="">
-                    </div>
-                    <div class="individual_location_content">
-
-                        <div>
-                            <h3 class="individual_location_content__title">
-                                Saints Community Church - ILORIN
-                            </h3>
-                            <p class="individual_location_content__text">
-                                Caprichills Gardens, Bekandims Hotel,
-                                University of Ilorin Road, Tanke, Ilorin.
-                                CONTACT: Osarobo Ikponmwosa - 08086225307
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div>
-
-                <div class="individaul_location_container">
-
-                    <div class="pin_container">
-                        <img class="pin" src="resources/images/pin.svg" alt="">
-                    </div>
-                    <div class="individual_location_content">
-
-                        <div>
-                            <h3 class="individual_location_content__title">
-                                Saints Community Church - ABEOKUTA
-                            </h3>
-                            <p class="individual_location_content__text">
-                                Chief Anthony Anenih Multipurpose Hall, Federal University of Agriculture, Abeokuta
-                                CONTACT: Oluwabusola Adegbesan 08137455842
-                            </p>
-                        </div>
-
-                    </div>
-
-                </div>
-
             </div> --}}
             
+            <div class="location__wrapper_one">
+                @if($locations[0]!='')
+                <div class="individaul_location_container">
+
+                    <div class="pin_container">
+                        <img class="pin" src="resources/images/pin.svg" alt="">
+                    </div>
+                    <div class="individual_location_content">
+
+                        <div>
+                            <h3 class="individual_location_content__title">
+                                {{ $locations[0]->location_title }}
+                            </h3>
+                            <p class="individual_location_content__text">
+                                {{ $locations[0]->address }}
+                                <strong>CONTACT:</strong> {{ $locations[0]->contact_name }} - {{ $locations[0]->contact_phone }}
+                            
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+                @endif
+            </div>
+
+            <div class="location__wrapper_two">
+                @if($locations[1]!='')
+                <div class="individaul_location_container">
+                    <div class="pin_container">
+                        <img class="pin" src="resources/images/pin.svg" alt="">
+                    </div>
+                    <div class="individual_location_content">
+
+                        <div>
+                            <h3 class="individual_location_content__title">
+                                {{ $locations[1]->location_title }}
+                            </h3>
+                            <p class="individual_location_content__text">
+                                {{ $locations[1]->address }}
+                                <strong>CONTACT:</strong> {{ $locations[1]->contact_name }} - {{ $locations[1]->contact_phone }}
+                            
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+                @endif
+
+                @if($locations[2]!='')
+                <div class="individaul_location_container">
+
+                    <div class="pin_container">
+                        <img class="pin" src="resources/images/pin.svg" alt="">
+                    </div>
+                    <div class="individual_location_content">
+
+                        <div>
+                            <h3 class="individual_location_content__title">
+                                {{ $locations[2]->location_title }}
+                            </h3>
+                            <p class="individual_location_content__text">
+                                {{ $locations[2]->address }}
+                                <strong>CONTACT:</strong> {{ $locations[2]->contact_name }} - {{ $locations[2]->contact_phone }}
+                            
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+                @endif
+            </div>
+ 
+            <div class="location__wrapper_one">
+                @if($locations[3]!='')
+                <div class="individaul_location_container">
+
+                    <div class="pin_container">
+                        <img class="pin" src="resources/images/pin.svg" alt="">
+                    </div>
+                    <div class="individual_location_content">
+
+                        <div>
+                            <h3 class="individual_location_content__title">
+                                {{ $locations[3]->location_title }}
+                            </h3>
+                            <p class="individual_location_content__text">
+                                {{ $locations[3]->address }}
+                                <strong>CONTACT:</strong> {{ $locations[3]->contact_name }} - {{ $locations[3]->contact_phone }}
+                            
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+                @endif
+            </div>
+
+            <div class="location__wrapper_two">
+                @if($locations[4]!='')
+                <div class="individaul_location_container">
+                    <div class="pin_container">
+                        <img class="pin" src="resources/images/pin.svg" alt="">
+                    </div>
+                    <div class="individual_location_content">
+
+                        <div>
+                            <h3 class="individual_location_content__title">
+                                {{ $locations[4]->location_title }}
+                            </h3>
+                            <p class="individual_location_content__text">
+                                {{ $locations[4]->address }}
+                                <strong>CONTACT:</strong> {{ $locations[4]->contact_name }} - {{ $locations[4]->contact_phone }}
+                            
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+                @endif
+                @if($locations[5]!='')
+                <div class="individaul_location_container">
+
+                    <div class="pin_container">
+                        <img class="pin" src="resources/images/pin.svg" alt="">
+                    </div>
+                    <div class="individual_location_content">
+
+                        <div>
+                            <h3 class="individual_location_content__title">
+                                {{ $locations[5]->location_title }}
+                            </h3>
+                            <p class="individual_location_content__text">
+                                {{ $locations[5]->address }}
+                                <strong>CONTACT:</strong> {{ $locations[5]->contact_name }} - {{ $locations[5]->contact_phone }}
+                            
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+                @endif
+            </div>
+
+            <div class="location__wrapper_one">
+                @if($locations[6]!='')
+                <div class="individaul_location_container">
+
+                    <div class="pin_container">
+                        <img class="pin" src="resources/images/pin.svg" alt="">
+                    </div>
+                    <div class="individual_location_content">
+
+                        <div>
+                            <h3 class="individual_location_content__title">
+                                {{ $locations[6]->location_title }}
+                            </h3>
+                            <p class="individual_location_content__text">
+                                {{ $locations[6]->address }}
+                                <strong>CONTACT:</strong> {{ $locations[6]->contact_name }} - {{ $locations[6]->contact_phone }}
+                            
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+                @endif
+            </div>
+
+            <div class="location__wrapper_two">
+                @if($locations[7]!='')
+                <div class="individaul_location_container">
+                    <div class="pin_container">
+                        <img class="pin" src="resources/images/pin.svg" alt="">
+                    </div>
+                    <div class="individual_location_content">
+
+                        <div>
+                            <h3 class="individual_location_content__title">
+                                {{ $locations[7]->location_title }}
+                            </h3>
+                            <p class="individual_location_content__text">
+                                {{ $locations[7]->address }}
+                                <strong>CONTACT:</strong> {{ $locations[7]->contact_name }} - {{ $locations[7]->contact_phone }}
+                            
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+                @endif
+                @if($locations[8]!='')
+                <div class="individaul_location_container">
+
+                    <div class="pin_container">
+                        <img class="pin" src="resources/images/pin.svg" alt="">
+                    </div>
+                    <div class="individual_location_content">
+
+                        <div>
+                            <h3 class="individual_location_content__title">
+                                {{ $locations[8]->location_title }}
+                            </h3>
+                            <p class="individual_location_content__text">
+                                {{ $locations[8]->address }}
+                                <strong>CONTACT:</strong> {{ $locations[8]->contact_name }} - {{ $locations[8]->contact_phone }}
+                            
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+                @endif
+            </div>
+
+            <div class="location__wrapper_one">
+                @if($locations[9]!='')
+                <div class="individaul_location_container">
+
+                    <div class="pin_container">
+                        <img class="pin" src="resources/images/pin.svg" alt="">
+                    </div>
+                    <div class="individual_location_content">
+
+                        <div>
+                            <h3 class="individual_location_content__title">
+                                {{ $locations[9]->location_title }}
+                            </h3>
+                            <p class="individual_location_content__text">
+                                {{ $locations[9]->address }}
+                                <strong>CONTACT:</strong> {{ $locations[9]->contact_name }} - {{ $locations[9]->contact_phone }}
+                            
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+                @endif
+            </div>
+
+            <div class="location__wrapper_two">
+                @if($locations[10]!='')
+                <div class="individaul_location_container">
+                    <div class="pin_container">
+                        <img class="pin" src="resources/images/pin.svg" alt="">
+                    </div>
+                    <div class="individual_location_content">
+
+                        <div>
+                            <h3 class="individual_location_content__title">
+                                {{ $locations[10]->location_title }}
+                            </h3>
+                            <p class="individual_location_content__text">
+                                {{ $locations[10]->address }}
+                                <strong>CONTACT:</strong> {{ $locations[10]->contact_name }} - {{ $locations[10]->contact_phone }}
+                            
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+                @endif
+                @if($locations[11]!='')
+                <div class="individaul_location_container">
+
+                    <div class="pin_container">
+                        <img class="pin" src="resources/images/pin.svg" alt="">
+                    </div>
+                    <div class="individual_location_content">
+
+                        <div>
+                            <h3 class="individual_location_content__title">
+                                {{ $locations[11]->location_title }}
+                            </h3>
+                            <p class="individual_location_content__text">
+                                {{ $locations[11]->address }}
+                                <strong>CONTACT:</strong> {{ $locations[11]->contact_name }} - {{ $locations[11]->contact_phone }}
+                            
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+                @endif
+            </div>
+
+            <div class="location__wrapper_two">
+                @if($locations[12]!='')
+                <div class="individaul_location_container">
+                    <div class="pin_container">
+                        <img class="pin" src="resources/images/pin.svg" alt="">
+                    </div>
+                    <div class="individual_location_content">
+
+                        <div>
+                            <h3 class="individual_location_content__title">
+                                {{ $locations[12]->location_title }}
+                            </h3>
+                            <p class="individual_location_content__text">
+                                {{ $locations[12]->address }}
+                                <strong>CONTACT:</strong> {{ $locations[12]->contact_name }} - {{ $locations[12]->contact_phone }}
+                            
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+                @endif
+                @if($locations[13]!='')
+                <div class="individaul_location_container">
+
+                    <div class="pin_container">
+                        <img class="pin" src="resources/images/pin.svg" alt="">
+                    </div>
+                    <div class="individual_location_content">
+
+                        <div>
+                            <h3 class="individual_location_content__title">
+                                {{ $locations[13]->location_title }}
+                            </h3>
+                            <p class="individual_location_content__text">
+                                {{ $locations[13]->address }}
+                                <strong>CONTACT:</strong> {{ $locations[13]->contact_name }} - {{ $locations[13]->contact_phone }}
+                            
+                            </p>
+                        </div>
+
+                    </div>
+
+                </div>
+                @endif
+            </div>
+           
 
         </div>
 

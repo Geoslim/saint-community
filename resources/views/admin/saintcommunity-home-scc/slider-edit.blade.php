@@ -31,7 +31,7 @@
                 <p class="top__bar-hero">
 
                     <span style="margin-left:200px;">Home</span>
-                    <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
+                    <span style="position:relative; right:-700px;">{{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
 
                 </p>
 
@@ -66,7 +66,8 @@
                     </div>
                     <div class="form__container">
                             <img src="{{ asset('storage/slider_images/'.$slider_images->slider_image) }}" alt="" class="bg__image" style="height: 550px; background-position: 0% 0%; background-size: cover;position: relative;">
-                        <form method="POST" action="{{ url('homeSliderUpdate/'.$slider_images->id) }}" enctype="multipart/form-data">
+                            <p>Minimum upload slider image dimension: 1000 x 700</p>
+                            <form method="POST" action="{{ url('homeSliderUpdate/'.$slider_images->id) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <div class="geo" style="padding:10px 100px;">

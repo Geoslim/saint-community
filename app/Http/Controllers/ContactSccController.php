@@ -26,7 +26,7 @@ class ContactSccController extends Controller
     public function updateContactBanner(Request $request, $id)
     {
         $this->validate($request, [
-            'banner_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=1300,min_height=900'
+            'banner_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048|dimensions:min_width=1000,min_height=700'
             
         ]);
         if($request->hasFile('banner_image')){

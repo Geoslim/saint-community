@@ -19,11 +19,24 @@
             color:white;
 
         }
-        .social_btn_tw {
-            width: 80px;
+        .social_btn {
+            width: 100px;
             height:40px;
-            background-image: url('resources/images/twitter_backend.png') ;
+            background-color: dimgrey;
+            color: aliceblue;
+           
         }
+        .social_active {
+            background-color: darkgoldenrod;
+            color: white;
+            outline-color: white;
+           
+        }
+        .highlight {
+            background-color: #fff2ac;
+            background-image: linear-gradient(to right, #ffe359 0%, #fff2ac 100%);
+        }
+
         body{
             font-family: Poppins;
         }
@@ -39,7 +52,7 @@
                 <p class="top__bar-hero">
 
                     <span style="margin-left:210px;">Social Media</span>
-                    <span style="position:relative; right:-700px;">Howdy, {{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
+                    <span style="position:relative; right:-700px;">{{ Auth::user()->name }} | {{ (Auth::user()->role ==3 ? "Editor" : "Administrator") }}</span>
 
 
                 </p>
@@ -81,19 +94,24 @@
                         <div class="geo" style="position:relative;">
                             <form method="POST" action="{{route('social-media.update', ['socialmedia'=>$socialmedia])}}">
                                 @method('PUT')
-                                <div class="data__field--1" style="" id="twitterinput">
-                                <input type="text" class="" name="twitter" placeholder="" value="{{$socialmedia->twitter}}">
-                                </div>
-                                <div class="data__field--1" style="display:none;" id="google-playinput">
+                                <div class="data__field--1 row" style="" id="twitterinput">
+                                    <p style="margin-left:60px; margin-top:10px;" class="col-md-12" >https://twitter.com/<span class="highlight">{{$socialmedia->twitter}}</span></p>
+                                    <input type="text" class="" name="twitter" placeholder="" value="{{$socialmedia->twitter}}">
+                                </div> 
+                                <div class="data__field--1 row" style="display:none;" id="google-playinput">
+                                    <p style="margin-left:60px; margin-top:10px;" class="col-md-12" >https://play.google.com/store/apps/details?id=<span class="highlight">{{$socialmedia->play_store}}</span></p>
                                     <input type="text" class="" name="play_store" placeholder="" value="{{$socialmedia->play_store}}">
                                 </div>
-                                <div class="data__field--1" style="display:none;" id="facebookinput">
+                                <div class="data__field--1 row" style="display:none;" id="facebookinput">
+                                    <p style="margin-left:60px; margin-top:10px;" class="col-md-12">https://facebook.com/<span class="highlight">{{$socialmedia->facebook}}</span></p>
                                     <input type="text" class="" name="facebook" placeholder="" value="{{$socialmedia->facebook}}">
                                 </div>
-                                <div class="data__field--1" style="display:none;" id="youtubeinput">
+                                <div class="data__field--1 row" style="display:none;" id="youtubeinput">
+                                    <p style="margin-left:60px; margin-top:10px;" class="col-md-12" >https://www.youtube.com/channel/<span class="highlight">{{$socialmedia->youtube}}</span></p>
                                     <input type="text" class="" name="youtube" placeholder="" value="{{$socialmedia->youtube}}">
                                 </div>
-                                <div class="data__field--1" style="display:none;" id="instagraminput">
+                                <div class="data__field--1 row" style="display:none;" id="instagraminput">
+                                    <p style="margin-left:60px; margin-top:10px;" class="col-md-12" >https://instagram.com/<span class="highlight">{{$socialmedia->instagram}}</span></p>
                                     <input type="text" class="" name="instagram" placeholder="" value="{{$socialmedia->instagram}}">
                                 </div>
                                 @csrf
@@ -101,7 +119,7 @@
                             </form>
 
                             <div class="data__field--1" style="margin:0 10px; position:absolute; bottom:100px;">
-                                <button class="btn social_btn_tw" style="margin:5px;" id="twitterbtn">Twitter</button>
+                                <button class="btn social_btn social_active" style="margin:5px;" id="twitterbtn">Twitter</button>
                                 <button class="btn social_btn" style="margin:5px;" id="google-playbtn">PlayStore</button>
                                 <button class="btn social_btn" style="margin:5px;" id="facebookbtn">Facebook</button>
                                 <button class="btn social_btn" style="margin:5px;" id="youtubebtn">Youtube</button>
@@ -134,6 +152,11 @@ $(document).ready(function(){
         $("#facebookinput").hide();
         $("#youtubeinput").hide();
         $("#instagraminput").hide();
+        $("#twitterbtn").addClass('social_active');
+        $("#google-playbtn").removeClass('social_active');
+        $("#facebookbtn").removeClass('social_active');
+        $("#youtubebtn").removeClass('social_active');
+        $("#instagrambtn").removeClass('social_active');
     });
 
     $("#google-playbtn").click(function(){
@@ -142,6 +165,11 @@ $(document).ready(function(){
         $("#facebookinput").hide();
         $("#youtubeinput").hide();
         $("#instagraminput").hide();
+        $("#google-playbtn").addClass('social_active');
+        $("#twitterbtn").removeClass('social_active');
+        $("#facebookbtn").removeClass('social_active');
+        $("#youtubebtn").removeClass('social_active');
+        $("#instagrambtn").removeClass('social_active');
     });
 
     $("#facebookbtn").click(function(){
@@ -150,6 +178,11 @@ $(document).ready(function(){
         $("#google-playinput").hide();
         $("#youtubeinput").hide();
         $("#instagraminput").hide();
+        $("#facebookbtn").addClass('social_active');
+        $("#twitterbtn").removeClass('social_active');
+        $("#google-playbtn").removeClass('social_active');
+        $("#youtubebtn").removeClass('social_active');
+        $("#instagrambtn").removeClass('social_active');
     });
 
     $("#youtubebtn").click(function(){
@@ -158,6 +191,11 @@ $(document).ready(function(){
         $("#google-playinput").hide();
         $("#facebookinput").hide();
         $("#instagraminput").hide();
+        $("#youtubebtn").addClass('social_active');
+        $("#twitterbtn").removeClass('social_active');
+        $("#google-playbtn").removeClass('social_active');
+        $("#facebookbtn").removeClass('social_active');
+        $("#instagrambtn").removeClass('social_active');
     });
 
     $("#instagrambtn").click(function(){
@@ -166,6 +204,11 @@ $(document).ready(function(){
         $("#google-playinput").hide();
         $("#facebookinput").hide();
         $("#youtubeinput").hide();
+        $("#instagrambtn").addClass('social_active');
+        $("#twitterbtn").removeClass('social_active');
+        $("#google-playbtn").removeClass('social_active');
+        $("#facebookbtn").removeClass('social_active');
+        $("#youtubebtn").removeClass('social_active');
     });
 });
 

@@ -12,6 +12,7 @@
         <link rel="stylesheet" href="vendors/css/owl.carousel.min.css">
     
     <link href="resources/css/styles.css" rel="stylesheet">
+    <link href="{{ asset('resources/mystyles.css') }}" rel="stylesheet">
     <link rel="shortcut icon" href="favicon.ico">
     <link rel="icon" href="favicon.ico">
     <!-- <script language="javascript" type="text/javascript" src="https://equinox.shoutca.st/system/player.js"></script> -->
@@ -21,6 +22,7 @@
 </head>
 
 <body class="rove">
+    @include('includes.messages')
     <header class="header_hero">
         {{-- <nav class="nav">
             <span class="menu_icon">
@@ -100,9 +102,9 @@
             <div class="home_info__box_container">
                 <div class="home_info__box">
                     <h3 class="home_info__title">{{ $home_body->title }}</h3>
-                    <p class="home_info__write-up">
+                    <span class="home_info__write-up">
                      {!! $home_body->body !!}
-                    </p>
+                    </span>
                     <div class="home__btn_container">
                         <a href="about-us.html" class="home__btn home__btn--red_stroked home__btn--equal_width">
                             {{ $home_body->about_btn_title }}
