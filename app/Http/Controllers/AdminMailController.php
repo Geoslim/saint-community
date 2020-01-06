@@ -22,7 +22,7 @@ class AdminMailController extends Controller
             'body' => 'required',
         ]);
 
-
+ 
         $admin_members = AdminMember::get();
         foreach ($admin_members as $admin_member) {
        

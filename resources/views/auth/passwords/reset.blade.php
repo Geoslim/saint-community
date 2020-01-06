@@ -1,65 +1,57 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="{{ asset('resources/css/style2.css') }}" rel="stylesheet">
+    <link href="{{ asset('resources/mystyles.css') }}" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico">
+    <script language="javascript" type="text/javascript" src="https://equinox.shoutca.st/system/player.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
-                <div class="card-body">
-                    <form method="POST" action="{{ route('password.update') }}">
-                        @csrf
+    <title>Password Reset | Saint Community</title>
+</head>
 
-                        <input type="hidden" name="token" value="{{ $token }}">
+<body>
+    
+    <div class="admin__main__container">
+        <a href="{{ url('/') }}" class="admin__back_btn">
+            back to main site
+        </a>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+        <div class="admin__login__section">
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+            <img src="{{ asset('resources/img/LOGO.png') }}" class="admin__logo" alt="saint logo">
 
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+            <h1 class="admin__login_header">
+                Saints community church 
+            </h1>
 
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+            <h5 class="admin__form_header">
+                Change Your Password
+            </h5>
+            @include('includes.messages')
+                <form method="POST" action="{{ route('password.update') }}" class="admin__login_form">
+                    @csrf
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                <input type="hidden" name="token" value="{{ $token }}">
+                <input type="email" class="@error('email') is-invalid @enderror" name="email"  id="admin__mail" value="{{ $email ?? old('email') }}" required autocomplete="email" autofocus>
+                <input type="password" placeholder="Password" name="password" id="admin__password" class="@error('password') is-invalid @enderror" required autocomplete="new-password">
+                <input type="password" placeholder="Confirm Password" name="password_confirmation" id="admin__password" required autocomplete="new-password" >
+                <input type="submit" id="admin__submit" value="RESET PASSWORD">
+                
+            </form>
 
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
 
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
 
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Reset Password') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
         </div>
+
     </div>
-</div>
-@endsection
+
+</body>
+
+</html>

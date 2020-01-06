@@ -20,7 +20,7 @@
 <body>
     
     <div class="admin__main__container">
-        @include('includes.messages')
+        
         <a href="{{ url('/') }}" class="admin__back_btn">
             back to main site
         </a>
@@ -36,10 +36,10 @@
             <h5 class="admin__form_header">
                 LOGIN TO YOUR ADMIN PAGE
             </h5>
-
+            @include('includes.messages')
             <form action="{{ route('login') }}" method="POST" class="admin__login_form">
                 @csrf
-                <input type="email" name="email" class="@error('email') is-invalid @enderror" placeholder="Email Address" id="admin__mail" vvalue="{{ old('email') }}" required autocomplete="email" autofocus>
+                <input type="email" name="email" class="@error('email') is-invalid @enderror" placeholder="Email Address" id="admin__mail" value="{{ old('email') }}" required autocomplete="email" autofocus>
                     @error('email')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
