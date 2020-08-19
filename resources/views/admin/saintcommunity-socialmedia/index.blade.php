@@ -27,9 +27,10 @@
            
         }
         .social_active {
-            background-color: darkgoldenrod;
+            background-color: #DBA834;
             color: white;
             outline-color: white;
+            border: 0;
            
         }
         .highlight {
@@ -95,30 +96,32 @@
                             <form method="POST" action="{{route('social-media.update', ['socialmedia'=>$socialmedia])}}">
                                 @method('PUT')
                                 <div class="data__field--1 row" style="" id="twitterinput">
-                                    <p style="margin-left:60px; margin-top:10px;" class="col-md-12" >https://twitter.com/<span class="highlight">{{$socialmedia->twitter}}</span></p>
+                                    <p style="margin-left:60px; margin-top:10px;" class="col-md-12" >https://twitter.com/<small class="highlight">{{$socialmedia->twitter}}</small></p>
                                     <input type="text" class="" name="twitter" placeholder="" value="{{$socialmedia->twitter}}">
                                 </div> 
                                 <div class="data__field--1 row" style="display:none;" id="google-playinput">
-                                    <p style="margin-left:60px; margin-top:10px;" class="col-md-12" >https://play.google.com/store/apps/details?id=<span class="highlight">{{$socialmedia->play_store}}</span></p>
+                                    <p style="margin-left:60px; margin-top:10px;" class="col-md-12" >https://play.google.com/store/apps/details?id=<small class="highlight">{{$socialmedia->play_store}}</small></p>
                                     <input type="text" class="" name="play_store" placeholder="" value="{{$socialmedia->play_store}}">
                                 </div>
                                 <div class="data__field--1 row" style="display:none;" id="facebookinput">
-                                    <p style="margin-left:60px; margin-top:10px;" class="col-md-12">https://facebook.com/<span class="highlight">{{$socialmedia->facebook}}</span></p>
+                                    <p style="margin-left:60px; margin-top:10px;" class="col-md-12">https://facebook.com/<small class="highlight">{{$socialmedia->facebook}}</small></p>
                                     <input type="text" class="" name="facebook" placeholder="" value="{{$socialmedia->facebook}}">
                                 </div>
                                 <div class="data__field--1 row" style="display:none;" id="youtubeinput">
-                                    <p style="margin-left:60px; margin-top:10px;" class="col-md-12" >https://www.youtube.com/channel/<span class="highlight">{{$socialmedia->youtube}}</span></p>
+                                    <p style="margin-left:60px; margin-top:10px;" class="col-md-12" >https://www.youtube.com/channel/<small class="highlight">{{$socialmedia->youtube}}</small></p>
                                     <input type="text" class="" name="youtube" placeholder="" value="{{$socialmedia->youtube}}">
                                 </div>
                                 <div class="data__field--1 row" style="display:none;" id="instagraminput">
-                                    <p style="margin-left:60px; margin-top:10px;" class="col-md-12" >https://instagram.com/<span class="highlight">{{$socialmedia->instagram}}</span></p>
+                                    <p style="margin-left:60px; margin-top:10px;" class="col-md-12" >https://instagram.com/<small class="highlight">{{$socialmedia->instagram}}</small></p>
                                     <input type="text" class="" name="instagram" placeholder="" value="{{$socialmedia->instagram}}">
                                 </div>
                                 @csrf
-                                <button type="submit" class="btn btn-danger" style="margin:100px 0 0 30px;">Save</button>
+                                <div class="save__button--container" style="margin-top:0px; text-decoration: none;margin-top: 100px;">
+                                    <button class="button" id="submit__button"><span>Save</span></button>
+                                </div>
                             </form>
 
-                            <div class="data__field--1" style="margin:0 10px; position:absolute; bottom:100px;">
+                            <div class="data__field--1" style="margin:0 10px; position:absolute; bottom:120px;">
                                 <button class="btn social_btn social_active" style="margin:5px;" id="twitterbtn">Twitter</button>
                                 <button class="btn social_btn" style="margin:5px;" id="google-playbtn">PlayStore</button>
                                 <button class="btn social_btn" style="margin:5px;" id="facebookbtn">Facebook</button>

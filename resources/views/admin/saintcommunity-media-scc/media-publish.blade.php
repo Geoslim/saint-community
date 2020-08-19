@@ -70,12 +70,10 @@
                 <p class="form__header--sub">
                     <a href="{{ url('media-scc') }}"><img src="{{ asset('resources/images/right-arrow-forward.svg') }}" alt="" class="back__arrow"><span>Back</span></a>
                 </p>
-                <p class="text__description">Update Publish</p>
+                <p class="text__description"> Media Publish</p>
             </div>
             <div class="form__container">
-                @can('admin-only', auth()->user())
-                    <a href="{{ url('create-publish') }}"><button class=" btn btn-sm btn-warning" style="text-align:center; margin-left:50px; margin-top:50px;"><span>Add Publish</span></button></a>
-                @endcan 
+               
                 <div class="table__container">
                         
                         <table class="table__container--main">
@@ -99,17 +97,18 @@
                                         <td class="table__data">{{$media_publish->updated_at}}</td>
                                         <td class="table__data">{{$media_publish->title}}</td>
                                         <td class="table__data">
-                                            <a href="{{ action('MediaController@editPublish', ['media_publish' => $media_publish->id]) }}" alt="Edit" title="Edit">
-                                                <button class="btn btn-sm">Edit</button>
+                                            <a href="{{ action('MediaController@editPublish', ['media_publish' => $media_publish->id]) }}" alt="Edit" title="Edit" style="color: #000; text-decoration: none;">
+                                                Edit
                                             </a>
                                             @can('admin-only', auth()->user())
                                             |
-                                            
+                                             
                                             <form action="{{action('MediaController@destroy', ['media_publish' => $media_publish->id])}}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
-                                                <button type="submit" class="btn btn-sm" title="Delete" value="DELETE"
-                                                onclick="confirm('Click OK to Confirm Deletion');">Delete</button>
+                                                <a href="{{url('/media-publish/'.$media_publish->id)}}" onclick="return confirm('Are you sure you want to delete published media ?')">
+                                                    <button type="submit" class="" title="Delete" value="DELETE" style="border: 0; padding: 0; cursor: pointer; background:transparent;">Delete</button>
+                                                </a>
                                             </form>
                                             @endcan
                                     </tr>
@@ -120,7 +119,13 @@
                         
     
                     </div>
-
+                    @can('admin-only', auth()->user())
+                    <a href="{{ url('create-publish') }}">
+                        <div class="save__button--container" style="margin-top:0px;">
+                            <button class="button" id="submit__button"><span>Publish</span></button>
+                        </div>
+                        </a>
+                @endcan 
             </div>
 
 

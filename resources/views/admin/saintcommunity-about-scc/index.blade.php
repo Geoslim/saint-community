@@ -5,7 +5,7 @@
     <meta id="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600"rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet"> 
     <link href="vendor/css/animate.css" rel="stylesheet">
     <link rel="stylesheet" href="vendor/css/jquery.ui.css">
     <style>
@@ -75,15 +75,15 @@
 
             
             <div class="form__container" style="position:relative;">
-                <div class="geo">
+                <div class="geo" style="padding:1px;">
 
                     <div class="featured__image" style="">
                         <p class="text__description">About us Page Banner</p>
                         {{--  resources/images/about_img.jpg  --}}
-                        <img src="storage/aboutBanner_image/{{ $aboutscc_banner->banner_image }}" alt="" class="bg__image" style="height: 550px; background-position: 0% 0%; background-size: cover;position: relative;">
+                        <img src="aboutBanner_image/{{ $aboutscc_banner->banner_image }}" alt="" class="bg__image" style="height: 550px; background-position: 0% 0%; background-size: cover;position: relative;">
                 
                         <p>Minimum upload banner image dimension: 1000 x 700</p>
-                        <button class="add__photo button"><span>ADD PHOTO</span></button>
+                        {{-- <button class="add__photo button"><span>ADD PHOTO</span></button> --}}
                         <form method="POST" action="{{ url('updateAboutBanner/'.$aboutscc_banner->id) }}" enctype="multipart/form-data">
                             @method('PUT')
                             <input type="file" class="" id="banner_image" name="banner_image" >
@@ -98,7 +98,7 @@
                     {{--  {{route('about-scc.update', ['aboutsccsbody'=>$aboutsccsbody])}}  --}}
                     <form method="POST" action="{{url('updateAboutBody/'.$aboutscc_body->id)}} ">
                         @method('PUT') 
-                        <p class="text__description">About us Page Body </p>
+                        <p class="text__description"  style="margin-left:30px;">About us Page Body </p>
                         <div class="data__field--1">
 
                             <input type="text" class="" id="title" name="title" placeholder="Title" value="{{$aboutscc_body->title}}">
@@ -123,7 +123,7 @@
                     </form>
                     {{--  resources/images/bg.jpg  --}}
                 <div class="geo ">
-                    <p class="text__description">About us Body Cover Image</p>
+                    <p class="text__description" style="margin-left:30px;">About us Body Cover Image</p>
                     <form method="POST" action="{{url('updateAboutCoverImage/'.$aboutscc_cover->id)}}" enctype="multipart/form-data">
                         @method('PUT')
                         <div class="col-md-5 featured__image" style="position:relative; left:0px; top:0px;">

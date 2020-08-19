@@ -138,13 +138,13 @@ p {
 
     font-family: Poppins;
     font-style: normal;
-    /* font-weight: bold;
+     font-weight: bold;
     font-size: 18px;
     text-align: justify;
     text-transform: capitalize;
     color: #DBA834;
     margin-bottom:20px;
-    display: block; */
+    display: block; 
 
 }
 
@@ -198,7 +198,7 @@ p {
 
 }
 
-.data__field input, textarea {
+.data__field input, textarea, select{
 
     width: 94%;
     margin: 20px;

@@ -72,8 +72,8 @@
                 </p>
                 <p class="text__description">Living Word</p>
             </div>
-            <div class="form__container" style="margin-bottom:-50px;">
-                    <p class="text__description">Media Headings</p>
+            <div class="form__container" style="margin-bottom:-50px; padding-top:20px;">
+                    <p class="text__description" style="margin-left: 30px">Media Headings</p>
                     <form method="POST" action="{{ url('homeMediaHeadingUpdate/'.$media_heading->id) }}">
                         @csrf
                         @method('PUT')
@@ -113,8 +113,8 @@
                                         <td class="table__data">{{$media_image->updated_at}}</td>
                                         <td class="table__data">{{ $media_image->media_image }}</td>
                                         <td class="table__data">
-                                            <a href="{{ action('HomeFrontController@homeMediaEdit', ['media_image' => $media_image->id]) }}" alt="Edit" title="Edit">
-                                                <button class="btn btn-sm">Edit</button>
+                                            <a href="{{ action('HomeFrontController@homeMediaEdit', ['media_image' => $media_image->id]) }}" alt="Edit" title="Edit" style="color: #000; text-decoration: none;">
+                                             Edit
                                             </a>
                                             
                                             @can('admin-only', auth()->user())
@@ -123,8 +123,9 @@
                                             <form action="{{action('HomeFrontController@mediaDestroy', ['media_image' => $media_image->id])}}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
-                                                <button type="submit" class="btn btn-sm" title="Delete" value="DELETE"
-                                                onclick="confirm('Click OK to Confirm Deletion');">Delete</button>
+                                                <a href="{{url('/delete-admin/'.$media_image->id)}}" onclick="return confirm('Are you sure you want to delete media ?')">
+                                                    <button type="submit" class="" title="Delete" value="DELETE" style="border: 0; padding: 0; cursor: pointer; background:transparent;">Delete</button>
+                                                </a>
                                             </form>
                                             @endcan
                                         </td>
@@ -137,7 +138,13 @@
     
                     </div>
                     @can('admin-only', auth()->user())
-                    <a href="{{ url('home-scc-media-create')}}"><button class=" btn btn-sm btn-warning" style="text-align:center;"><span>Add Media</span></button></a>
+                    <a href="{{ url('home-scc-media-create') }}" style="text-decoration:none;">
+                        
+                        <div class="save__button--container" style="margin-top:0px;">
+                           <button class="button" id="submit__button"><span>Add Media</span></button>
+                       </div>
+                   </a>
+                    {{-- <a href="{{ url('home-scc-media-create')}}"><button class=" " style="text-align:center;"><span>Add Media</span></button></a> --}}
                     @endcan
             </div>
 

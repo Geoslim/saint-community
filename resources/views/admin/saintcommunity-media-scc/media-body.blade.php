@@ -74,45 +74,49 @@
             </div>
 
             
-            <div class="form__container" style="position:relative;">
+            <div class="form__container" style="padding-top:1px;">
                 <div class="geo">
-
+ 
                     <div class="featured__image" style="">
-                        <p class="text__description">Media Page Banner</p>
+                        <p class="text__description" style="margin-left:5px;">Media Page Banner</p>
                        
-                        <img src="storage/MeidaBanner_image/{{ $media_banner->banner_image }}" alt="" class="bg__image" style="height: 550px; background-position: 0% 0%; background-size: cover;position: relative;">
+                        <img src="storage/MeidaBanner_image/{{ $media_banner->banner_image }}" alt="" class="bg__image" style="height: 300px; background-size: contain;border-radius:10px;">
                         <p>Minimum upload banner image dimension: 1000 x 700</p>
-                        <button class="add__photo button"><span>ADD PHOTO</span></button>
+                        {{-- <button class="add__photo button"><span>ADD PHOTO</span></button> --}}
                         <form method="POST" action="{{ url('updateMediaBanner/'.$media_banner->id) }}" enctype="multipart/form-data">
                             @method('PUT')
-                            <input type="file" class="" id="banner_image" name="banner_image" >
+                            <input type="file" class="" id="banner_image" name="banner_image" style="width:93%;">
                             @csrf
                             <div class="save__button--container" style="margin-top:0px;">
-                                <button class="button" id="submit__button"><span>Save Banner</span></button>
+                                <button class="button" id="submit__button" style="margin-right:20px;"><span>Save Banner</span></button>
                             </div>
                         </form>
                     </div>
+                </div>
+            </div>
+            <div class="form__container" style="position:relative; padding-top:20px;">
+                <div class="geo">
 
                     <form method="POST" action=" {{ url('updateMediaBody/'.$media_body->id) }}">
                             @csrf
                         @method('PUT') 
-                        <p class="text__description">Media Page Body </p>
+                        <p class="text__description" style="margin-left:30px;">Media Page Body </p>
                         <div class="data__field--1">
 
                             <input type="text" class="" id="title" name="title" placeholder="Title" value="{{ $media_body->title }}">
                         </div>
-                        <div class="" style="margin:10px 30px; border-radius:10px;">
+                        <div class="data__field--1">
 
-                            <textarea id="body" name="body" cols="" rows="10">{{ $media_body->body }}</textarea>
+                            <textarea id="body" name="body" cols="1" rows="5" style="">{{ $media_body->body }}</textarea>
         
                         </div>
-                        <div class="data__field--1">
-                            <input type="text" class="" id="" name="contact" placeholder="Contact Info" value="{{ $media_body->contact_info }}">
-                            <input type="text" class="" id="" name="mobile" placeholder="Mobile Number" value="{{ $media_body->phone }}">
+                        <div class="data__field--1" style="padding:0 10px 0 10px;">
+                            <input type="text" class="" id="" name="contact" placeholder="Contact Info" value="{{ $media_body->contact_info }}" style="width:50%;">
+                            <input type="text" class="" id="" name="mobile" placeholder="Mobile Number" value="{{ $media_body->phone }}"  style="width:50%;margin-right:50px;">
                         </div>
-                        <div class="data__field--1">
-                            <input type="text" class="" id="" name="email" placeholder="Email" value="{{ $media_body->email }}">
-                            <input type="text" class="" id="" name="website" placeholder="Website" value="{{ $media_body->url }}">
+                        <div class="data__field--1" style="padding:0 10px 0 10px;">
+                            <input type="text" class="" id="" name="email" placeholder="Email" value="{{ $media_body->email }}" style="width:50%;">
+                            <input type="text" class="" id="" name="website" placeholder="Website" value="{{ $media_body->url }}" style="width:50%;margin-right:50px;">
                         </div>
                         <div class="data__field--1">
                             <input type="text" class="" id="" name="address" placeholder="Address" value="{{ $media_body->address }}">
@@ -123,12 +127,17 @@
         
                         </div>
                     </form>
-                <div class="geo ">
-                    <p class="text__description">Media Body Cover Image</p>
+
+                </div>
+            </div>
+            <div class="form__container" style="position:relative; padding-top:20px;">
+                <p class="text__description" style="padding-left:20px;">Media Body Cover Image</p>
+                <div class="geo" style="width:80%; margin:auto;">
+                    
                     <form method="POST" action="{{ url('updateMediaCover/'.$media_cover->id) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
-                        <div class="col-md-5 featured__image" style="position:relative; left:0px; top:0px;">
+                        <div class=" featured__image" style="position:relative; left:0px; top:0px;">
                             <img src="storage/mediaCover_image/{{ $media_cover->cover_image }}" alt="" class="" width="250px" height="150px">
                             <p>Minimum upload cover image dimension: 400 x 300</p>
                             <input type="file" class="" id="cover_image" name="cover_image" >
@@ -141,18 +150,10 @@
                     </form>
                 </div>
 
-               
-
             </div>
-
-
-
         </div>
-
-
-        </div>
-
     </div>
+
 
 </section>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="crossorigin="anonymous"></script>

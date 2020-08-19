@@ -5,6 +5,7 @@ use App\AboutSccBanner;
 use App\AboutSccBody;
 use App\AboutSccCoverImage;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class AboutSccController extends Controller
 {
@@ -46,8 +47,8 @@ class AboutSccController extends Controller
             //filename to store
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
             //upload the image
-            $path = $request->file('banner_image')->storeAs('public/aboutBanner_image',$fileNameToStore);
-            
+            // $path = $request->file('banner_image')->storeAs('public/aboutBanner_image',$fileNameToStore);
+            Image::make($request->file('banner_image'))->save(base_path('public/aboutBanner_image/'. $fileNameToStore));
         }
         $aboutscc_banner = AboutSccBanner::find(1);
         $aboutscc_banner->banner_image = $fileNameToStore;

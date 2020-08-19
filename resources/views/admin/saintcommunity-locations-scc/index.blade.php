@@ -4,22 +4,22 @@
 <head>
     <meta id="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600"
-
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600"rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-lite.css" rel="stylesheet">
     <link href="vendor/css/animate.css" rel="stylesheet">
     <link rel="stylesheet" href="vendor/css/jquery.ui.css">
     <style>
         @import url('https://fonts.googleapis.com/css?family=Lato:100,300,300i,400');
         @import url(resources/css/directory.css);
         @import url(resources/admin1.css);
+        @import url(resources/mystyles.css);
         .a-link{
             text-decoration:none;
             color:white;
 
         }
     </style>
-
+ 
     <title>Admin/Locations Page</title>
 </head>
 <body>
@@ -56,40 +56,55 @@
 
         <div class="center__Container">
             @include('includes.messages')
-            <div class="home__menu--container">
-                
-                    <div class="left__home--menus">
-
-                            <div class="left__home--item">
-
-
-                                <p><a href="{{ url('locations-scc-body') }}" class="home__page--link"><img src="resources/images/footer_img.svg" alt="" class="homepage__img"></a></p>
-                                <p class="home__menu--description"><a href="{{ url('locations-scc-body') }}" class="home__page--link">Locations Body</a></p>
-
-
-                            </div>
-
-                        </div>
-                        <div class="right__home--menus">
-
-                                <div class="left__home--item">
-
-
-                                        <p><a href="{{ url('locations-scc-banner') }}" class="home__page--link"><img src="resources/images/media_img.svg" alt="" class="homepage__img"></a></p>
-                                        <p class="home__menu--description"><a href="{{ url('locations-scc-banner') }}" class="home__page--link">Page Banner</a></p>
-        
-        
-                                    </div>
-                               
-                                
-
-                            </div>
-
-
-                        </div>
+            <div class="form__header--list">
+                <p class="form__header--sub">
+                    <a href="{{ url('admin-pages') }}"> <img src="resources/images/right-arrow-forward.svg" alt="" class="back__arrow"><span>Back</span></a>
+                </p>
             </div>
-
+            <div class="form__container" style="margin-top:-30px;margin-bottom:50px; padding:50px 0;">
+                <div class="table__container" >
+                       
+                       <table class="table__container--main" >
+   
+                           <thead class="table__header">
+   
+                               <tr class="table__row" >
+                                   <th class="table__section" >S/N</th>
+                                   <th class="table__section">SECTION</th>
+                                   <th class="table__section">ACTIONS</th>
+                               </tr>
+   
+                           </thead>
+                           <tbody>
+                                <tr class="table__row">
+                                    <td class="table__data">1</td>
+                                    <td class="table__data">Locations Body</td>
+                                    <td class="table__data">
+                                        <a href="{{ url('locations-scc-body') }}" alt="Edit" title="Edit" style="color: #000; text-decoration: none;">
+                                            Edit
+                                        </a>  
+                                    </td>
+                                </tr>
+                                <tr class="table__row">
+                                    <td class="table__data">2</td>
+                                    <td class="table__data">Page Banner</td>
+                                    <td class="table__data">
+                                        <a href="{{ url('locations-scc-banner') }}" alt="Edit" title="Edit" style="color: #000; text-decoration: none;">
+                                            Edit
+                                        </a>  
+                                    </td>
+                                </tr>
+                           </tbody>
+                       </table>
+                       
+   
+                   </div>
+                  
+           </div>
         </div>
+    </div>
+
+            
 
 </section>
 

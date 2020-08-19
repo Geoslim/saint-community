@@ -94,7 +94,7 @@
                    
                     <p class="text__description">Branches</p>
                 </div>
-            <div class="form__container" style="margin-top:-30px;margin-bottom:50px; padding:50px 0;">
+            <div class="form__container" style="margin-top:-50px;">
                  <div class="table__container" >
                         
                         <table class="table__container--main" >
@@ -118,8 +118,8 @@
                                         <td class="table__data">{{$branch->updated_at}}</td>
                                         <td class="table__data">{{$branch->location}}</td>
                                         <td class="table__data">
-                                            <a href="{{ action('BranchesController@edit', ['branch' => $branch->id]) }}" alt="Edit" title="Edit">
-                                                <button class="btn btn-sm">Edit</button>
+                                            <a href="{{ action('BranchesController@edit', ['branch' => $branch->id]) }}" alt="Edit" title="Edit" style="color: #000; text-decoration: none;">
+                                                Edit
                                             </a>
                                             @can('admin-only', auth()->user())
                                             |
@@ -127,7 +127,10 @@
                                             <form action="{{action('BranchesController@destroy', ['branch' => $branch->id])}}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
-                                                <button type="submit" class="btn btn-sm" title="Delete" value="DELETE">Delete</button>
+                                                <a href="{{url('/branches/'.$branch->id)}}" onclick="return confirm('Are you sure you want to delete branch ?')">
+                                                    <button type="submit" class="" title="Delete" value="DELETE" style="border: 0; padding: 0; cursor: pointer; background:transparent;">Delete</button>
+                                                </a>
+                                                
                                             </form>
                                             @endcan
                                         </td>
@@ -140,7 +143,11 @@
     
                     </div>
                     @can('admin-only', auth()->user())
-                    <a href="{{ action('BranchesController@create') }}"><button class=" btn btn-sm btn-warning" style="text-align:center;"><span>Add Branch</span></button></a>
+                    <a href="{{ action('BranchesController@create') }}" style="text-decoration:none;">
+                        <div class="save__button--container" style="margin-top:0px;">
+                            <button class="button" id="submit__button"><span>Create</span></button>
+                        </div>
+                    </a>
                     @endcan
             </div>
 

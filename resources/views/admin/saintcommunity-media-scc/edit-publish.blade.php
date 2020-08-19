@@ -63,7 +63,7 @@
                     </p>
                     <p class="text__description">Update Publish</p>
                 </div>
-                <div class="form__container">
+                <div class="form__container" style="width:70%; margin:auto;">
                     <div class="geo">
                     <form method="POST" action="{{ url('updatePublish/'.$media_publish_detail->id) }}" enctype="multipart/form-data">
                         @csrf
@@ -73,7 +73,7 @@
                             <div class="col-md-5 featured__image" style="position:relative; left:0px; top:0px; width:150px; height:200px;">
                                 <img src="{{ asset('storage/mediaPublishcover/'.$media_publish_detail->cover)}}" alt="" class="bg__image" width="100%" >
                             </div>
-                            <p>Minimum upload cover image dimension: 200 x 200</p>
+                            <p style="margin-left:20px;">Minimum upload cover image dimension: 200 x 200</p>
                             <input type="file" class="" id="cover_image" name="cover" >
                         </div>
                         <div class="save__button--container" style="margin-top:0px;">

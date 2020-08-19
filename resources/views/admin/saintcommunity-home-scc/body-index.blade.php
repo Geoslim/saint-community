@@ -77,11 +77,11 @@
 
             
             <div class="form__container" style="position:relative;">
-                <div class="geo ">
+                <div class="geo " style="padding-top: 30px;">
                     <form method="POST" action="{{url('homeBodyUpdate/'.$home_body->id)}}">
                             @csrf
                         @method('PUT') 
-                        <p class="text__description">Home Page Body </p>
+                        <p class="text__description" style="margin-left: 35px">Body </p>
                         <div class="data__field--1">
 
                             <input type="text" class="" id="title" name="title" placeholder="Title" value="{{ $home_body->title }}">
@@ -104,16 +104,16 @@
                     </form>
                 </div>
             </div>
-            <div class="form__container" style="position:relative;">
-                <div class="geo ">
-                    <p class="text__description">Home Body Cover Image</p>
+            <div class="form__container" style="position:relative;width:40%;">
+                <div class="geo "style="padding-top: 30px;">
+                    <p class="text__description" style="margin-left: 35px">Cover Image</p>
                     <form method="POST" action="{{ url('homeBodyCoverUpdate/'.$home_body_cover_image->id) }}" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
-                        <div class="col-md-5 featured__image" style="position:relative; left:0px; top:0px; width:300px; height:300px;">
+                        <div class="col-md-11 featured__image" style="position:relative; left:0px; top:0px; width:300px; height:300px;">
                             <img src="storage/home_cover_images/{{$home_body_cover_image->cover_image}}" alt="" class="" width="300px" height="300px">
                         </div>
-                        <p>Minimum upload cover image dimension: 400 x 400</p>
+                        <p style="margin-left: 10px">Minimum upload cover image dimension: 400 x 400</p>
 
                             <input type="file" class="" id="cover_image" name="cover_image" >
                             

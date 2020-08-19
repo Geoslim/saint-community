@@ -73,48 +73,46 @@
                 <p class="form__header--sub">
                     <a href="{{ url('admin-pages') }}"> <img src="resources/images/right-arrow-forward.svg" alt="" class="back__arrow"><span>Back</span></a>
                  </p>
-                <p class="text__description">Edit Contact Scc</p>
+                <p class="text__description" >Edit Contact Scc</p>
             </div>
-                <div class="form__container" style="position:relative;">
+                <div class="form__container" style="position:relative; padding-top:1px;">
                     <div class="geo">
     
                         <div class="featured__image" style="">
-                            <p class="text__description">Contact us Page Banner</p>
-                            {{--  resources/images/about_img.jpg  --}}
-                            <img src="storage/contactBanner_image/{{$contact_banner->banner_image}}" alt="" class="bg__image" style="height: 550px; background-position: 0% 0%; background-size: cover;position: relative;">
+                            <p class="text__description" style="margin-left:5px;">Contact us Page Banner</p>
+                            <img src="storage/contactBanner_image/{{$contact_banner->banner_image}}" alt="" class="bg__image" style="height: 300px; background-size: contain;border-radius:10px;">
                             <p>Minimum upload banner image dimension: 1000 x 700</p>
-                            {{--  <button class="add__photo button"><span>ADD PHOTO</span></button>  --}}
                             <form method="POST" action="{{url('updateContactBanner/'.$contact_banner->id)}}" enctype="multipart/form-data">
                                 @method('PUT')
-                                <input type="file" class="" id="banner_image" name="banner_image" >
+                                <input type="file" class="" id="banner_image" name="banner_image" style="width:93%;">
                                 @csrf
                                 <div class="save__button--container" style="margin-top:0px;">
-                                    <button class="button" id="submit__button"><span>Save Banner</span></button>
+                                    <button class="button" id="submit__button" style="margin-right:20px;"><span>Save Banner</span></button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
             
-            <div class="form__container" style="position:relative; ">
+            <div class="form__container" style="position:relative; padding-top:20px;">
                 <div class="geo">
                     
                         <form method="POST" action="{{url('updateContactBody/'.$contactScc->id)}}">
                             @method('PUT')
-                            <p class="text__description">Contact us Page Body </p>
+                            <p class="text__description" style="margin-left:30px;">Contact us Page Body </p>
                             <div class="data__field--1">
 
                                 <input type="text" class="" id="title" name="title" placeholder="Saints Community Church" value="{{$contactScc->title}}">
                             </div>
-                            <div class="" style="margin:10px 30px; border-radius:10px;">
+                            <div class="" style="padding: 40px">
 
                                 <textarea id="body" name="body" cols="" rows="10">{{$contactScc->body}}</textarea>
             
                             </div>
-                            <div class="data__field--1">
-                                <input type="text" class="" id="location_btn" name="location_btn_title" placeholder="LOCATE OUR BRANCHES" value="{{$contactScc->location_btn_title}}">
+                            <div class="data__field--1" style="padding:0 10px 0 10px;">
+                                <input type="text" class="" id="location_btn" name="location_btn_title" placeholder="LOCATE OUR BRANCHES" value="{{$contactScc->location_btn_title}}" style="width:50%;">
                             
-                                <input type="text" class="" id="contact_btn" name="contact_btn_title" placeholder="SEND US A QUICK MESSAGE" value="{{$contactScc->location_btn_title}}">
+                                <input type="text" class="" id="contact_btn" name="contact_btn_title" placeholder="SEND US A QUICK MESSAGE" value="{{$contactScc->location_btn_title}}" style="width:50%;margin-right:50px;">
                             </div>
                                 @csrf
                             <div class="save__button--container" style="margin-top:0px;">
@@ -128,18 +126,18 @@
             </div>
 
             
-            <div class="form__container" style="position:relative; padding:20px;">
+            <div class="form__container" style="position:relative; padding-top:20px;">
                 <div class="geo">
                     
                         <form method="POST" action="{{url('updateGoogleMap/'.$ContactGoogleMap->id)}}">
-                            @method('PUT')
-                            <p class="text__description">Contact us Google Map </p>
+                                @csrf
+                                @method('PUT')
+                            <p class="text__description" style="margin-left:30px;">Contact us Google Map </p>
                             
                             <div class="data__field--1">
                                 <input type="text" class="" id="google_map" name="google_map" placeholder="" value="{{$ContactGoogleMap->google_map_link}}">
                             
                             </div>
-                                @csrf
                             <div class="save__button--container" style="margin-top:0px;">
 
                                 <button class="button" id="submit__button"><span>Save</span></button>

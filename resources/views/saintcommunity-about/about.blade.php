@@ -21,7 +21,7 @@
     <header class="header_hero header_hero--about_us" 
     style="
     height: 550px;
-    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(storage/aboutBanner_image/{{$aboutscc_banner->banner_image}});background-position: 0% 0%;
+    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .8)), url(aboutBanner_image/{{$aboutscc_banner->banner_image}});background-position: 0% 0%;
     background-size: cover;
     position: relative;">
 
@@ -350,7 +350,7 @@
                         </g>
                     </svg>
 
-                    Contact Us
+                    Contact Us 
                 </a>
             </nav>
     </div>

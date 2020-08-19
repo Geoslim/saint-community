@@ -67,7 +67,7 @@
         </div>
 
         <div class="center__Container">
-            @include('includes.messages')
+            <!-- @include('includes.messages') -->
             <div class="form__header--list">
                 <p class="form__header--sub">
                     <a href="{{ url('admin') }}"><img src="resources/images/right-arrow-forward.svg" alt="" class="back__arrow"><span>Back</span></a>
@@ -76,23 +76,37 @@
             </div>
 
             
-            <div class="form__container" style="position:relative;">
+            <div class="form__container" style=" width:70% ; margin: auto;">
                 <div class="geo">
 
                     <form method="POST" action="">
                         @csrf
+                        <small class="text-danger" style=" margin:-15px 0 10px 20px;">@error('name') {{ $message }} @enderror</small>   
                         <div class="data__field--1">
                             <input type="text" class="" id="name" name="name" placeholder="Full Name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        </div>
+
+                        <small class="text-danger" style=" margin:-15px 0 10px 20px;">@error('email') {{ $message }} @enderror</small>   
+                        <div class="data__field--1">
+                            
                             <input type="email" class="" id="email" name="email" placeholder="Email" value="{{ old('email') }}" required autocomplete="email">
                         </div>
-                        <div class="data__field--1" style=" padding:30px;">
-                            <select name="role" id="role" class="form-control" style="width:90%;">
+
+                        <small class="text-danger" style=" margin:-15px 0 10px 20px;">@error('role') {{ $message }} @enderror</small>   
+                        <div class="geo" style="margin-top: -15px;">
+                            <select name="role" id="role" class="form-control" style="width:94%;">
                                 <option value="3" selected>Editor</option>
                                 <option value="2">Administrator</option>
                             </select>                           
                         </div>
+
+                        <small class="text-danger" style=" margin:-15px 0 10px 20px;">@error('password') {{ $message }} @enderror</small>   
                         <div class="data__field--1">
                             <input type="password" class="" id="password" name="password" placeholder="Password" required autocomplete="new-password">
+                        </div>
+
+                        <small class="text-danger" style=" margin:-15px 0 10px 20px;">@error('password_confirmation') {{ $message }} @enderror</small>   
+                        <div class="data__field--1">
                             <input type="password" class="" id="password_confirmation" name="password_confirmation" placeholder="Confirm Password" required autocomplete="new-password">
                         </div> 
                            

@@ -98,17 +98,21 @@
                                         <td class="table__data">{{$location->updated_at}}</td>
                                         <td class="table__data">{{$location->location_title}}</td>
                                         <td class="table__data">
-                                            <a href="{{ action('LocationsController@locationEdit', ['location' => $location->id]) }}" alt="Edit" title="Edit">
-                                                <button class="btn btn-sm">Edit</button>
+                                            <a href="{{ action('LocationsController@locationEdit', ['location' => $location->id]) }}" alt="Edit" title="Edit" style="color: #000; text-decoration: none;">
+                                                Edit
                                             </a> 
                                             @can('admin-only', auth()->user())
                                             |
-                                            
-                                            <form action="{{action('LocationsController@destroy', ['location' => $location->id])}}" method="POST">
+                                            {{-- {{action('LocationsController@destroy', ['location' => $location->id])}} --}}
+                                            <form action="" method="POST">
                                                 @method('DELETE')
                                                 @csrf
-                                                <button type="submit" class="btn btn-sm" title="Delete" value="DELETE" 
-                                                onclick="confirm('Click OK to Confirm Deletion');">Delete</button>
+                                                {{-- {{url('/locations-scc-body/'.$location->id)}} --}}
+                                                <a href="" onclick="return confirm('Are you sure you want to delete location?')">
+                                                    <button type="submit" class="" title="Delete" value="DELETE" style="border: 0; padding: 0; cursor: pointer; background:transparent;">Delete</button>
+                                                </a>
+                                                </form>
+                                               
                                             </form>
                                             @endcan
                                         </td>
@@ -121,7 +125,12 @@
     
                     </div>
                     @can('admin-only', auth()->user())
-                    <a href="{{ action('LocationsController@locationCreate') }}"><button class=" btn btn-sm btn-warning" style="text-align:center;"><span>Add Location</span></button></a>
+                    <a href="{{ action('LocationsController@locationCreate') }}" style="text-decoration:none;">
+                        
+                         <div class="save__button--container" style="margin-top:0px;">
+                            <button class="button" id="submit__button"><span>Add Location</span></button>
+                        </div>
+                    </a>
                     @endcan
             </div>
 

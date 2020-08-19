@@ -53,58 +53,80 @@
 
         </div>
 
+
+
         <div class="center__Container">
             @include('includes.messages')
-            <div class="home__menu--container">
-                    <div class="left__home--menus">
-
-                            <div class="left__home--item">
-
-
-                                <p><a href="{{url('home-scc-slider')}}" class="home__page--link"><img src="resources/images/media_img.svg" alt="" class="homepage__img"></a></p>
-                                <p class="home__menu--description"><a href="{{url('home-scc-slider')}}" class="home__page--link">Home Slider</a></p>
-
-
-                            </div>
-                            <div class="left__home--item">
-
-
-                                <p><a href="{{ url('home-scc-media') }}" class="home__page--link"><img src="resources/images/footer_img.svg" alt="" class="homepage__img"></a></p>
-                                <p class="home__menu--description"><a href="{{ url('home-scc-media') }}" class="home__page--link">Home Media</a></p>
-
-
-                            </div>
-
-                        </div>
-                        <div class="right__home--menus">
-
-
-
-                                <div class="right__home--item">
-
-
-                                            <p><a href="{{url('home-scc-body')}}" class="home__page--link"><img src="resources/images/aboutscc.svg" alt="" class="homepage__img" id="aboutscc__img"></a></p>
-                                <p class="home__menu--description"><a href="{{url('home-scc-body')}}" class="home__page--link">Home Body</a></p>
-
-
-                                </div>
-                                
-                                <div class="right__home--item ">
-
-
-                                            <p><a href="{{url('home-scc-broadcast')}}" class="home__page--link"><img src="resources/images/menu_img.svg" alt="" class="homepage__img"></a></p>
-                                            <p class="home__menu--description"><a href="{{url('home-scc-broadcast')}}" class="home__page--link">Home Broadcast</a></p>
-
-
-                                </div>
-
-                            </div>
-
-
-                        </div>
+            <div class="form__header--list">
+                <p class="form__header--sub">
+                    <a href="{{ url('admin-pages') }}"> <img src="resources/images/right-arrow-forward.svg" alt="" class="back__arrow"><span>Back</span></a>
+                </p>
             </div>
 
+            <div class="form__container" style="margin-top:-30px;margin-bottom:50px; padding:50px 0;">
+                <div class="table__container" >
+                       
+                       <table class="table__container--main" >
+   
+                           <thead class="table__header">
+   
+                               <tr class="table__row" >
+                                   <th class="table__section" >S/N</th>
+                                   <th class="table__section">SECTION</th>
+                                   <th class="table__section">ACTIONS</th>
+                               </tr>
+   
+                           </thead>
+                           <tbody>
+                                <tr class="table__row">
+                                    <td class="table__data">1</td>
+                                    <td class="table__data">Home Slider</td>
+                                    <td class="table__data">
+                                        <a href="{{ url('home-scc-slider') }}" alt="Edit" title="Edit" style="color: #000; text-decoration: none;">
+                                            Edit
+                                        </a>  
+                                    </td>
+                                </tr>
+                                <tr class="table__row">
+                                    <td class="table__data">2</td>
+                                    <td class="table__data">Home Media</td>
+                                    <td class="table__data">
+                                        <a href="{{ url('home-scc-media') }}" alt="Edit" title="Edit" style="color: #000; text-decoration: none;">
+                                            Edit
+                                        </a>  
+                                    </td>
+                                </tr>
+                                <tr class="table__row">
+                                    <td class="table__data">2</td>
+                                    <td class="table__data">Home Body</td>
+                                    <td class="table__data">
+                                        <a href="{{ url('home-scc-body') }}" alt="Edit" title="Edit" style="color: #000; text-decoration: none;">
+                                            Edit
+                                        </a>  
+                                    </td>
+                                </tr>
+                                <tr class="table__row">
+                                    <td class="table__data">2</td>
+                                    <td class="table__data">Home Broadcast</td>
+                                    <td class="table__data">
+                                        <a href="{{ url('home-scc-broadcast') }}" alt="Edit" title="Edit" style="color: #000; text-decoration: none;">
+                                            Edit
+                                        </a>  
+                                    </td>
+                                </tr>
+                           </tbody>
+                       </table>
+                       
+   
+                </div>
+                  
+            </div>
+        
         </div>
+
+
+                        
+    </div>
 
 </section>
 

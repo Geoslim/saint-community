@@ -73,9 +73,10 @@
             </div>
 
             <div class="row" style="">
-                <div class="col-md-5">
+                <div class="col-md-1"></div>
+                <div class="col-md-5" style="margin-left:-20px;">
                     <div class="form__container" style="position:relative;">
-                        <div class="geo">
+                        <div class="geo" style="padding-top:20px;">
                             <form method="POST" action="{{ url('updateFooterPartner/'.$footer_partner->id) }}">
                                 @csrf
                                 @method('PUT')
@@ -108,7 +109,7 @@
                 </div>  
                 <div class="col-md-5">
                     <div class="form__container" style="position:relative;">
-                        <div class="geo">
+                        <div class="geo" style="padding-top:20px;">
                             <form method="POST" action="{{ url('updateFooterDownload/'.$footer_download->id) }}">
                                 @csrf
                                 @method('PUT') 

@@ -50,7 +50,10 @@
 
 </div>
 
+<?php
 
+
+?>
 
 <section class="container">
 
@@ -75,7 +78,7 @@
                     <a href="{{ url('admin') }}"><img src="{{ asset('resources/images/right-arrow-forward.svg') }}" alt="" class="back__arrow"><span>Back</span></a>
                 </p>
           
-                    <p class="text__description">USERS</p>
+                    <p class="text__description">Administrators/Editors</p>
                 </div>
             <div class="form__container" style="margin-top:-30px;margin-bottom:50px; padding:50px 0;">
                  <div class="table__container" >
@@ -103,17 +106,23 @@
                                         <td class="table__data">{{$admin_member->updated_at}}</td>
                                         <td class="table__data">{{$admin_member->name}}</td>
                                         <td class="table__data">{{ ($admin_member->role ==3 ? "Editor" : "Administrator")}}</td>
-                                        <td class="table__data">{{ ($admin_member->status == 'Active' ? "Active" : "Inactive")}}</td>
+                                        @if($admin_member->status == 'Active')
+                                        <td class="table__data text-success">Active</td>
+                                        @else
+                                        <td class="table__data text-danger">Inactive</td>
+                                        @endif
                                         <td class="table__data">
-                                            <a class="" href="{{ action('AdminMemberController@adminMemberEdit', ['admin_member' => $admin_member->id]) }}" alt="Edit" title="Edit">
-                                                <button class="btn btn-sm" style="background:;">Edit</button>
+                                            <a class="" href="{{ action('AdminMemberController@adminMemberEdit', ['admin_member' => $admin_member->id]) }}" alt="Edit" title="Edit" style="color: #000; text-decoration: none;">
+                                                Edit
                                             </a>|
                                               
                                             <form action="{{action('AdminMemberController@destroy', ['admin_member' => $admin_member->id])}}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
-                                                <button type="submit" style="background:;" class="btn btn-sm" title="Delete" value="DELETE">Delete</button>
-                                            </form>
+                                                <a href="{{url('/delete-admin/'.$admin_member->id)}}" onclick="return confirm('Are you sure you want to delete member ?')">
+                                                    <button type="submit" class="" title="Delete" value="DELETE" style="border: 0; padding: 0; cursor: pointer; background:transparent;">Delete</button>
+                                                </a>
+                                                </form>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -121,10 +130,12 @@
 
                         </table>
                         
-    
                     </div>
-                    <a href="{{ url('add-admin') }}"><button class=" btn btn-sm btn-warning" style="text-align:center;"><span>Add Admin</span></button></a>
-                    {{-- {{ action('BranchesController@create') }} --}}
+                    <a href="{{ url('add-admin') }}">
+                         <div class="save__button--container" style="margin-top:0px; text-decoration: none;">
+                            <button class="button" id="submit__button"><span>Add Admin</span></button>
+                        </div>
+                    </a>
             </div>
 
 

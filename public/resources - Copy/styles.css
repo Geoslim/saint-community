@@ -1,0 +1,139 @@
+body,html {
+    width: 100%;
+    background-color: darkgray;
+    background-image: url(images/architecture-benches-chapel-133699\ \(2\).jpg);
+    background-repeat: no-repeat;
+    position: 0;
+}
+.main_wrapper{
+    width: 100%;
+    height: 100%;
+    background: url()
+}
+.left_button{
+    width:100px;
+    height: 43px;
+    position: absolute;
+    left: 96px;
+    top: 140px;
+    background-color: red;
+    border: none;
+    color: white;
+    font-size: 10px;
+    display: flex;
+    justify-content: center;
+    
+}
+.logo_img {
+    width: 200px;
+    height: 80px;
+    position: absolute;
+    left: 560px;
+    top: 80px;
+    
+}
+.big_circle{
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 1020px;
+    top: 100px;
+}
+.half_circle{
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 1160px;
+    top: 80px;
+}
+.little_circle{
+    width: 193px;
+    height: 73px;
+    position: absolute;
+    left: 940px;
+    top: 210px;
+ 
+}
+.welcome_text{
+    position: relative;
+    width: 834px;
+    height: 45px;
+    left: 20px;
+    top: 15px;
+
+    font-family:Arial, Helvetica, sans-serif Poppins;
+    font-size: 16px;
+    line-height: 62px;
+    text-align: center;
+    letter-spacing: 0.07em;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
+.welcome_text2{
+    
+    text-align: center;
+    font-family: Arial, Poppins;
+    font-size: 14px;
+    line-height: 44px;
+    text-transform: capitalize;
+    color: #FFFFFF;
+}
+.form_outline{
+    width: 60%;
+    height: 400px;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+    top: 160px;
+    display: flex;
+    
+    justify-content: center;
+    
+}
+.form_input{
+    align-content: center;
+    margin: 0 auto;
+    
+
+}
+.email_box{
+  
+    width: 350px;
+    height: 30px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+    background-color: darkgray;
+    color: #ffffff;
+    border: 0px;
+}
+.password_box{
+    width: 350px;
+    height: 30px;
+    margin-bottom: 10px;
+    border: 0px;
+    background-color: darkgray;
+    padding-left: 10px;
+    color: white;
+    border: 0px;
+}
+.submit_but{
+
+    width: 350px;
+    height: 30px;
+    background-color: green;
+    border: none;
+    border-radius: 20px;
+    color: white;
+}
+.reset_pass{
+    
+    height: 33px;
+    font-family: Poppins;
+    font-size: 18px;
+    line-height: 33px;
+    text-align: center;
+    text-transform: capitalize;
+
+    color: #FFFFFF;
+}

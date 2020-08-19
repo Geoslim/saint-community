@@ -30,8 +30,8 @@ class AdminMemberController extends Controller
         if (Gate::allows('admin-only', auth()->user())) {
             
         $this->validate($request, [
-            'name' => 'required|string|max:225',
-            'email' => 'required|string|email|max:255',
+            'name' => 'required|string|min:7|max:225',
+            'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
             'role' => 'required'
         ]);
@@ -76,10 +76,10 @@ class AdminMemberController extends Controller
     public function adminMemberUpdate(Request $request, $id)
     {
         if (Gate::allows('admin-only', auth()->user())) {
-        
+        $user = User::findOrFail($id);
         $this->validate($request, [
-            'name' => 'required|string|max:225',
-            'email' => 'required|string|email|max:255',
+            'name' => 'required|string|min:7|max:225',
+            'email' => 'required|string|email|max:255|unique:users,email,'.$user->id,
             'password' => 'required|string|min:8|confirmed',
             
         ]);

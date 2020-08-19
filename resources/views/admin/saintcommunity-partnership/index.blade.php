@@ -80,31 +80,31 @@
                 <div class="form__container" style="position:relative;">
                     <div class="geo">
     
-                        <div class="featured__image" style="">
+                        <div class="featured__image" style="padding-top:35px;">
                             <p class="text__description">Partnership Page Banner</p>
-                            <img src="storage/partnershipBanner_image/{{$partnership_banner->banner_image}}" alt="" class="bg__image" style="height: 550px; background-position: 0% 0%; background-size: cover;position: relative;">
+                            <img src="storage/partnershipBanner_image/{{$partnership_banner->banner_image}}" alt="" class="bg__image" style="height: 300px; background-size: contain;border-radius:10px;">
                             <p>Minimum upload banner image dimension: 1000 x 700</p>
                             <form method="POST" action="{{url('updatePartnershipBanner/'.$partnership_banner->id)}}" enctype="multipart/form-data">
                                 @method('PUT')
-                                <input type="file" class="" id="banner_image" name="banner_image" >
+                                <input type="file" class="" id="banner_image" name="banner_image" style="width:92%;">
                                 @csrf
                                 <div class="save__button--container" style="margin-top:0px;">
-                                    <button class="button" id="submit__button"><span>Save Banner</span></button>
+                                    <button class="button" id="submit__button" style=" margin-right:25px;"><span>Save Banner</span></button>
                                 </div>
                             </form>
                         </div>
                     </div>
                 </div>
             
-            <div class="form__container" style="position:relative; ">
+            <div class="form__container" style="position:relative; padding-top:30px;">
                 <div class="geo">
                     
                         <form method="POST" action="{{url('updatePartnershipBody/'.$partnership_body->id)}}">
                             @method('PUT')
-                            <p class="text__description">Partnership Page Body </p>
+                            <p class="text__description" style="margin-left:30px;">Partnership Page Body </p>
                             <div class="data__field--1">
 
-                                <input type="text" class="" id="title" name="title" placeholder="" value="{{$partnership_body->title}}">
+                                <input type="text" class="" id="title" name="title" placeholder="" value="{{$partnership_body->title}}" style="width:93%;">
                             </div>
 
                             <div class="" style="margin:10px 30px; border-radius:10px;">
@@ -114,7 +114,7 @@
                             </div>
                             <div class="data__field--1">
 
-                                <input type="text" class="" id="pay-btn" name="pay_btn_title" placeholder="" value="{{$partnership_body->pay_btn_title}}">
+                                <input type="text" class="" id="pay-btn" name="pay_btn_title" placeholder="" value="{{$partnership_body->pay_btn_title}}" style="width:93%;">
                             </div>
                                 @csrf
                             <div class="save__button--container" style="margin-top:0px;">
@@ -128,13 +128,13 @@
             </div>
 
             
-            <div class="form__container" style="position:relative; padding:20px;">
+            <div class="form__container" style="position:relative; padding-top:30px; width:50%;">
                 <div class="geo">
                     
                         <form method="POST" action="{{url('updatePartnershipCoverImage/'.$partnership_cover_image->id)}}" enctype="multipart/form-data">
                             @method('PUT')
-                            <p class="text__description">Partnership Cover Image </p>
-                            <div class="col-md-5 featured__image" style="position:relative; left:0px; top:0px;">
+                            <p class="text__description" style="margin-left:40px;">Partnership Page Cover Image </p>
+                            <div class="col-md-11 featured__image" style="position:relative; left:0px; top:0px;">
                                 <img src="storage/partnershipCover_image/{{$partnership_cover_image->cover_image}}" alt="" class="bg__image">
                                 <p>Minimum upload cover image dimension: 400 x 600</p>
                                 <input type="file" class="" id="cover_image" name="cover_image" >

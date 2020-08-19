@@ -75,23 +75,26 @@
             </div>
               
             
-            <div class="form__container" style="position:relative; ">
+            <div class="form__container" style="position:relative; padding-top:20px; width:60%; margin:auto;">
                 <div class="geo">
                     
                         <form method="POST" action="{{ url('locationUpdate/'.$location->id) }}">
                             @method('PUT')
-                            <p class="text__description">Location: </p>
+                            <p class="text__description" style="margin-left:30px;">Location: </p>
                             <div class="data__field--1">
 
-                                <input type="text" class="" id="location_title" name="location_title" placeholder="Location Title" value="{{ $location->location_title }}">
+                                <input type="text" class="" id="location_title" name="location_title" placeholder="Location Title" value="{{ $location->location_title }}" >
                             </div>
                             <div class="" style="">
 
-                                <textarea id="address" name="address" cols="3" rows="1" style="">{{ $location->address }}</textarea>
+                                <textarea id="address" name="address" cols="3" rows="1" style="" >{{ $location->address }}</textarea>
             
                             </div>
                             <div class="data__field--1">
                                 <input type="text" class="" id="location_btn" name="contact_name" placeholder="Contact Name" value="{{ $location->contact_name }}">
+                            
+                            </div>
+                            <div class="data__field--1">
                             
                                 <input type="text" class="" id="contact_btn" name="contact_phone" placeholder="Contact Phone" value="{{ $location->contact_phone }}">
                             </div>

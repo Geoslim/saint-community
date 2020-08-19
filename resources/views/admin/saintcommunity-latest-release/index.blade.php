@@ -70,25 +70,24 @@
                 <p class="form__header--sub">
                    <a href="{{ url('admin') }}"> <img src="resources/images/right-arrow-forward.svg" alt="" class="back__arrow"><span>Back</span></a>
                 </p>
-                <p class="text__description">Edit {{ $latest_detail->title }}</p>
+                <p class="text__description" >Edit {{ $latest_detail->title }}</p>
             </div>
 
             
-            <div class="form__container" style="position:relative;">
+            <div class="form__container" style="position:relative; padding-top: 20px;">
                 <div class="geo">
-
-                   
+ 
                     <form method="POST" action="{{ url('updateDetials/'.$latest_detail->id) }}">
                         @csrf
                         @method('PUT') 
-                        <p class="text__description">{{ $latest_detail->title }} </p>
+                        <p class="text__description" style="margin-left: 34px;">{{ $latest_detail->title }} </p>
                         <div class="data__field--1">
                             <input type="text" class="" id="title" name="title" placeholder="Latest Release" value="{{ $latest_detail->title }}">
                         </div>
                         <div class="data__field--1">
                                 <input type="text" class="" id="subtitle" name="subtitle" placeholder="Subtitle" value="{{ $latest_detail->subtitle }}">
                         </div>
-                        <div class="" style="margin:10px 30px; border-radius:10px;">
+                        <div class="" style="margin:10px 30px; ">
 
                             <textarea id="body" name="body" cols="" rows="10">{{ $latest_detail->body }}</textarea>
         
@@ -99,11 +98,14 @@
         
                         </div>
                     </form>
-                <div class="geo ">
-                    <p class="text__description">Cover Image</p>
+                </div>
+            </div>
+            <div class="form__container" style="position:relative; padding-top: 20px; width:50%;">
+                <div class="geo" style="">
+                    <p class="text__description" style="margin-left: 50px;">Cover Image</p>
                     <form method="POST" action="{{ url('updateCover/'.$latest_cover->id) }}" enctype="multipart/form-data">
                         @method('PUT')
-                        <div class="col-md-5 featured__image" style="position:relative; left:0px; top:0px;">
+                        <div class="col-md-11 featured__image" style="position:relative; left:0px; top:0px;">
                             <img src="storage/programs_image/{{ $latest_cover->cover_image }}" alt="" class="bg__image">
                             <p>Minimum upload cover image dimension: 400 x 400</p>
                             <input type="file" class="" id="cover_image" name="cover_image" >
@@ -114,14 +116,8 @@
                         </div>
                     </form>
                 </div>
-
-               
-
+   
             </div>
-
-
-
-        </div>
 
 
         </div>

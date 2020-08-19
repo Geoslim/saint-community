@@ -66,7 +66,7 @@
         </div>
 
         <div class="center__Container">
-            @include('includes.messages')
+            <!-- @include('includes.messages') -->
             <div class="form__header--list">
                 <p class="form__header--sub">
                     <a href="{{ url('manage-admin') }}"><img src="{{ asset('resources/images/right-arrow-forward.svg') }}" alt="" class="back__arrow"><span>Back</span></a>
@@ -75,37 +75,47 @@
             </div>
 
             
-            <div class="form__container" style="position:relative;">
+            <div class="form__container" style=" width:70% ; margin: auto;">
                 <div class="geo">
 
                     <form method="POST" action="{{ url('adminMemberUpdate/'.$admin_members->id) }}">
                         @method('PUT')
-                        @csrf 
+                        @csrf
+
+                        <small class="text-danger" style="margin-left:10px;">@error('name') {{ $message }} @enderror</small>
                         <div class="data__field--1">
                             <input type="text" class="" id="name" name="name" placeholder="Full Name" value="{{ $admin_members->name }}" required autocomplete="name" autofocus>
-                            <input type="email" class="" id="email" name="email" placeholder="Email" value="{{ $admin_members->email}}" required autocomplete="email">
-                        </div>
-                        <div class="data__field--1" style=" padding:30px;">
-                            <select name="role" id="role" class="form-control" style="width:90%;">
-                                <option value="3" {{ ($admin_members->role == 3 ? "selected" : "")}}>Editor</option>
-                                <option value="2" {{ ($admin_members->role == 2 ? "selected" : "")}}>Administrator</option>
-                            </select>                           
                         </div>
 
-                        <div class="data__field--1" style=" padding:30px;">
-                            <select name="status" id="role" class="form-control" style="width:90%;">
+                        <small class="text-danger" style=" ">@error('email') {{ $message }} @enderror</small>
+                        <div class="data__field--1">
+                            <input type="email" class="" id="email" name="email" placeholder="Email" value="{{ $admin_members->email}}" required autocomplete="email">
+                        </div>
+
+                        <small class="text-danger" style=" ">@error('role') {{ $message }} @enderror</small>
+                        <div class="geo" style=" ">
+                            <select name="role" id="role" class="form-control" style="width:94%; color:#000;">
+                                <option value="3" {{ ($admin_members->role == 3 ? "selected" : "")}}>Editor</option>
+                                <option value="2" {{ ($admin_members->role == 2 ? "selected" : "")}}>Administrator</option>
+                            </select> 
+                        </div>
+
+                        <small class="text-danger" style=" ">@error('status') {{ $message }} @enderror</small>
+                        <div class="geo" style=" margin-bottom: 30px;">
+                            <select name="status" id="status" class="form-control" style="width:94%; color:#000;">
                                 <option value="Active" {{ ($admin_members->status == 'Active' ? "selected" : "")}}>Active</option>
                                 <option value="Inactive" {{ ($admin_members->status == 'Inactive' ? "selected" : "")}}>Inactive</option>
                             </select>                           
                         </div>
+
                         <div class="data__field--1">
                             <input type="password" class="" id="password" name="password" placeholder="Password" value="{{ $admin_members->password}}" hidden>
                             <input type="password" class="" id="password_confirmation" name="password_confirmation" placeholder="Confirm Password" value="{{ $admin_members->password}}" hidden>
                         </div> 
                            
-                            <div class="save__button--container" style="margin-top:0px;">
-                                <button class="button" id="submit__button"><span>Save</span></button>
-                            </div>
+                        <div class="save__button--container" style="margin-top:10px;">
+                            <button class="button" id="submit__button"><span>Save</span></button>
+                        </div>
                     </form>
                 </div>
 

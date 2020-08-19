@@ -43,9 +43,8 @@
                 </div>
             </div>
         </nav> --}}
-@include('partials.nav-header')
+        @include('partials.nav-header')
         <div class="main_row">
-
 
             <div class="header_hero__text_box">
                 <h1 class="header_hero__main_text">
@@ -55,7 +54,6 @@
                         {!! wordwrap($slider_heading->slide_subtitle,45,"<br>\n") !!}
                 </p>
             </div>
-
 
         </div>
 

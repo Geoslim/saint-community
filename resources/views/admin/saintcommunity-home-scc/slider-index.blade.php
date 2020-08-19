@@ -72,8 +72,8 @@
                 </p>
                 <p class="text__description">Home Sliders</p>
             </div>
-            <div class="form__container" style="margin-bottom:-50px;">
-                    <p class="text__description">Slider Headings</p>
+            <div class="form__container" style="margin-bottom:-50px; padding-top:30px;">
+                    <p class="text__description" style="margin-left:20px;">Slider Headings</p>
                     <form method="POST" action="{{ url('homeSliderHeadingUpdate/'.$slider_heading->id) }}">
                         @csrf
                         @method('PUT')
@@ -111,8 +111,8 @@
                                         <td class="table__data">{{$slider_image->updated_at}}</td>
                                         <td class="table__data">{{ $slider_image->slider_image }}</td>
                                         <td class="table__data">
-                                            <a href="{{ action('HomeFrontController@homeSliderEdit', ['slider_image' => $slider_image->id]) }}" alt="Edit" title="Edit">
-                                                <button class="btn btn-sm">Edit</button>
+                                            <a href="{{ action('HomeFrontController@homeSliderEdit', ['slider_image' => $slider_image->id]) }}" alt="Edit" title="Edit" style="color: #000; text-decoration: none;">
+                                                Edit
                                             </a>
                                           
                                             @can('admin-only', auth()->user())
@@ -121,8 +121,9 @@
                                             <form action="{{action('HomeFrontController@sliderDestroy', ['slider_image' => $slider_image->id])}}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
-                                                <button type="submit" class="btn btn-sm" title="Delete" value="DELETE"
-                                                onclick="confirm('Click OK to Confirm Deletion');">Delete</button>
+                                                <a href="{{url('/delete-admin/'.$slider_image->id)}}" onclick="return confirm('Are you sure you want to delete media ?')">
+                                                    <button type="submit" class="" title="Delete" value="DELETE" style="border: 0; padding: 0; cursor: pointer; background:transparent;">Delete</button>
+                                                </a>
                                             </form>
                                             @endcan
                                         </td>
@@ -135,7 +136,13 @@
     
                     </div>
                     @can('admin-only', auth()->user())
-                    <a href="{{ url('home-scc-slider-create')}}"><button class=" btn btn-sm btn-warning" style="text-align:center;"><span>Add Slider</span></button></a>
+                    <a href="{{ url('home-scc-slider-create') }}" style="text-decoration:none;">
+                        
+                        <div class="save__button--container" style="margin-top:0px;">
+                           <button class="button" id="submit__button"><span>Add Slider</span></button>
+                       </div>
+                   </a>
+                    {{-- <a href="{{ url('home-scc-slider-create')}}"><button class=" btn btn-sm btn-warning" style="text-align:center;"><span>Add Slider</span></button></a> --}}
                     @endcan
             </div>
 

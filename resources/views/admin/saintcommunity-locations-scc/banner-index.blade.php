@@ -27,12 +27,31 @@
         body{
             font-family: Poppins;
         }
-        
+        .fileinput-button {
+            position: relative;
+            overflow: ;
+            display: inline-block;
+        }
+        input[type="file"] {
+            display: block;
+        }
+        .fileinput-button input {
+          position: absolute;
+          top: 0;
+          right: 0;
+          margin: 0;
+          opacity: 0;
+          -ms-filter: 'alpha(opacity=0)';
+          font-size: 200px;
+          direction: ltr;
+          cursor: pointer;
+        }
     </style>
 
     <title>Admin/Location Page</title>
 </head>
 <body>
+
 <div class="top__bar">
 
         <div class="top__bar--main">
@@ -73,16 +92,15 @@
                  </p>
                 <p class="text__description">Edit Locations Banner</p>
             </div>
-
+ 
             
-            <div class="form__container" style="position:relative;">
+            <div class="form__container" style="padding-top: 3px;">
                 <div class="geo">
 
                     <div class="featured__image" style="">
-                        <p class="text__description">Locations Page Banner</p>
-                        <img src="storage/locationBanner_image/{{ $locationscc_banner->banner_image }}" alt="" class="bg__image" style="height: 550px; background-position: 0% 0%; background-size: cover;position: relative;">
+                        <img src="storage/locationBanner_image/{{ $locationscc_banner->banner_image }}" alt="" class="bg__image" style="height: 300px; background-size: contain;border-radius:10px;">
                         <p>Minimum upload banner image dimension: 1000 x 700</p>
-                        <button class="add__photo button"><span>ADD PHOTO</span></button>
+                    </div>    
                         <form method="POST" action="{{ url('locationBannerUpdate/'.$locationscc_banner->id) }}" enctype="multipart/form-data">
                             @method('PUT')
                             <input type="file" class="" id="banner_image" name="banner_image" >
@@ -91,19 +109,15 @@
                                 <button class="button" id="submit__button"><span>Save Banner</span></button>
                             </div>
                         </form>
-                    </div>
                     
                     
-
-               
+                </div>
 
             </div>
 
 
 
-        </div>
-
-
+        
         </div>
 
     </div>

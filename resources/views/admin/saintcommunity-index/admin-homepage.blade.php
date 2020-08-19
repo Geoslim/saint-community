@@ -113,7 +113,7 @@
 
 
                                             <p><a href="{{ url('add-admin') }}" class="home__page--link"><img src="resources/images/aboutscc.svg" alt="" class="homepage__img" id="aboutscc__img"></a></p>
-                                            <p class="home__menu--description"><a href="{{ url('add-admin') }}" class="home__page--link">Add Admin</a></p>
+                                            <p class="home__menu--description"><a href="{{ url('add-admin') }}" class="home__page--link">Add Admin/Editor</a></p>
 
 
                                 </div>

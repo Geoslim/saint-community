@@ -106,18 +106,19 @@
                                         <td class="table__data">{{$upcoming_event->updated_at}}</td>
                                         <td class="table__data">{{ $upcoming_event->title }}</td>
                                         <td class="table__data">
-                                            <a href="{{ action('EventController@editUpcoming', ['upcoming_event' => $upcoming_event->id]) }}" alt="Edit" title="Edit">
-                                                <button class="btn btn-sm">Edit</button>
+                                          
+                                            <a href="{{ action('EventController@editUpcoming', ['upcoming_event' => $upcoming_event->id]) }}" alt="Edit" title="Edit" style="color: #000; text-decoration: none;">
+                                                Edit
                                             </a>
-                                            
                                             @can('admin-only', auth()->user())
                                             |
-                                            
+                                             
                                             <form action="{{action('EventController@destroy', ['upcoming_event' => $upcoming_event->id])}}" method="POST">
                                                 @method('DELETE')
                                                 @csrf
-                                                <button type="submit" class="btn btn-sm" title="Delete" value="DELETE"
-                                                onclick="confirm('Click OK to Confirm Deletion');">Delete</button>
+                                                <a href="{{url('/upcoming-events/'.$upcoming_event->id)}}" onclick="return confirm('Are you sure you want to delete event ?')">
+                                                    <button type="submit" class="" title="Delete" value="DELETE" style="border: 0; padding: 0; cursor: pointer; background:transparent;">Delete</button>
+                                                </a>
                                             </form>
                                             @endcan
                                         </td>
@@ -130,8 +131,12 @@
     
                     </div>
                     @can('admin-only', auth()->user())
-                        <a href="{{ url('create-upcoming') }}"><button class=" btn btn-sm btn-warning" style="text-align:center; margin-left:50px; margin-top:50px;"><span>Add Event</span></button></a>
-                    @endcan
+                    <a href="{{ url('create-upcoming') }}" style="text-decoration:none;">
+                        <div class="save__button--container" style="margin-top:0px;">
+                            <button class="button" id="submit__button"><span>Create</span></button>
+                        </div>
+                    </a>
+                        @endcan
             </div>
 
 

@@ -118,7 +118,7 @@ class LocationsController extends Controller
         if (Gate::allows('admin-only', auth()->user())) { 
             $location = Location::find($id);
             $location->delete();
-            return redirect()->action('LocationsController@adminMemberIndex')->with('success', 'Location Deleted Successfully');
+            return redirect()->action('LocationsController@bodyIndex')->with('success', 'Location Deleted Successfully');
         }
         return redirect()->action('AdminHomepageController@adminIndex')->with('error', 'Unauthorized Access');
         

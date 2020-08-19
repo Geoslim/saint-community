@@ -34,11 +34,15 @@ Auth::routes();
 //ROLE ID 2" Super Admin //have all priviledges both delete and edit
 //ROLE ID 3   Editor     //Have only the priviledge to edit and not delete
 //============================================================================================================================//
+
+//admin section
 Route::get('/admin', 'AdminHomepageController@adminIndex');
 Route::get('/admin-pages/', 'AdminHomepageController@adminPagesIndex');
 
+//admin section - social media
 Route::resource('social-media', 'SocialMediaController');
 
+//admin section - branches
 Route::get('branches', 'BranchesController@index');
 Route::get('create', 'BranchesController@create');
 Route::post('create', 'BranchesController@store');
@@ -47,29 +51,35 @@ Route::put('branches/{id}', 'BranchesController@update')->name('update');
 Route::put('updateDetails/{id}', 'BranchesController@updateDetails')->name('updateDetails');
 Route::delete('branches/{id}', 'BranchesController@destroy');
 
+//admin section - contact page
 Route::get('contact-scc', 'ContactSccController@index');
 Route::put('updateContactBanner/{id}', 'ContactSccController@updateContactBanner')->name('updateContactBanner');
 Route::put('updateContactBody/{id}', 'ContactSccController@updateContactBody')->name('updateContactBody');
 Route::put('updateGoogleMap/{id}', 'ContactSccController@updateGoogleMap')->name('updateGoogleMap');
 
+//admin section - header base
 Route::get('header-base', 'HeaderBaseController@index');
 Route::put('update/{id}', 'HeaderBaseController@update')->name('update');
 
+//admin section - about page
 Route::put('updateAboutBody/{id}', 'AboutSccController@updateAboutBody')->name('updateAboutBody');
 Route::put('updateAboutBanner/{id}', 'AboutSccController@updateAboutBanner')->name('updateAboutBanner');
 // Route::put('about-scc/{id}', 'AboutSccController@updateAboutCoverImage');
 Route::put('updateAboutCoverImage/{id}', 'AboutSccController@updateAboutCoverImage')->name('updateAboutCoverImage');
 Route::resource('about-scc', 'AboutSccController');
 
+//admin section - partnership page
 Route::get('partnership-scc', 'PartnershipController@index');
 Route::put('updatePartnershipBody/{id}', 'PartnershipController@updatePartnershipBody')->name('updatePartnershipBody');
 Route::put('updatePartnershipBanner/{id}', 'PartnershipController@updatePartnershipBanner')->name('updatePartnershipBanner');
 Route::put('updatePartnershipCoverImage/{id}', 'PartnershipController@updatePartnershipCoverImage')->name('updatePartnershipCoverImage');
 
+//admin section - menu
 Route::get('menu-scc', 'MenuController@index');
 Route::put('updateMenu/{id}', 'MenuController@updateMenu')->name('updateMenu');
 Route::put('updateMenuLogo/{id}', 'MenuController@updateMenuLogo')->name('updateMenuLogo');
 
+//admin section - media page
 Route::get('media-scc', 'MediaController@index');
 Route::get('media-body', 'MediaController@mediaBody');
 Route::put('updateMediaBody/{id}', 'MediaController@updateMediaBody')->name('updateMediaBody');
@@ -82,6 +92,7 @@ Route::get('media-publish/{id}/edit', 'MediaController@editPublish');
 Route::put('updatePublish/{id}', 'MediaController@updatePublish')->name('updatePublish');
 Route::delete('media-publish/{id}', 'MediaController@destroy');
 
+//admin section - events page
 Route::get('events-scc', 'EventController@index');
 Route::get('events-body', 'EventController@eventsBody');
 Route::get('upcoming-events', 'EventController@upcomingEvents');
@@ -96,15 +107,18 @@ Route::put('updateUpcoming/{id}', 'EventController@updateUpcoming')->name('updat
 Route::put('updateUpcomingHeading/{id}', 'EventController@updateUpcomingHeading')->name('updateUpcomingHeading');
 Route::delete('upcoming-events/{id}', 'EventController@destroy');
 
+//admin section - latest release
 Route::get('latest-release', 'LatestReleaseController@index');
 Route::put('updateDetials/{id}', 'LatestReleaseController@updateDetials')->name('updateDetials');
 Route::put('updateCover/{id}', 'LatestReleaseController@updateCover')->name('updateCover');
 
+//admin section - footer
 Route::get('footer-scc', 'FooterController@index');
 Route::put('updateFooterPartner/{id}', 'FooterController@updateFooterPartner')->name('updateFooterPartner');
 Route::put('updateFooterDownload/{id}', 'FooterController@updateFooterDownload')->name('updateFooterDownload');
 
 
+//admin section - homepage
 Route::get('home-scc', 'HomeFrontController@index');
 Route::get('home-scc-slider', 'HomeFrontController@homeSliderIndex');
 Route::put('homeSliderHeadingUpdate/{id}', 'HomeFrontController@homeSliderHeadingUpdate')->name('homeSliderHeadingUpdate');
@@ -128,6 +142,7 @@ Route::put('homeBroadcastVideoUpdate/{id}', 'HomeFrontController@homeBroadcastVi
 Route::delete('home-scc-slider/{id}', 'HomeFrontController@sliderDestroy');
 Route::delete('home-scc-media/{id}', 'HomeFrontController@mediaDestroy');
 
+//admin section - location page
 Route::get('locations-scc', 'LocationsController@index');
 Route::get('locations-scc-body', 'LocationsController@bodyIndex');
 Route::get('locations-scc-create', 'LocationsController@locationCreate');
@@ -138,16 +153,19 @@ Route::get('locations-scc-banner', 'LocationsController@bannerIndex');
 Route::put('locationBannerUpdate/{id}', 'LocationsController@locationBannerUpdate')->name('locationBannerUpdate');
 Route::delete('locations-scc-body/{id}', 'LocationsController@destroy');
 
+//admin section - admin management
 Route::get('add-admin', 'AdminMemberController@index');
 Route::post('add-admin', 'AdminMemberController@adminMemberStore');
 Route::get('manage-admin', 'AdminMemberController@adminMemberIndex');
 Route::get('manage-admin/{id}/edit', 'AdminMemberController@adminMemberEdit');
-Route::delete('manage-admin/{id}', 'AdminMemberController@destroy');
+Route::delete('delete-admin/{id}', 'AdminMemberController@destroy');
 Route::put('adminMemberUpdate/{id}', 'AdminMemberController@adminMemberUpdate')->name('adminMemberUpdate');
 Route::get('admin-mail', 'AdminMailController@index');
 Route::post('admin-mail', 'AdminMailController@sendMail');
 
+//admin section - contact kjk
 Route::get('contact-kjk', 'ContactKJKFormController@index');
 Route::post('contact-kjk', 'ContactKJKFormController@sendMail');
 
+//admin section - newsletter mailchimp
 Route::post('newsletter','NewsletterController@store');

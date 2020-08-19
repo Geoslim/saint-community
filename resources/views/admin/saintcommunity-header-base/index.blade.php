@@ -27,7 +27,17 @@
         body{
             font-family: Poppins;
         }
-        
+        .geo input {
+            width: 94%;
+            margin: 20px 36px;
+            border: 1px solid #C4C4C4;
+            box-sizing: border-box;
+            border-radius: 4px;
+            background-repeat: no-repeat;
+            padding: 10px;
+            background-position: left;
+            background-position-x: 10px;
+}
     </style>
 
     <title>Admin/ Header Base</title>
@@ -74,7 +84,7 @@
 
             
             <div class="form__container" style="position:relative;">
-                <div class="geo">
+                <div class="geo" style="padding-top: 45px;">
 
                     <form method="POST" action="{{url('update/'.$headerbase->id)}}">
                         @method('PUT')

@@ -75,32 +75,33 @@
             </div>
 
             
-            <div class="form__container" style="position:relative;">
-                <div class="geo">
+            <div class="form__container" >
+                <div class="geo" style="padding-top:10px;">
 
                     <div class="featured__image" style="">
-                        <p class="text__description">Event Page Banner</p>
+                        <p class="text__description" style="margin-left:5px;">Event Page Banner</p>
                        
-                        <img src="storage/eventBanner_image/{{ $event_banner->banner_image }}" alt="" class="bg__image" style="height: 550px; background-position: 0% 0%; background-size: cover;position: relative;">
+                        <img src="storage/eventBanner_image/{{ $event_banner->banner_image }}" alt="" class="bg__image" style="height: 300px; background-size: contain;border-radius:10px;">
                         <p>Minimum upload banner image dimension: 1000 x 700</p>
                         <form method="POST" action="{{ url('updateEventBanner/'.$event_banner->id) }}" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
-                            <input type="file" class="" id="banner_image" name="banner_image" >
+                            <input type="file" class="" id="banner_image" name="banner_image" style="width:93%;">
                             
                             <div class="save__button--container" style="margin-top:0px;">
-                                <button class="button" id="submit__button"><span>Save Banner</span></button>
+                                <button class="button" id="submit__button" style="margin-right:20px;"><span>Save Banner</span></button>
                             </div>
                         </form>
                     </div>
                 </div>
             </div>
-            <div class="form__container" style="position:relative;">
-                <div class="geo">
+
+            <div class="form__container" >
+                <div class="geo" style="padding-top:20px;">
                     <form method="POST" action="{{ url('updateEventBody/'.$event_body->id) }} ">
                             @csrf
                         @method('PUT') 
-                        <p class="text__description">Event Page Body </p>
+                        <p class="text__description" style="margin-left:35px;">Event Page Body </p>
                         <div class="data__field--1">
 
                             <input type="text" class="" id="title" name="title" placeholder="Title" value="{{ $event_body->title }}">
@@ -122,47 +123,50 @@
                     </form>
                 </div>
             </div>
-            <div class="form__container" style="position:relative;">
-                   
-                <div class="geo ">
-                    <p class="text__description">Event Cover Image</p>
-                    <form method="POST" action="{{ url('updateEventCover/'.$event_cover->id) }}" enctype="multipart/form-data">
-                        @csrf
-                        @method('PUT')
-                        <div class="col-md-5 featured__image" style="position:relative; left:0px; top:0px;">
-                            <img src="storage/eventCover_image/{{ $event_cover->cover_image }}" alt="" class="" width="650px" height="250px">
-                            <p>Minimum upload cover image dimension: 400 x 300</p>
-                            <input type="file" class="" id="cover_image" name="cover_image" >
-                            
-                            <div class="save__button--container" style="margin-top:0px;">
-                                <button class="button" id="submit__button"><span>Save Cover</span></button>
-                            </div>
-                           
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="form__container" style="position:relative;">
-                   
-                    <div class="geo ">
-                        <p class="text__description">Upcoming Section Background Image</p>
-                        <img src="storage/eventBg_image/{{ $event_bg->bg_image }}" alt="" class="bg__image" style="height: 350px; background-position: 0% 0%; background-size: cover;position: relative;">
-                        <p>Minimum upload background image dimension: 1000 x 700</p>
-                        <form method="POST" action="{{ url('updateEventBg/'.$event_bg->id) }}" enctype="multipart/form-data">
-                            @csrf
-                            @method('PUT')
-                            <div class="col-md-5 featured__image" style="position:relative; left:0px; top:0px;">
-                               
-                                <input type="file" class="" id="bg_image" name="bg_image" >
-                                
-                                <div class="save__button--container" style="margin-top:0px;">
-                                    <button class="button" id="submit__button" style="width:200px;"><span>Save Background</span></button>
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form__container" >
+                        <div class="geo" style="padding:20px 20px 0 20px;">
+                            <p class="text__description" style="margin-left:35px;">Event Cover Image</p>
+                            <form method="POST" action="{{ url('updateEventCover/'.$event_cover->id) }}" enctype="multipart/form-data">
+                                @csrf
+                                @method('PUT')
+                                <div class=" featured__image" style="position:relative; left:0px; top:0px;">
+                                    <img src="storage/eventCover_image/{{ $event_cover->cover_image }}" alt="" class="" width="650px" height="250px">
+                                    <p>Minimum upload cover image dimension: 400 x 300</p>
+                                    <input type="file" class="" id="cover_image" name="cover_image" style="width:90%;">
+                                    
+                                    <div class="save__button--container" style="margin-top:0px;">
+                                        <button class="button" id="submit__button"><span>Save Cover</span></button>
+                                    </div> 
                                 </div>
-                               
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="form__container">
+                        <div class="geo" style="padding:20px 20px 0 20px;">
+                            <p class="text__description" style="">Upcoming Section Background Image</p>
+                            <img src="storage/eventBg_image/{{ $event_bg->bg_image }}" alt="" class="bg__image" style="height: 350px; background-position: 0% 0%; background-size: cover;">
+                            <p>Minimum upload background image dimension: 1000 x 700</p>
+                            <form method="POST" action="{{ url('updateEventBg/'.$event_bg->id) }}" enctype="multipart/form-data">
+                                @csrf
+                                @method('PUT')
+                                <div class=" featured__image" style="position:relative; left:0px; top:0px;">
+                                    
+                                    <input type="file" class="" id="bg_image" name="bg_image" style="width:90%;">
+                                    
+                                    <div class="save__button--container" style="margin-top:0px;">
+                                        <button class="button" id="submit__button" style="width:200px;"><span>Save Background</span></button>
+                                    </div>
+                                    
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
